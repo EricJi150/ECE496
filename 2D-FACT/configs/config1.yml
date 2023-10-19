@@ -1,6 +1,0 @@
-#Training Parameters
-num_epochs: 10
-test_interval: 2
-learn_rate: .0001
-step_size: 6
-gamma: 0.1
