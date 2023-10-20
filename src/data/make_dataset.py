@@ -20,10 +20,10 @@ def import_data():
                                  std= [0.229, 0.224, 0.225, 1]),
         ])
 
-    train_dataset = ImageFolder(root='../dataset/TRAIN', transform = transform)
-    test_dataset = ImageFolder(root='../dataset/TEST', transform = transform)
+    train_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/ProGAN', transform = transform)
+    val_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/val/ProGAN', transform = transform)
 
-    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=2)
-    test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=2)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
 
-    return train_loader, test_loader
+    return train_loader, val_loader

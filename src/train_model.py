@@ -14,7 +14,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def main():
     #import data
-    train_loader, test_loader = make_dataset.import_data()
+    train_loader, val_loader = make_dataset.import_data()
 
     #create command line interface
     parser = argparse.ArgumentParser()
@@ -47,7 +47,7 @@ def main():
         if(epoch%test_interval==0 or epoch==num_epochs-1):
             train_accuracy = test(train_loader, model, criterion)
             wandb.log({'Epoch': epoch+1, 'Train accuracy': train_accuracy})
-            test_accuracy = test(test_loader, model, criterion)
+            test_accuracy = test(val_loader, model, criterion)
             wandb.log({'Epoch': epoch+1, 'Test accuracy': train_accuracy})
     
     #save model
@@ -69,12 +69,12 @@ def train(train_loader, model, criterion, optimizer):
     return epoch_loss
 
 
-def test(test_loader, model, criterion):
+def test(val_loader, model, criterion):
     model.eval()
     correct = 0
     total = 0
 
-    it_test = tqdm(enumerate(test_loader), total=len(test_loader), desc="Validating ...", position = 1)
+    it_test = tqdm(enumerate(val_loader), total=len(val_loader), desc="Validating ...", position = 1)
     for i, (images, labels) in it_test:
       images, labels = images.to(device), labels.to(device)
       with torch.no_grad():
