@@ -3,6 +3,7 @@ import yaml
 import torch
 import wandb
 import argparse
+import numpy as np
 from tqdm import tqdm
 from architectures import ResNet18
 from data import make_dataset
@@ -38,21 +39,34 @@ def main():
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
 
+    #variables for early stopping
+    curr_patience = 0
+    patience = 3
+    min_delta = 0.1
+    best_val_accuracy = np.inf
+
     #main training loop
     for epoch in tqdm(range(num_epochs), total=num_epochs, desc="Training ...", position=0):
         train_loss = train(train_loader, model, criterion, optimizer)
         lr_scheduler.step()
         wandb.log({'Epoch': epoch+1, 'Train loss': train_loss})
+        val_accuracy = test(val_loader, model, criterion)
+        wandb.log({'Epoch': epoch+1, 'Val accuracy': val_accuracy})
 
-        if(epoch%test_interval==0 or epoch==num_epochs-1):
-            train_accuracy = test(train_loader, model, criterion)
-            wandb.log({'Epoch': epoch+1, 'Train accuracy': train_accuracy})
-            test_accuracy = test(val_loader, model, criterion)
-            wandb.log({'Epoch': epoch+1, 'Test accuracy': train_accuracy})
+        #save best model
+        if (val_accuracy > best_val_accuracy + min_delta):
+            torch.save(model.state_dict(), os.path.join('../models','2D-FACT:'+args.config))
+            best_val_accuracy = val_accuracy
+            curr_patience = 0
+        else:
+            curr_patience += 1
+
+        #early stopping
+        if (curr_patience == patience):
+            break
+
     
-    #save model
-    torch.save(model.state_dict(), os.path.join('../models','2D-FACT:'+args.config))
-
+    
 def train(train_loader, model, criterion, optimizer):
     model.train()
     epoch_loss = 0.0
