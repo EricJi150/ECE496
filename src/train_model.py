@@ -17,15 +17,17 @@ print(device)
 
 def main():
     #import data
-    train_loader, val_loader = make_dataset.import_data()
+    train_loader, val_loader, test_loader = make_dataset.import_data()
 
     #create command line interface
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     args = parser.parse_args()
 
-    #read config file and 
-    with open(os.path.join('../configs/', args.config)) as file:
+    #read config file
+    config_file_name = args.config
+    config_file_name += '.yml'
+    with open(os.path.join('../configs/', config_file_name)) as file:
         config = yaml.safe_load(file)
 
     #set parameters from config
@@ -52,12 +54,14 @@ def main():
         train_loss = train(train_loader, model, criterion, optimizer)
         lr_scheduler.step()
         wandb.log({'Epoch': epoch+1, 'Train loss': train_loss})
-        val_accuracy = test(val_loader, model, criterion)
+        val_accuracy = eval(val_loader, model, criterion)
         wandb.log({'Epoch': epoch+1, 'Val accuracy': val_accuracy})
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            torch.save(model.state_dict(), os.path.join('../models','2D-FACT:'+args.config))
+            save_path = os.path.join('../models','2D-FACT_'+args.config)
+            torch.save(model.state_dict(), save_path)
+            print("saved best model")
             best_val_accuracy = val_accuracy
             curr_patience = 0
         else:
@@ -66,6 +70,11 @@ def main():
         #early stopping
         if (curr_patience == patience):
             break
+
+    #test best model
+    model.load_state_dict(torch.load(save_path))
+    test_accuracy = eval(test_loader, model, criterion)
+    wandb.log({'Test accuracy': test_accuracy})
 
     
     
@@ -85,12 +94,12 @@ def train(train_loader, model, criterion, optimizer):
     return epoch_loss
 
 
-def test(val_loader, model, criterion):
+def eval(data_loader, model):
     model.eval()
     correct = 0
     total = 0
 
-    it_test = tqdm(enumerate(val_loader), total=len(val_loader), desc="Validating ...", position = 1)
+    it_test = tqdm(enumerate(data_loader), total=len(data_loader), desc="Validating ...", position = 1)
     for i, (images, labels) in it_test:
       images, labels = images.to(device), labels.to(device)
       with torch.no_grad():
