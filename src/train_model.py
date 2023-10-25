@@ -11,7 +11,9 @@ from data import make_dataset
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
 wandb.init(project='2D-FACT')
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+print(device)
+
 
 def main():
     #import data
@@ -42,8 +44,8 @@ def main():
     #variables for early stopping
     curr_patience = 0
     patience = 3
-    min_delta = 0.1
-    best_val_accuracy = np.inf
+    min_delta = 0.001
+    best_val_accuracy = -np.inf
 
     #main training loop
     for epoch in tqdm(range(num_epochs), total=num_epochs, desc="Training ...", position=0):
