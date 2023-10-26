@@ -54,7 +54,7 @@ def main():
         train_loss = train(train_loader, model, criterion, optimizer)
         lr_scheduler.step()
         wandb.log({'Epoch': epoch+1, 'Train loss': train_loss})
-        val_accuracy = eval(val_loader, model, criterion)
+        val_accuracy = eval(val_loader, model)
         wandb.log({'Epoch': epoch+1, 'Val accuracy': val_accuracy})
 
         #save best model
@@ -73,7 +73,7 @@ def main():
 
     #test best model
     model.load_state_dict(torch.load(save_path))
-    test_accuracy = eval(test_loader, model, criterion)
+    test_accuracy = eval(test_loader, model)
     wandb.log({'Test accuracy': test_accuracy})
 
     
