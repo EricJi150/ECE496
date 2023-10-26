@@ -49,16 +49,17 @@ def import_testsets():
     test_dataset8 = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/ProjectedGAN', transform = transform)
     test_dataset9 = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/StyleGAN', transform = transform)
 
-    test_loader = np.empty(10)
-    test_loader[0] = DataLoader(dataset=test_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[1] = DataLoader(dataset=test_dataset1, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[2] = DataLoader(dataset=test_dataset2, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[3] = DataLoader(dataset=test_dataset3 batch_size=16, shuffle=False, num_workers=6)
-    test_loader[4] = DataLoader(dataset=test_dataset4, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[5] = DataLoader(dataset=test_dataset5, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[6] = DataLoader(dataset=test_dataset6, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[7] = DataLoader(dataset=test_dataset7, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[8] = DataLoader(dataset=test_dataset8, batch_size=16, shuffle=False, num_workers=6)
-    test_loader[9] = DataLoader(dataset=test_dataset9, batch_size=16, shuffle=False, num_workers=6)
+    test_loader0 = DataLoader(dataset=test_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    test_loader1 = DataLoader(dataset=test_dataset1, batch_size=16, shuffle=False, num_workers=6)
+    test_loader2 = DataLoader(dataset=test_dataset2, batch_size=16, shuffle=False, num_workers=6)
+    test_loader3 = DataLoader(dataset=test_dataset3, batch_size=16, shuffle=False, num_workers=6)
+    test_loader4 = DataLoader(dataset=test_dataset4, batch_size=16, shuffle=False, num_workers=6)
+    test_loader5 = DataLoader(dataset=test_dataset5, batch_size=16, shuffle=False, num_workers=6)
+    test_loader6 = DataLoader(dataset=test_dataset6, batch_size=16, shuffle=False, num_workers=6)
+    test_loader7 = DataLoader(dataset=test_dataset7, batch_size=16, shuffle=False, num_workers=6)
+    test_loader8 = DataLoader(dataset=test_dataset8, batch_size=16, shuffle=False, num_workers=6)
+    test_loader9 = DataLoader(dataset=test_dataset9, batch_size=16, shuffle=False, num_workers=6)
+
+    test_loader = [test_loader0, test_loader1, test_loader0,test_loader2, test_loader3, test_loader4, test_loader5, test_loader6, test_loader7, test_loader8, test_loader9]
 
     return test_loader
