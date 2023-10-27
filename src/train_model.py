@@ -16,13 +16,14 @@ print(device)
 
 
 def main():
-    #import data
-    train_loader, val_loader, test_loader = make_dataset.import_data()
-
     #create command line interface
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
+    parser.add_argument("dataset", help="Name of dataset")
     args = parser.parse_args()
+
+    #import data
+    train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
 
     #read config file
     config_file_name = args.config
@@ -59,7 +60,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models','2D-FACT_'+args.config)
+            save_path = os.path.join('../models','2D-FACT_'+args.config+'_'+args.dataset)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy

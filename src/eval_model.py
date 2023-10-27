@@ -20,12 +20,13 @@ def main():
 
     #create command line interface
     parser = argparse.ArgumentParser()
+    parser.add_argument("config", help="Name of config file")
     parser.add_argument("model", help="Name of trained weights")
     args = parser.parse_args()
 
     #import model
     model = ResNet18().to(device)
-    save_path = os.path.join('../models', args.model)
+    save_path = os.path.joinos.path.join('../models','2D-FACT_'+args.config+'_'+args.model)
     model.load_state_dict(torch.load(save_path))
     
     #evalulate on each testset

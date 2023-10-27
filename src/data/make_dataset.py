@@ -12,7 +12,7 @@ class concat_fft:
     tensor = torch.cat((image,magnitude), dim = 0)
     return tensor
   
-def import_data():
+def import_data(dataset):
     transform = transforms.Compose([
             transforms.ToTensor(),
             concat_fft(),
@@ -20,9 +20,9 @@ def import_data():
                                  std= [0.229, 0.224, 0.225, 1]),
         ])
 
-    train_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/ProGAN', transform = transform)
-    val_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/val/ProGAN', transform = transform)
-    test_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/ProGAN', transform = transform)
+    train_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/'+dataset, transform = transform)
+    val_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/val/'+dataset, transform = transform)
+    test_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/'+dataset, transform = transform)
 
     train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
