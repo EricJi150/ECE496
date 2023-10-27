@@ -60,6 +60,6 @@ def import_testsets():
     test_loader8 = DataLoader(dataset=test_dataset8, batch_size=16, shuffle=False, num_workers=6)
     test_loader9 = DataLoader(dataset=test_dataset9, batch_size=16, shuffle=False, num_workers=6)
 
-    test_loader = [test_loader0, test_loader1, test_loader0,test_loader2, test_loader3, test_loader4, test_loader5, test_loader6, test_loader7, test_loader8, test_loader9]
+    test_loader = [test_loader0, test_loader1, test_loader2, test_loader3, test_loader4, test_loader5, test_loader6, test_loader7, test_loader8, test_loader9]
 
     return test_loader

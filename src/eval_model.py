@@ -17,7 +17,6 @@ print(device)
 def main():
     #import data
     test_loader = make_dataset.import_testsets()
-    data_name = {"ADM", "DDPM", "Diff-ProjectedGAN", "Diff-StyleGAN2", "IDDPM", "LDM", "PNDM", "ProGAN", "ProjectedGAN", "StyleGAN"}
 
     #create command line interface
     parser = argparse.ArgumentParser()
@@ -26,13 +25,13 @@ def main():
 
     #import model
     model = ResNet18().to(device)
-    save_path = os.path.join('../models','2D-FACT_'+args.model)
+    save_path = os.path.join('../models', args.model)
     model.load_state_dict(torch.load(save_path))
     
     #evalulate on each testset
-    for idx in range(test_loader):
+    for idx in range(len(test_loader)):
         test_accuracy = eval(test_loader[idx], model)
-        wandb.log({'Dataset': data_name[idx], 'Test accuracy': test_accuracy})
+        wandb.log({'Test accuracy': test_accuracy})
 
 def eval(data_loader, model):
     model.eval()
