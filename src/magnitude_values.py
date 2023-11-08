@@ -46,11 +46,14 @@ def main():
             channel_mins[channel] = min(channel_mins[channel], data.min().item())
             channel_maxs[channel] = max(channel_maxs[channel], data.max().item())
 
-    for channel in range(4):
-        wandb.log({'Epoch': channel, 'Average': channel_sums[channel]/num_pixels})
-        wandb.log({'Epoch': channel, 'Minimum': channel_mins[channel]})
-        wandb.log({'Epoch': channel, 'Maximum': channel_maxs[channel]})
-        
+    channels = ["Red", "Green", "Blue", "Magnitude"]
+    plot = []
+    for i, channel in enumerate(channels):
+        plot.append([channel, "Avg", channel_sums[i]/num_pixels])
+        plot.append([channel, "Max", channel_maxs[i]])
+        plot.append([channel, "Min", channel_mins[i]])
+    wandb.log({"Channel Stats": wandb.plot.bar(plot, "Channel", "Value", title="Channel Statistics", legend="Statistic")})
+
     return
 
 if __name__ == "__main__":
