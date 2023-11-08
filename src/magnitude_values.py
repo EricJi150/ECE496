@@ -30,9 +30,13 @@ def main():
     channel_mins = torch.ones(4) * float('inf')
     channel_maxs = torch.ones(4) * float('-inf')
 
+    count = 0
     num_pixels = 0
 
     for train_X, train_Y in train_dataset:
+        if count == 10:
+            break
+        count += 1
 
         num_pixels += train_X.size(1) * train_X.size(2)
 
