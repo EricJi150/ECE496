@@ -21,6 +21,7 @@ def main():
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("dataset", help="Name of dataset")
     args = parser.parse_args()
+    print(args.config, args.dataset)
 
     #import data
     train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
