@@ -5,8 +5,7 @@ from torchvision import transforms
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader
 
-wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
-wandb.init(project='2D-FACT-Values')
+
 
 class concat_fft:
   def __call__(self, image):
@@ -17,6 +16,9 @@ class concat_fft:
     return tensor
   
 def main():
+    wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
+    wandb.init(project='2D-FACT-Values')
+
     transform = transforms.Compose([
             transforms.ToTensor(),
             concat_fft(),
@@ -57,5 +59,21 @@ def main():
 
     return
 
-if __name__ == "__main__":
-    main()
+import numpy as np
+from PIL import Image
+def min_max():
+    # Load an image
+    image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/sample_038999.png'
+    image = Image.open(image_path)
+    image_data = np.array(image)
+
+    # Get the minimum and maximum values
+    min_val = np.min(image_data)
+    max_val = np.max(image_data)
+
+    # Output the min and max values
+    print(f"Minimum pixel value: {min_val}")
+    print(f"Maximum pixel value: {max_val}")
+
+    if __name__ == "__main__":
+        min_max()
