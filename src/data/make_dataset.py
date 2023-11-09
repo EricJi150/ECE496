@@ -9,6 +9,7 @@ class concat_fft:
     grayimage = transforms.Grayscale(num_output_channels=1)(image)
     fft = np.fft.fftshift(np.fft.fft2(grayimage.numpy()))
     magnitude = torch.from_numpy(np.abs(fft)).float()
+    magnitude = np.log(1+magnitude)
     tensor = torch.cat((image,magnitude), dim = 0)
     return tensor
   
