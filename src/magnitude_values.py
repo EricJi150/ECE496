@@ -90,7 +90,7 @@ def fft_range():
 
     transform = transforms.Compose([
             transforms.ToTensor(),
-            graysacle(),
+            grayscale(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406, 0],
                                  std= [0.229, 0.224, 0.225, 1]),
         ])
