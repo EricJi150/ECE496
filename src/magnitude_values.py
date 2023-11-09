@@ -77,5 +77,38 @@ def min_max():
     print(f"Maximum pixel value: {max_val}")
     return
 
+import numpy as np
+from PIL import Image
+
+class grayscale:
+  def __call__(self, image):
+    grayimage = transforms.Grayscale(num_output_channels=1)(image)
+    return grayimage
+
+def fft_range():
+    print("Checking min and max values of an image before fft after grayscale")
+
+    transform = transforms.Compose([
+            transforms.ToTensor(),
+            graysacle(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406, 0],
+                                 std= [0.229, 0.224, 0.225, 1]),
+        ])
+
+    # Load an image
+    image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/1_fake/sample_038999.png'
+    image = Image.open(image_path)
+    tensor = transform(image)
+    image_data = np.array(tensor)
+
+    # Get the minimum and maximum values
+    min_val = np.min(image_data)
+    max_val = np.max(image_data)
+
+    # Output the min and max values
+    print(f"Minimum pixel value: {min_val}")
+    print(f"Maximum pixel value: {max_val}")
+    return
+
 if __name__ == "__main__":
-    min_max()
+    fft_range()
