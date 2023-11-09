@@ -61,7 +61,7 @@ def main():
 
 import numpy as np
 from PIL import Image
-def min_max():
+    def min_max():
     print("Checking min and max values of an image")
     # Load an image
     image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/1_fake/sample_038999.png'
@@ -75,6 +75,7 @@ def min_max():
     # Output the min and max values
     print(f"Minimum pixel value: {min_val}")
     print(f"Maximum pixel value: {max_val}")
+    return
 
     if __name__ == "__main__":
         min_max()
