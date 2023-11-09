@@ -62,8 +62,9 @@ def main():
 import numpy as np
 from PIL import Image
 def min_max():
+    print("Checking min and max values of an image")
     # Load an image
-    image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/sample_038999.png'
+    image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/1_fake/sample_038999.png'
     image = Image.open(image_path)
     image_data = np.array(image)
 
