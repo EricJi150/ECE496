@@ -13,11 +13,17 @@ class concat_fft:
     tensor = torch.cat((image,magnitude), dim = 0)
     return tensor
   
+# transforms.Normalize(mean=[0.485, 0.456, 0.406],
+#                                  std= [0.229, 0.224, 0.225]),
+
+# transforms.Normalize(mean=[0.5, 0.5, 0.5],
+#                                  std= [0.5, 0.5, 0.5]),
+  
 def import_data(dataset):
     transform = transforms.Compose([
             transforms.ToTensor(),
-            transforms.Normalize(mean=[0.5, 0.5, 0.5],
-                                 std= [0.5, 0.5, 0.5]),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std= [0.229, 0.224, 0.225]),
             concat_fft(),    
         ])
 
@@ -34,8 +40,8 @@ def import_data(dataset):
 def import_testsets():
     transform = transforms.Compose([
             transforms.ToTensor(),
-            transforms.Normalize(mean=[0.5, 0.5, 0.5],
-                                 std= [0.5, 0.5, 0.5]),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std= [0.229, 0.224, 0.225]),
             concat_fft(),    
         ])
 
