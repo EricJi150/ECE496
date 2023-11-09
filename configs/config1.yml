@@ -1,4 +1,4 @@
-#Training Parameters
+#Training Parameters for full training
 num_epochs: 20
 test_interval: 2
 learn_rate: .0001

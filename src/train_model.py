@@ -9,7 +9,7 @@ from architectures import ResNet18
 from data import make_dataset
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
-wandb.init(project='2D-FACT')
+wandb.init(project='2D-FACT-Normalization-Tests')
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
