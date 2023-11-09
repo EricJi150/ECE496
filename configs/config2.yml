@@ -1,5 +1,5 @@
 #Training Parameters for half training
-num_epochs: 6
+num_epochs: 20
 test_interval: 2
 learn_rate: .0001
 step_size: 6
