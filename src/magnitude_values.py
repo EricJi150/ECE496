@@ -1,12 +1,13 @@
-import numpy as np
 import wandb
 import torch
+import numpy as np
+from PIL import Image
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader
 
-
-
+'''
+Finding range of values between all channels after transforms
+'''
 class concat_fft:
   def __call__(self, image):
     grayimage = transforms.Grayscale(num_output_channels=1)(image)
@@ -56,54 +57,49 @@ def main():
         table.add_data(channel, channel_mins[i], channel_maxs[i], channel_sums[i]/num_pixels)
 
     wandb.log({"Channel Statistics": table})
-
     return
 
-import numpy as np
-from PIL import Image
+
+'''
+Finding range of values before any transform
+'''
 def min_max():
-    print("Checking min and max values of an image")
     # Load an image
     image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/1_fake/sample_038999.png'
     image = Image.open(image_path)
     image_data = np.array(image)
 
-    # Get the minimum and maximum values
     min_val = np.min(image_data)
     max_val = np.max(image_data)
 
-    # Output the min and max values
+
     print(f"Minimum pixel value: {min_val}")
     print(f"Maximum pixel value: {max_val}")
     return
 
-import numpy as np
-from PIL import Image
 
+'''
+Finding range of values after grayscaling before taking FFT
+'''
 class grayscale:
   def __call__(self, image):
     grayimage = transforms.Grayscale(num_output_channels=1)(image)
     return grayimage
 
 def fft_range():
-    print("Checking min and max values of an image before fft after grayscale")
-
     transform = transforms.Compose([
             transforms.ToTensor(),
             grayscale()
         ])
 
-    # Load an image
     image_path = '../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM/1_fake/sample_038999.png'
     image = Image.open(image_path)
     tensor = transform(image)
     image_data = np.array(tensor)
 
-    # Get the minimum and maximum values
     min_val = np.min(image_data)
     max_val = np.max(image_data)
 
-    # Output the min and max values
     print(f"Minimum pixel value: {min_val}")
     print(f"Maximum pixel value: {max_val}")
     return
