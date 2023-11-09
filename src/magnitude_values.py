@@ -34,10 +34,10 @@ def main():
     num_pixels = 0
 
     for train_X, train_Y in train_dataset:
-        if count == 10:
+        if count == 100:
             break
         count += 1
-
+        print(train_X.size(0))
         num_pixels += train_X.size(1) * train_X.size(2)
 
         for channel in range(4):
