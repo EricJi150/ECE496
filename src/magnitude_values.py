@@ -26,9 +26,9 @@ def main():
 
     train_dataset = ImageFolder(root='../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/LDM', transform = transform)
 
-    channel_sums = torch.zeros(4)
-    channel_mins = torch.ones(4) * float('inf')
-    channel_maxs = torch.ones(4) * float('-inf')
+    channel_sums = np.zeros(4)
+    channel_mins = np.ones(4) * float('inf')
+    channel_maxs = np.ones(4) * float('-inf')
 
     count = 0
     num_pixels = 0
@@ -37,7 +37,7 @@ def main():
         if count == 100:
             break
         count += 1
-        print(train_X.size(0))
+        
         num_pixels += train_X.size(1) * train_X.size(2)
 
         for channel in range(4):
@@ -53,7 +53,7 @@ def main():
     for i, channel in enumerate(channels):
         table.add_data(channel, channel_mins[i], channel_maxs[i], channel_sums[i]/num_pixels)
 
-    wandb.log({"Channel Stats": wandb.plot.bar(table, "Channel", ["Min", "Max", "Avg"], title="Channel Statistics")})
+    wandb.log({"Channel Statistics": table})
 
     return
 
