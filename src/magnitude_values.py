@@ -77,5 +77,5 @@ def min_max():
     print(f"Maximum pixel value: {max_val}")
     return
 
-    if __name__ == "__main__":
-        min_max()
+if __name__ == "__main__":
+    min_max()
