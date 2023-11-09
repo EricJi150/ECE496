@@ -15,9 +15,9 @@ class concat_fft:
 def import_data(dataset):
     transform = transforms.Compose([
             transforms.ToTensor(),
-            concat_fft(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406, 0],
-                                 std= [0.229, 0.224, 0.225, 1]),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std= [0.229, 0.224, 0.225]),
+            concat_fft(),    
         ])
 
     train_dataset = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/'+dataset, transform = transform)
