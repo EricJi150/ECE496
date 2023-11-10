@@ -5,7 +5,7 @@ import wandb
 import argparse
 import numpy as np
 from tqdm import tqdm
-from architectures import ResNet18
+from architectures import ResNet18_5
 from data import make_dataset
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
@@ -26,7 +26,7 @@ def main():
     print(args.config, args.dataset)
 
     #import model
-    model = ResNet18().to(device)
+    model = ResNet18_5().to(device)
     save_path = os.path.join('../models','2D-FACT_'+args.config+'_'+args.dataset)
     model.load_state_dict(torch.load(save_path))
     

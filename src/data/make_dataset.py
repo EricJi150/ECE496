@@ -9,15 +9,11 @@ class concat_fft:
     grayimage = transforms.Grayscale(num_output_channels=1)(image)
     fft = np.fft.fftshift(np.fft.fft2(grayimage.numpy()))
     magnitude = torch.from_numpy(np.abs(fft)).float()
-    magnitude = np.log(1+magnitude)
-    tensor = torch.cat((image,magnitude), dim = 0)
-    return tensor
-  
-# transforms.Normalize(mean=[0.485, 0.456, 0.406],
-#                                  std= [0.229, 0.224, 0.225]),
+    phase = torch.from_numpy(np.angle(fft)).float()
+    tensor1 = torch.cat((image,magnitude), dim = 0)
+    tensor2 = torch.cat((tensor1,phase))
 
-# transforms.Normalize(mean=[0.5, 0.5, 0.5],
-#                                  std= [0.5, 0.5, 0.5]),
+    return tensor2
   
 def import_data(dataset):
     transform = transforms.Compose([
