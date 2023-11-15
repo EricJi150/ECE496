@@ -114,4 +114,4 @@ def fft_range():
     return
 
 if __name__ == "__main__":
-    fft_range()
+    main()
