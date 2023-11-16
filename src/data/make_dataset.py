@@ -8,8 +8,8 @@ class concat_fft:
   def __call__(self, image):
     grayimage = transforms.Grayscale(num_output_channels=1)(image)
     fft = np.fft.fftshift(np.fft.fft2(grayimage.numpy()))
-    magnitude = torch.from_numpy(np.abs(fft)).float()
-    phase = torch.from_numpy(np.angle(fft)).float()
+    magnitude = np.log(1+torch.from_numpy(np.abs(fft)).float())
+    phase = torch.from_numpy(np.angle(fft)).float()/np.pi
     tensor1 = torch.cat((image,magnitude), dim = 0)
     tensor2 = torch.cat((tensor1,phase))
 
