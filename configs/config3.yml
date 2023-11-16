@@ -1,0 +1,6 @@
+#Training Parameters for half training with 5 layers normalized
+num_epochs: 20
+test_interval: 2
+learn_rate: .0001
+step_size: 6
+gamma: 0.1
