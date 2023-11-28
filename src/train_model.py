@@ -5,11 +5,11 @@ import wandb
 import argparse
 import numpy as np
 from tqdm import tqdm
-from architectures import ResNet18_5
+from architectures import ResNet18_4_Multi
 from data import make_dataset
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
-wandb.init(project='2D-FACT-Phase')
+wandb.init(project='2D-FACT-Multi')
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
@@ -40,7 +40,7 @@ def main():
     gamma_ = config["gamma"]
 
     #setup model
-    model =  ResNet18_5().to(device)
+    model =  ResNet18_4_Multi().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
