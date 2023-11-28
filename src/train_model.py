@@ -24,7 +24,8 @@ def main():
     print(args.config, args.dataset)
 
     #import data
-    train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
+    # train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
+    train_loader, val_loader, test_loader = make_dataset.import_data_multi()
 
     #read config file
     config_file_name = args.config

@@ -36,7 +36,7 @@ def import_data(dataset):
     return train_loader, val_loader, test_loader
 
 #Binary Classifier Evaluation Dataset
-def import_testsets():
+def import_data_multi():
     transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],
