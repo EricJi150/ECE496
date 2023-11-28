@@ -223,20 +223,11 @@ def import_train_multi():
     test_dataset18 = modify_label(test_dataset18, 10)
     test_dataset19 = modify_label(test_dataset19, 10)
 
-    train_data = train_dataset0 + train_dataset1 + train_dataset2 + train_dataset3 + train_dataset4
-    + train_dataset5 + train_dataset6 + train_dataset7 + train_dataset8 + train_dataset9
-    + train_dataset10 + train_dataset11 + train_dataset12 + train_dataset13 + train_dataset14
-    + train_dataset15 + train_dataset16 + train_dataset17 + train_dataset18 + train_dataset19
+    train_data = train_dataset0 + train_dataset1 + train_dataset2 + train_dataset3 + train_dataset4 + train_dataset5 + train_dataset6 + train_dataset7 + train_dataset8 + train_dataset9 + train_dataset10 + train_dataset11 + train_dataset12 + train_dataset13 + train_dataset14 + train_dataset15 + train_dataset16 + train_dataset17 + train_dataset18 + train_dataset19
 
-    val_data = val_dataset0 + val_dataset1 + val_dataset2 + val_dataset3 + val_dataset4
-    + val_dataset5 + val_dataset6 + val_dataset7 + val_dataset8 + val_dataset9
-    + val_dataset10 + val_dataset11 + val_dataset12 + val_dataset13 + val_dataset14
-    + val_dataset15 + val_dataset16 + val_dataset17 + val_dataset18 + val_dataset19
+    val_data = val_dataset0 + val_dataset1 + val_dataset2 + val_dataset3 + val_dataset4 + val_dataset5 + val_dataset6 + val_dataset7 + val_dataset8 + val_dataset9 + val_dataset10 + val_dataset11 + val_dataset12 + val_dataset13 + val_dataset14 + val_dataset15 + val_dataset16 + val_dataset17 + val_dataset18 + val_dataset19
 
-    test_data = test_dataset0 + test_dataset1 + test_dataset2 + test_dataset3 + test_dataset4
-    + test_dataset5 + test_dataset6 + test_dataset7 + test_dataset8 + test_dataset9
-    + test_dataset10 + test_dataset11 + test_dataset12 + test_dataset13 + test_dataset14
-    + test_dataset15 + test_dataset16 + test_dataset17 + test_dataset18 + test_dataset19
+    test_data = test_dataset0 + test_dataset1 + test_dataset2 + test_dataset3 + test_dataset4 + test_dataset5 + test_dataset6 + test_dataset7 + test_dataset8 + test_dataset9 + test_dataset10 + test_dataset11 + test_dataset12 + test_dataset13 + test_dataset14 + test_dataset15 + test_dataset16 + test_dataset17 + test_dataset18 + test_dataset19
 
     train_dataset = Dataset(train_data)
     val_dataset = Dataset(val_data)
