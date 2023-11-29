@@ -227,5 +227,3 @@ def import_train_multi():
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=True, num_workers=6)
 
     return train_loader, val_loader, test_loader
-
-    return 1, 2, 3
