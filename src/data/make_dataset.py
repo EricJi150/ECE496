@@ -78,7 +78,7 @@ def modify_label(dataset, label):
     return modified_dataset
 
 #Custom Dataset for Pytorch Dataloader
-class Dataset(Dataset):
+class custom_Dataset(Dataset):
         def __init__(self, data):
             self.data = data
 
@@ -229,9 +229,9 @@ def import_train_multi():
     val_data = val_dataset0
     # test_data = test_dataset0 + test_dataset1 + test_dataset2 + test_dataset3 + test_dataset4 + test_dataset5 + test_dataset6 + test_dataset7 + test_dataset8 + test_dataset9 + test_dataset10 + test_dataset11 + test_dataset12 + test_dataset13 + test_dataset14 + test_dataset15 + test_dataset16 + test_dataset17 + test_dataset18 + test_dataset19
     test_data = test_dataset0
-    train_dataset = Dataset(train_data)
-    val_dataset = Dataset(val_data)
-    test_dataset = Dataset(test_data)
+    train_dataset = custom_Dataset(train_data)
+    val_dataset = custom_Dataset(val_data)
+    test_dataset = custom_Dataset(test_data)
 
     train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=True, num_workers=6)
