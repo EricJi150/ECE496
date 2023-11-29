@@ -74,7 +74,7 @@ def import_data_multi():
 def modify_label(dataset, label):
     modified_dataset = []
     for data, _ in dataset:
-        modified_dataset.append((data, label_offset))
+        modified_dataset.append((data, label))
     return modified_dataset
 
 #Custom Dataset for Pytorch Dataloader
@@ -237,4 +237,4 @@ def import_train_multi():
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=True, num_workers=6)
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=True, num_workers=6)
 
-    return 1, 2, 3
+    return train_loader, val_loader, test_loader
