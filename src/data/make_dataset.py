@@ -2,7 +2,7 @@ import numpy as np
 import torch
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, ConcatDataset
 
 #Concatanation Transformation
 class concat_fft:
@@ -70,23 +70,18 @@ def import_data_multi():
 
     return test_loader
 
-#Change label
-def modify_label(dataset, label):
-    modified_dataset = []
-    for data, _ in dataset:
-        modified_dataset.append((data, label))
-    return modified_dataset
-
 #Custom Dataset for Pytorch Dataloader
-class custom_Dataset(Dataset):
-        def __init__(self, data):
+class customDataset(Dataset):
+        def __init__(self, data, offset):
             self.data = data
+            self.label_offset = offset
 
         def __len__(self):
             return len(self.data)
 
         def __getitem__(self, idx):
-            return self.data[idx]
+            data, label = self.data[idx]
+            return data, label + self.label_offset
         
 #Multiclass Classifier Training Dataset
 def import_train_multi():
@@ -160,78 +155,72 @@ def import_train_multi():
     test_dataset18 = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/ProjectedGAN/0_real', transform = transform)
     test_dataset19 = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/StyleGAN/0_real', transform = transform)
 
-    train_dataset0 = modify_label(train_dataset0, 0)
-    train_dataset1 = modify_label(train_dataset1, 1)
-    train_dataset2 = modify_label(train_dataset2, 2)
-    train_dataset3 = modify_label(train_dataset3, 3)
-    train_dataset4 = modify_label(train_dataset4, 4)
-    train_dataset5 = modify_label(train_dataset5, 5)
-    train_dataset6 = modify_label(train_dataset6, 6)
-    train_dataset7 = modify_label(train_dataset7, 7)
-    train_dataset8 = modify_label(train_dataset8, 8)
-    train_dataset9 = modify_label(train_dataset9, 9)
-    train_dataset10 = modify_label(train_dataset10, 10)
-    train_dataset11 = modify_label(train_dataset11, 10)
-    train_dataset12 = modify_label(train_dataset12, 10)
-    train_dataset13 = modify_label(train_dataset13, 10)
-    train_dataset14 = modify_label(train_dataset14, 10)
-    train_dataset15 = modify_label(train_dataset15, 10)
-    train_dataset16 = modify_label(train_dataset16, 10)
-    train_dataset17 = modify_label(train_dataset17, 10)
-    train_dataset18 = modify_label(train_dataset18, 10)
-    train_dataset19 = modify_label(train_dataset19, 10)
+    train_dataset0 = customDataset(train_dataset0, 0)
+    train_dataset1 = customDataset(train_dataset1, 1)
+    train_dataset2 = customDataset(train_dataset2, 2)
+    train_dataset3 = customDataset(train_dataset3, 3)
+    train_dataset4 = customDataset(train_dataset4, 4)
+    train_dataset5 = customDataset(train_dataset5, 5)
+    train_dataset6 = customDataset(train_dataset6, 6)
+    train_dataset7 = customDataset(train_dataset7, 7)
+    train_dataset8 = customDataset(train_dataset8, 8)
+    train_dataset9 = customDataset(train_dataset9, 9)
+    train_dataset10 = customDataset(train_dataset10, 10)
+    train_dataset11 = customDataset(train_dataset11, 10)
+    train_dataset12 = customDataset(train_dataset12, 10)
+    train_dataset13 = customDataset(train_dataset13, 10)
+    train_dataset14 = customDataset(train_dataset14, 10)
+    train_dataset15 = customDataset(train_dataset15, 10)
+    train_dataset16 = customDataset(train_dataset16, 10)
+    train_dataset17 = customDataset(train_dataset17, 10)
+    train_dataset18 = customDataset(train_dataset18, 10)
+    train_dataset19 = customDataset(train_dataset19, 10)
 
-    val_dataset0 = modify_label(val_dataset0, 0)
-    val_dataset1 = modify_label(val_dataset1, 1)
-    val_dataset2 = modify_label(val_dataset2, 2)
-    val_dataset3 = modify_label(val_dataset3, 3)
-    val_dataset4 = modify_label(val_dataset4, 4)
-    val_dataset5 = modify_label(val_dataset5, 5)
-    val_dataset6 = modify_label(val_dataset6, 6)
-    val_dataset7 = modify_label(val_dataset7, 7)
-    val_dataset8 = modify_label(val_dataset8, 8)
-    val_dataset9 = modify_label(val_dataset9, 9)
-    val_dataset10 = modify_label(val_dataset10, 10)
-    val_dataset11 = modify_label(val_dataset11, 10)
-    val_dataset12 = modify_label(val_dataset12, 10)
-    val_dataset13 = modify_label(val_dataset13, 10)
-    val_dataset14 = modify_label(val_dataset14, 10)
-    val_dataset15 = modify_label(val_dataset15, 10)
-    val_dataset16 = modify_label(val_dataset16, 10)
-    val_dataset17 = modify_label(val_dataset17, 10)
-    val_dataset18 = modify_label(val_dataset18, 10)
-    val_dataset19 = modify_label(val_dataset19, 10)
+    val_dataset0 = customDataset(val_dataset0, 0)
+    val_dataset1 = customDataset(val_dataset1, 1)
+    val_dataset2 = customDataset(val_dataset2, 2)
+    val_dataset3 = customDataset(val_dataset3, 3)
+    val_dataset4 = customDataset(val_dataset4, 4)
+    val_dataset5 = customDataset(val_dataset5, 5)
+    val_dataset6 = customDataset(val_dataset6, 6)
+    val_dataset7 = customDataset(val_dataset7, 7)
+    val_dataset8 = customDataset(val_dataset8, 8)
+    val_dataset9 = customDataset(val_dataset9, 9)
+    val_dataset10 = customDataset(val_dataset10, 10)
+    val_dataset11 = customDataset(val_dataset11, 10)
+    val_dataset12 = customDataset(val_dataset12, 10)
+    val_dataset13 = customDataset(val_dataset13, 10)
+    val_dataset14 = customDataset(val_dataset14, 10)
+    val_dataset15 = customDataset(val_dataset15, 10)
+    val_dataset16 = customDataset(val_dataset16, 10)
+    val_dataset17 = customDataset(val_dataset17, 10)
+    val_dataset18 = customDataset(val_dataset18, 10)
+    val_dataset19 = customDataset(val_dataset19, 10)
 
-    test_dataset0 = modify_label(test_dataset0, 0)
-    test_dataset1 = modify_label(test_dataset1, 1)
-    test_dataset2 = modify_label(test_dataset2, 2)
-    test_dataset3 = modify_label(test_dataset3, 3)
-    test_dataset4 = modify_label(test_dataset4, 4)
-    test_dataset5 = modify_label(test_dataset5, 5)
-    test_dataset6 = modify_label(test_dataset6, 6)
-    test_dataset7 = modify_label(test_dataset7, 7)
-    test_dataset8 = modify_label(test_dataset8, 8)
-    test_dataset9 = modify_label(test_dataset9, 9)
-    test_dataset10 = modify_label(test_dataset10, 10)
-    test_dataset11 = modify_label(test_dataset11, 10)
-    test_dataset12 = modify_label(test_dataset12, 10)
-    test_dataset13 = modify_label(test_dataset13, 10)
-    test_dataset14 = modify_label(test_dataset14, 10)
-    test_dataset15 = modify_label(test_dataset15, 10)
-    test_dataset16 = modify_label(test_dataset16, 10)
-    test_dataset17 = modify_label(test_dataset17, 10)
-    test_dataset18 = modify_label(test_dataset18, 10)
-    test_dataset19 = modify_label(test_dataset19, 10)
+    test_dataset0 = customDataset(test_dataset0, 0)
+    test_dataset1 = customDataset(test_dataset1, 1)
+    test_dataset2 = customDataset(test_dataset2, 2)
+    test_dataset3 = customDataset(test_dataset3, 3)
+    test_dataset4 = customDataset(test_dataset4, 4)
+    test_dataset5 = customDataset(test_dataset5, 5)
+    test_dataset6 = customDataset(test_dataset6, 6)
+    test_dataset7 = customDataset(test_dataset7, 7)
+    test_dataset8 = customDataset(test_dataset8, 8)
+    test_dataset9 = customDataset(test_dataset9, 9)
+    test_dataset10 = customDataset(test_dataset10, 10)
+    test_dataset11 = customDataset(test_dataset11, 10)
+    test_dataset12 = customDataset(test_dataset12, 10)
+    test_dataset13 = customDataset(test_dataset13, 10)
+    test_dataset14 = customDataset(test_dataset14, 10)
+    test_dataset15 = customDataset(test_dataset15, 10)
+    test_dataset16 = customDataset(test_dataset16, 10)
+    test_dataset17 = customDataset(test_dataset17, 10)
+    test_dataset18 = customDataset(test_dataset18, 10)
+    test_dataset19 = customDataset(test_dataset19, 10)
 
-    # train_data = train_dataset0 + train_dataset1 + train_dataset2 + train_dataset3 + train_dataset4 + train_dataset5 + train_dataset6 + train_dataset7 + train_dataset8 + train_dataset9 + train_dataset10 + train_dataset11 + train_dataset12 + train_dataset13 + train_dataset14 + train_dataset15 + train_dataset16 + train_dataset17 + train_dataset18 + train_dataset19
-    train_data = train_dataset0
-    # val_data = val_dataset0 + val_dataset1 + val_dataset2 + val_dataset3 + val_dataset4 + val_dataset5 + val_dataset6 + val_dataset7 + val_dataset8 + val_dataset9 + val_dataset10 + val_dataset11 + val_dataset12 + val_dataset13 + val_dataset14 + val_dataset15 + val_dataset16 + val_dataset17 + val_dataset18 + val_dataset19
-    val_data = val_dataset0
-    # test_data = test_dataset0 + test_dataset1 + test_dataset2 + test_dataset3 + test_dataset4 + test_dataset5 + test_dataset6 + test_dataset7 + test_dataset8 + test_dataset9 + test_dataset10 + test_dataset11 + test_dataset12 + test_dataset13 + test_dataset14 + test_dataset15 + test_dataset16 + test_dataset17 + test_dataset18 + test_dataset19
-    test_data = test_dataset0
-    train_dataset = custom_Dataset(train_data)
-    val_dataset = custom_Dataset(val_data)
-    test_dataset = custom_Dataset(test_data)
+    train_dataset = ConcatDataset([train_dataset0, train_dataset1, train_dataset2, train_dataset3, train_dataset4, train_dataset5, train_dataset6, train_dataset7, train_dataset8, train_dataset9, train_dataset10, train_dataset11, train_dataset12, train_dataset13, train_dataset14, train_dataset15, train_dataset16, train_dataset17,train_dataset18, train_dataset19])
+    val_dataset = ConcatDataset([val_dataset0, val_dataset1, val_dataset2, val_dataset3, val_dataset4, val_dataset5, val_dataset6, val_dataset7, val_dataset8, val_dataset9, val_dataset10, val_dataset11, val_dataset12, val_dataset13, val_dataset14, val_dataset15, val_dataset16, val_dataset17, val_dataset18, val_dataset19])
+    test_dataset = ConcatDataset([test_dataset0, test_dataset1, test_dataset2, test_dataset3, test_dataset4, test_dataset5, test_dataset6, test_dataset7, test_dataset8, test_dataset9, test_dataset10, test_dataset11, test_dataset12, test_dataset13, test_dataset14, test_dataset15, test_dataset16, test_dataset17, test_dataset18, test_dataset19])
 
     train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=True, num_workers=6)
