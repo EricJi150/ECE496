@@ -86,7 +86,7 @@ def confusion():
     for data, label in tqdm(test_loader):
 
       count += 1
-      if count%100 == 0:
+      if count%100 != 0:
          continue
       
       data, label = data.to(device), label.to(device)
