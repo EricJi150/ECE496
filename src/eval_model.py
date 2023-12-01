@@ -58,9 +58,12 @@ def eval(data_loader, model):
     return accuracy
 
 def confusion():
-   #import data
+    wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
+    wandb.init(project='2D-FACT-Multi')
+      
+    #import data
     _, _, test_loader = make_dataset.import_train_multi()
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("model", help="Name of model")
@@ -96,7 +99,7 @@ def confusion():
     plt.show()
 
     #save the matrix
-    plt.savefig('confusion_matrix.png', dpi=300, bbox_inches='tight', facecolor='white')
+    wandb.log({"Confusion Matrix"+args.config+'_'+args.model : wandb.Image(plt)})
 
 if __name__ == "__main__":
     confusion()
