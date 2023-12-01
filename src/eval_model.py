@@ -70,6 +70,7 @@ def confusion():
     print(args.config, args.model)
 
     #import model
+    print("begin import")
     model = ResNet18_4_Multi().to(device)
     save_path = os.path.join('../models','2D-FACT_'+args.config+'_'+args.model)
     model.load_state_dict(torch.load(save_path))
