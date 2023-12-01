@@ -82,13 +82,8 @@ def confusion():
     pred_labels = []
 
     print("begin eval")
-    count = -1
-    for data, label in tqdm(test_loader):
-
-      count += 1
-      if count%100 != 0:
-         continue
-      
+    
+    for data, label in tqdm(test_loader):      
       data, label = data.to(device), label.to(device)
       with torch.no_grad():
         output = model(data)
