@@ -9,7 +9,7 @@ from tqdm import tqdm
 from tqdm import tqdm
 from data import make_dataset
 import matplotlib.pyplot as plt
-from architectures import ResNet18_5_Multi
+from architectures import ResNet18_4_Multi
 from sklearn.metrics import confusion_matrix
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -70,7 +70,7 @@ def confusion():
     print(args.config, args.model)
 
     #import model
-    model = ResNet18_5_Multi().to(device)
+    model = ResNet18_4_Multi().to(device)
     save_path = os.path.join('../models','2D-FACT_'+args.config+'_'+args.model)
     model.load_state_dict(torch.load(save_path))
 
