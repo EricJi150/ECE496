@@ -6,6 +6,7 @@ import argparse
 import numpy as np
 import seaborn as sns
 from tqdm import tqdm
+from tqdm import tqdm
 from data import make_dataset
 import matplotlib.pyplot as plt
 from architectures import ResNet18_5
@@ -76,7 +77,7 @@ def confusion():
     true_labels = []
     pred_labels = []
 
-    for data, label in test_loader:
+    for data, label in tqdm(test_loader):
       data, label = data.to(device), label.to(device)
       with torch.no_grad():
         output = model(data)
