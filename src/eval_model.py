@@ -61,8 +61,9 @@ def confusion():
     wandb.init(project='2D-FACT-Multi')
       
     #import data
+    print("begin dataset")
     _, _, test_loader = make_dataset.import_train_multi()
-
+    print("end dataset")
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("model", help="Name of model")
