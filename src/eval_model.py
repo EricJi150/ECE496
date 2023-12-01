@@ -92,14 +92,19 @@ def confusion():
     matrix = confusion_matrix(true_labels, pred_labels)
 
     #visualize the matrix
+    row_labels = ['ADM', 'DDPM', 'Diff-ProjectedGAN', 'Diff-StyleGAN2', 'IDDPM', 'LDM', 'PNDM', 'ProGAN', 'ProjectedGAN', 'StyleGAN']
+    column_labels = ['ADM', 'DDPM', 'Diff-ProjectedGAN', 'Diff-StyleGAN2', 'IDDPM', 'LDM', 'PNDM', 'ProGAN', 'ProjectedGAN', 'StyleGAN']
+
     plt.figure(figsize=(10,10))
-    sns.heatmap(matrix, annot=True, fmt="d")
-    plt.ylabel('True label')
-    plt.xlabel('Predicted label')
-    plt.show()
+    sns.heatmap(matrix, annot=True, fmt="d", xticklabels=column_labels, yticklabels=row_labels)
+    plt.title('4-Channel Multiclass Model Confusion Matrix', size=24)
+    plt.ylabel('True label', size=18)
+    plt.xlabel('Predicted label', size=18)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
 
     #save the matrix
-    wandb.log({"Confusion Matrix"+args.config+'_'+args.model : wandb.Image(plt)})
+    wandb.log({"Confusion Matrix"+'_'+args.config+'_'+args.model : wandb.Image(plt)})
 
 if __name__ == "__main__":
     confusion()
