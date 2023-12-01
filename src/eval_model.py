@@ -9,7 +9,7 @@ from tqdm import tqdm
 from tqdm import tqdm
 from data import make_dataset
 import matplotlib.pyplot as plt
-from architectures import ResNet18_4_Multi
+from architectures import ResNet18_5_Multi
 from sklearn.metrics import confusion_matrix
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -72,7 +72,7 @@ def confusion():
 
     #import model
     print("begin import")
-    model = ResNet18_4_Multi().to(device)
+    model = ResNet18_5_Multi().to(device)
     save_path = os.path.join('../models','2D-FACT_'+args.config+'_'+args.model)
     model.load_state_dict(torch.load(save_path))
 
@@ -82,7 +82,7 @@ def confusion():
     pred_labels = []
 
     print("begin eval")
-    
+
     for data, label in tqdm(test_loader):      
       data, label = data.to(device), label.to(device)
       with torch.no_grad():
@@ -100,7 +100,7 @@ def confusion():
 
     plt.figure(figsize=(10,10))
     sns.heatmap(matrix, annot=True, fmt="d", xticklabels=column_labels, yticklabels=row_labels)
-    plt.title('4-Channel Multiclass Model Confusion Matrix', size=24)
+    plt.title('5-Channel Multiclass Model Confusion Matrix', size=24)
     plt.ylabel('True label', size=18)
     plt.xlabel('Predicted label', size=18)
     plt.xticks(rotation=45)

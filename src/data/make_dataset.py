@@ -10,12 +10,11 @@ class concat_fft:
     grayimage = transforms.Grayscale(num_output_channels=1)(image)
     fft = np.fft.fftshift(np.fft.fft2(grayimage.numpy()))
     magnitude = np.log(1+torch.from_numpy(np.abs(fft)).float())
-    # phase = torch.from_numpy(np.angle(fft)).float()/np.pi
+    phase = torch.from_numpy(np.angle(fft)).float()/np.pi
     tensor1 = torch.cat((image,magnitude), dim = 0)
-    # tensor2 = torch.cat((tensor1,phase))
+    tensor2 = torch.cat((tensor1,phase))
 
-    return tensor1
-
+    return tensor2
 #Binary Classifier Training Dataset
 def import_data(dataset):
     transform = transforms.Compose([
