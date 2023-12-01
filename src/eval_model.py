@@ -12,14 +12,13 @@ import matplotlib.pyplot as plt
 from architectures import ResNet18_5
 from sklearn.metrics import confusion_matrix
 
-
-wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
-wandb.init(project='2D-FACT-Normalization-Tests')
-
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
 
 def main():
+    wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
+    wandb.init(project='2D-FACT-Normalization-Tests')
+
     #import data
     test_loader = make_dataset.import_testsets()
 
@@ -79,7 +78,8 @@ def confusion():
     model.eval()
     true_labels = []
     pred_labels = []
-
+    
+    print("begin eval")
     for data, label in tqdm(test_loader):
       data, label = data.to(device), label.to(device)
       with torch.no_grad():
