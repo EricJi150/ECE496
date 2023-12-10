@@ -1,0 +1,223 @@
+{
+    "os": "Linux-3.10.0-1160.71.1.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.9.0",
+    "heartbeatAt": "2023-11-28T09:01:54.202314",
+    "startedAt": "2023-11-28T09:01:53.510118",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "config4",
+        "Multi"
+    ],
+    "state": "running",
+    "program": "/home/ericji3/ECE496/ECE496/src/train_model.py",
+    "codePathLocal": "train_model.py",
+    "codePath": "src/train_model.py",
+    "git": {
+        "remote": "https://github.com/EricJi150/ECE496.git",
+        "commit": "f387d3eb3f4addfeacd2203891863b46d172809d"
+    },
+    "email": null,
+    "root": "/home/ericji3/ECE496/ECE496",
+    "host": "vision-05.cs.illinois.edu",
+    "username": "ericji3",
+    "executable": "/home/ericji3/miniconda3/envs/ECE496/bin/python",
+    "cpu_count": 16,
+    "cpu_count_logical": 32,
+    "cpu_freq": {
+        "current": 1.22771875,
+        "min": 1200.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1.251,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.202,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.297,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.276,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.199,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.264,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.249,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.294,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.221,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.204,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.285,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.203,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.212,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.204,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.199,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.21,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.228,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.499,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.199,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.203,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.253,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.213,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.266,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.216,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.248,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.224,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.274,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 31.984375,
+            "used": 29.989051818847656
+        }
+    },
+    "gpu": "NVIDIA TITAN Xp",
+    "gpu_count": 4,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN Xp",
+            "memory_total": 12788498432
+        },
+        {
+            "name": "NVIDIA TITAN Xp",
+            "memory_total": 12788498432
+        },
+        {
+            "name": "NVIDIA TITAN Xp",
+            "memory_total": 12788498432
+        },
+        {
+            "name": "NVIDIA TITAN Xp",
+            "memory_total": 12788498432
+        }
+    ],
+    "memory": {
+        "total": 125.63142013549805
+    }
+}

@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 116, in <module>
+    confusion()
+  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 64, in confusion
+    _, _, test_loader = make_dataset.import_train_multi()
+  File "/home/ericji3/ECE496/ECE496/src/data/make_dataset.py", line 126, in import_train_multi
+    test_dataset6 = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/test/PNDM', transform = transform)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 309, in __init__
+    super().__init__(
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 145, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 189, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/datasets/folder.py", line 87, in make_dataset
+    for root, _, fnames in sorted(os.walk(target_dir, followlinks=True)):
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/os.py", line 367, in _walk
+    entry = next(scandir_it)
+KeyboardInterrupt

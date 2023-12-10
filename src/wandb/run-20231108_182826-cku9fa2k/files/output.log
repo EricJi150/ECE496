@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/magnitude_values.py", line 58, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/magnitude_values.py", line 36, in main
+    count += 1
+UnboundLocalError: local variable 'count' referenced before assignment

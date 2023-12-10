@@ -1,0 +1,1 @@
+{"Epoch": 10, "Train loss": 413.11016845703125, "_timestamp": 1701324915.1445522, "_runtime": 23432.892954349518, "_step": 20, "Val accuracy": 0.99525, "Test accuracy": 0.68361, "_wandb": {"runtime": 23439}}

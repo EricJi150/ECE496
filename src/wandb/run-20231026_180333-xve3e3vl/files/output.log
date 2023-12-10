@@ -1,0 +1,42 @@
+
+cuda:0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Traceback (most recent call last):██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋| 1248/1250 [01:10<00:00, 13.53it/s]
+  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 55, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 35, in main
+    wandb.log({'Dataset': data_name[idx], 'Test accuracy': test_accuracy})
+TypeError: 'set' object is not subscriptable

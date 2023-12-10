@@ -1,0 +1,943 @@
+2023-11-16 04:59:16,268 INFO    StreamThr :7073 [internal.py:wandb_internal():86] W&B internal server running at pid: 7073, started at: 2023-11-16 04:59:16.263186
+2023-11-16 04:59:16,270 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status
+2023-11-16 04:59:16,274 INFO    WriterThread:7073 [datastore.py:open_for_write():85] open: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/run-ovdpx42j.wandb
+2023-11-16 04:59:16,280 DEBUG   SenderThread:7073 [sender.py:send():380] send: header
+2023-11-16 04:59:16,330 DEBUG   SenderThread:7073 [sender.py:send():380] send: run
+2023-11-16 04:59:16,543 INFO    SenderThread:7073 [dir_watcher.py:__init__():211] watching files in: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files
+2023-11-16 04:59:16,544 INFO    SenderThread:7073 [sender.py:_start_run_threads():1122] run started: ovdpx42j with start time 1700132356.268015
+2023-11-16 04:59:16,572 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: check_version
+2023-11-16 04:59:16,572 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: check_version
+2023-11-16 04:59:16,651 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: run_start
+2023-11-16 04:59:16,666 DEBUG   HandlerThread:7073 [system_info.py:__init__():32] System info init
+2023-11-16 04:59:16,667 DEBUG   HandlerThread:7073 [system_info.py:__init__():47] System info init done
+2023-11-16 04:59:16,667 INFO    HandlerThread:7073 [system_monitor.py:start():194] Starting system monitor
+2023-11-16 04:59:16,667 INFO    SystemMonitor:7073 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-16 04:59:16,667 INFO    HandlerThread:7073 [system_monitor.py:probe():214] Collecting system info
+2023-11-16 04:59:16,668 INFO    SystemMonitor:7073 [interfaces.py:start():190] Started cpu monitoring
+2023-11-16 04:59:16,671 INFO    SystemMonitor:7073 [interfaces.py:start():190] Started disk monitoring
+2023-11-16 04:59:16,672 INFO    SystemMonitor:7073 [interfaces.py:start():190] Started gpu monitoring
+2023-11-16 04:59:16,673 INFO    SystemMonitor:7073 [interfaces.py:start():190] Started memory monitoring
+2023-11-16 04:59:16,675 INFO    SystemMonitor:7073 [interfaces.py:start():190] Started network monitoring
+2023-11-16 04:59:16,706 DEBUG   HandlerThread:7073 [system_info.py:probe():196] Probing system
+2023-11-16 04:59:16,720 DEBUG   HandlerThread:7073 [system_info.py:_probe_git():181] Probing git
+2023-11-16 04:59:16,756 DEBUG   HandlerThread:7073 [system_info.py:_probe_git():189] Probing git done
+2023-11-16 04:59:16,757 DEBUG   HandlerThread:7073 [system_info.py:probe():244] Probing system done
+2023-11-16 04:59:16,757 DEBUG   HandlerThread:7073 [system_monitor.py:probe():223] {'os': 'Linux-3.10.0-1160.71.1.el7.x86_64-x86_64-with-glibc2.17', 'python': '3.9.0', 'heartbeatAt': '2023-11-16T10:59:16.706876', 'startedAt': '2023-11-16T10:59:16.090824', 'docker': None, 'cuda': None, 'args': ('config3', 'ProGAN'), 'state': 'running', 'program': '/home/ericji3/ECE496/ECE496/src/eval_model.py', 'codePathLocal': 'eval_model.py', 'codePath': 'src/eval_model.py', 'git': {'remote': 'https://github.com/EricJi150/ECE496.git', 'commit': '31fbd225e0fdd20de52715e33b30375be64b4f5f'}, 'email': None, 'root': '/home/ericji3/ECE496/ECE496', 'host': 'vision-05.cs.illinois.edu', 'username': 'ericji3', 'executable': '/home/ericji3/miniconda3/envs/ECE496/bin/python', 'cpu_count': 16, 'cpu_count_logical': 32, 'cpu_freq': {'current': 1.7111562500000002, 'min': 1200.0, 'max': 3000.0}, 'cpu_freq_per_core': [{'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 2.099, 'min': 1200.0, 'max': 3000.0}, {'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 1.697, 'min': 1200.0, 'max': 3000.0}, {'current': 1.598, 'min': 1200.0, 'max': 3000.0}, {'current': 1.242, 'min': 1200.0, 'max': 3000.0}, {'current': 1.201, 'min': 1200.0, 'max': 3000.0}, {'current': 1.332, 'min': 1200.0, 'max': 3000.0}, {'current': 1.296, 'min': 1200.0, 'max': 3000.0}, {'current': 1.398, 'min': 1200.0, 'max': 3000.0}, {'current': 2.1, 'min': 1200.0, 'max': 3000.0}, {'current': 1.242, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}, {'current': 2.398, 'min': 1200.0, 'max': 3000.0}, {'current': 2.356, 'min': 1200.0, 'max': 3000.0}, {'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 2.299, 'min': 1200.0, 'max': 3000.0}, {'current': 1.506, 'min': 1200.0, 'max': 3000.0}, {'current': 2.667, 'min': 1200.0, 'max': 3000.0}, {'current': 1.71, 'min': 1200.0, 'max': 3000.0}, {'current': 1.293, 'min': 1200.0, 'max': 3000.0}, {'current': 1.238, 'min': 1200.0, 'max': 3000.0}, {'current': 1.277, 'min': 1200.0, 'max': 3000.0}, {'current': 1.203, 'min': 1200.0, 'max': 3000.0}, {'current': 1.337, 'min': 1200.0, 'max': 3000.0}, {'current': 1.276, 'min': 1200.0, 'max': 3000.0}, {'current': 2.085, 'min': 1200.0, 'max': 3000.0}, {'current': 1.201, 'min': 1200.0, 'max': 3000.0}, {'current': 1.369, 'min': 1200.0, 'max': 3000.0}], 'disk': {'/': {'total': 31.984375, 'used': 29.976871490478516}}, 'gpu': 'NVIDIA TITAN Xp', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA TITAN Xp', 'memory_total': 12788498432}, {'name': 'NVIDIA TITAN Xp', 'memory_total': 12788498432}, {'name': 'NVIDIA TITAN Xp', 'memory_total': 12788498432}, {'name': 'NVIDIA TITAN Xp', 'memory_total': 12788498432}], 'memory': {'total': 125.63142013549805}}
+2023-11-16 04:59:16,757 INFO    HandlerThread:7073 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-16 04:59:16,757 INFO    HandlerThread:7073 [system_monitor.py:probe():227] Publishing system info
+2023-11-16 04:59:16,757 DEBUG   HandlerThread:7073 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-16 04:59:16,762 DEBUG   HandlerThread:7073 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-16 04:59:16,764 DEBUG   HandlerThread:7073 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-16 04:59:17,548 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/conda-environment.yaml
+2023-11-16 04:59:17,549 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/requirements.txt
+2023-11-16 04:59:20,310 DEBUG   HandlerThread:7073 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-16 04:59:20,318 INFO    HandlerThread:7073 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-16 04:59:20,328 DEBUG   SenderThread:7073 [sender.py:send():380] send: files
+2023-11-16 04:59:20,329 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-11-16 04:59:20,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 04:59:20,346 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 04:59:20,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 04:59:20,442 DEBUG   SenderThread:7073 [sender.py:send():380] send: telemetry
+2023-11-16 04:59:20,548 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/conda-environment.yaml
+2023-11-16 04:59:20,548 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:20,549 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-metadata.json
+2023-11-16 04:59:20,659 INFO    wandb-upload_0:7073 [upload_job.py:push():131] Uploaded file /srv/condor/execute/dir_11308/tmpb528dutjwandb/q9yhz1jw-wandb-metadata.json
+2023-11-16 04:59:21,394 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:22,553 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:26,474 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:26,562 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:28,566 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:30,570 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:31,617 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:32,574 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:34,578 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:35,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 04:59:35,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 04:59:35,348 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 04:59:36,582 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:36,656 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:38,586 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:40,590 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:41,773 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:42,594 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:44,597 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:46,600 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:46,860 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:47,601 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/config.yaml
+2023-11-16 04:59:48,613 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:50,344 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 04:59:50,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 04:59:50,348 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 04:59:50,616 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:52,619 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:52,846 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:54,622 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:56,626 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 04:59:57,912 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 04:59:58,629 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:00,632 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:02,637 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:03,374 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:04,640 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:05,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:00:05,345 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:00:05,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:00:06,643 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:08,646 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:08,688 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:10,650 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:12,653 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:14,162 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:14,656 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:16,661 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:16,675 DEBUG   SystemMonitor:7073 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-16 05:00:16,680 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:00:18,664 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:19,195 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:20,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:00:20,346 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:00:20,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:00:20,667 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:22,670 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:24,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:24,673 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:26,677 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:28,787 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:29,713 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:30,789 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:32,794 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:34,751 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:34,797 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:35,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:00:35,345 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:00:35,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:00:36,829 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:38,833 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:39,785 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:40,836 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:42,839 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:44,163 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:00:44,165 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:00:44,165 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:00:44,169 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:00:44,842 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:44,843 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_created():271] file/dir created: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:00:44,860 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:46,684 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:00:46,846 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:48,856 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:49,910 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:50,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:00:50,347 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:00:50,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:00:50,859 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:52,862 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:54,865 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:55,203 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:00:56,868 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:00:58,879 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:00,292 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:00,884 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:02,888 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:04,891 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:05,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:01:05,346 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:01:05,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:01:05,493 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:06,895 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:08,898 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:10,720 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:10,902 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:12,907 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:14,921 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:15,850 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:16,689 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:01:16,925 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:19,017 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:20,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:01:20,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:01:20,347 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:01:21,023 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:21,156 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:23,027 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:25,032 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:26,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:27,036 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:29,041 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:31,050 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:31,551 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:33,058 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:35,062 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:35,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:01:35,346 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:01:35,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:01:36,554 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:37,069 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:39,074 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:41,078 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:41,823 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:43,084 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:45,094 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:46,689 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:01:46,866 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:47,102 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:49,107 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:50,345 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:01:50,347 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:01:50,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:01:51,111 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:52,108 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:53,114 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:55,118 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:57,123 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:01:57,315 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:01:59,131 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:01,136 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:02,511 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:03,142 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:03,983 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:02:03,984 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:02:03,985 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:02:03,992 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:02:04,146 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:02:05,148 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:05,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:02:05,347 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:02:05,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:02:07,154 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:07,553 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:09,157 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:11,162 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:12,648 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:13,166 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:15,171 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:16,690 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:02:17,176 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:17,695 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:19,335 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:20,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:02:20,346 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:02:20,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:02:21,337 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:22,808 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:23,340 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:25,346 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:27,350 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:28,033 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:29,353 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:31,358 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:33,244 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:33,364 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:35,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:02:35,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:02:35,348 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:02:35,367 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:37,379 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:38,414 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:39,382 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:41,385 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:43,389 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:43,451 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:45,394 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:46,693 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:02:47,398 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:48,492 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:49,402 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:50,346 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:02:50,347 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:02:50,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:02:51,408 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:53,411 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:53,665 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:55,417 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:57,419 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:02:58,792 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:02:59,423 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:01,500 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:03,504 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:03,809 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:05,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:03:05,348 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:03:05,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:03:05,510 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:07,517 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:08,963 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:09,521 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:11,524 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:13,529 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:13,994 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:15,538 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:16,694 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:03:17,543 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:19,115 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:19,548 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:20,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:03:20,348 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:03:20,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:03:21,552 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:23,555 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:23,693 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:03:23,694 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:03:23,694 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:03:23,697 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:03:24,385 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:24,952 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:24,952 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:03:26,956 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:28,959 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:29,609 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:31,175 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:33,182 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:34,815 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:35,186 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:35,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:03:35,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:03:35,349 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:03:37,189 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:39,194 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:40,331 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:41,198 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:43,201 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:45,206 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:45,567 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:46,698 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:03:47,211 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:49,213 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:50,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:03:50,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:03:50,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:03:50,575 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:51,217 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:53,220 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:55,225 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:55,578 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:03:57,230 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:03:59,235 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:00,759 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:01,243 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:03,247 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:05,252 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:05,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:04:05,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:04:05,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:04:05,797 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:07,256 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:09,260 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:10,805 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:11,264 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:13,267 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:15,272 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:16,015 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:16,701 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:04:17,281 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:19,285 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:20,347 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:04:20,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:04:20,349 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:04:21,047 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:21,289 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:23,292 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:25,295 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:26,119 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:27,299 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:29,302 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:31,269 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:31,307 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:33,311 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:35,314 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:35,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:04:35,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:04:35,349 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:04:36,318 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:37,320 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:39,324 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:41,327 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:41,380 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:42,880 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:04:42,881 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:04:42,881 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:04:42,885 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:04:43,330 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:43,331 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:04:45,335 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:46,511 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:46,702 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:04:47,340 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:49,346 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:50,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:04:50,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:04:50,353 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:04:51,349 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:51,585 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:53,352 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:55,357 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:56,590 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:04:57,362 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:04:59,367 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:01,374 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:01,742 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:03,381 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:05,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:05:05,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:05:05,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:05:05,387 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:06,844 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:07,391 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:09,395 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:11,398 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:11,869 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:13,401 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:15,405 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:16,705 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:05:16,923 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:17,440 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:19,449 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:20,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:05:20,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:05:20,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:05:21,453 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:21,971 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:23,457 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:25,463 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:26,997 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:27,472 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:29,476 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:31,480 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:32,089 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:33,487 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:35,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:05:35,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:05:35,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:05:35,510 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:37,130 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:37,514 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:39,519 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:41,522 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:42,298 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:43,528 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:45,532 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:46,707 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:05:47,340 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:47,540 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:49,545 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:50,348 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:05:50,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:05:50,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:05:51,548 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:52,355 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:53,552 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:55,556 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:57,477 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:05:57,560 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:59,298 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:05:59,299 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:05:59,299 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:05:59,303 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:05:59,563 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:05:59,564 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:06:01,568 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:02,694 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:03,587 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:05,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:06:05,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:06:05,354 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:06:05,590 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:07,594 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:07,792 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:09,597 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:11,603 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:12,990 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:13,606 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:15,609 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:16,710 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:06:17,626 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:18,149 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:19,629 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:20,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:06:20,349 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:06:20,353 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:06:21,633 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:23,168 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:23,637 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:25,640 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:27,643 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:28,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:29,645 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:31,649 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:33,443 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:33,654 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:35,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:06:35,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:06:35,351 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:06:35,657 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:37,659 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:38,874 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:39,663 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:41,665 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:43,879 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:44,125 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:44,881 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:46,711 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:06:46,886 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:48,890 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:49,354 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:50,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:06:50,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:06:50,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:06:50,892 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:52,895 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:54,518 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:06:54,898 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:56,902 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:58,904 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:06:59,525 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:00,907 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:02,911 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:04,712 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:04,914 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:05,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:07:05,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:07:05,354 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:07:06,917 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:08,921 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:09,934 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:10,924 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:12,926 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:14,767 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:07:14,769 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:07:14,769 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:07:14,772 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:07:14,929 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:14,930 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:07:15,060 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:16,714 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:07:16,935 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:18,939 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:20,098 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:20,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:07:20,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:07:20,354 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:07:20,941 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:23,154 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:25,157 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:25,257 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:27,160 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:29,164 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:30,365 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:31,177 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:33,181 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:35,184 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:35,349 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:07:35,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:07:35,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:07:35,397 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:37,193 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:39,198 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:40,536 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:41,201 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:43,205 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:45,214 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:45,634 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:47,832 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:07:47,834 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:49,876 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:50,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:07:50,350 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:07:50,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:07:50,669 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:51,892 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:53,895 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:55,794 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:07:55,898 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:57,905 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:07:59,908 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:00,992 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:01,911 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:03,926 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:05,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:08:05,351 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:08:05,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:08:05,929 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:06,137 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:07,932 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:09,955 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:11,152 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:11,958 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:13,962 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:15,964 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:16,229 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:16,717 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:08:17,968 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:19,971 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:20,350 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:08:20,351 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:08:20,356 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:08:21,302 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:21,978 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:23,981 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:25,984 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:26,307 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:26,505 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:08:26,506 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:08:26,507 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:08:26,511 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:08:26,984 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:08:27,986 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:29,990 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:31,327 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:31,993 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:33,998 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:35,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:08:35,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:08:35,353 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:08:36,002 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:36,408 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:38,004 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:40,007 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:41,507 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:42,010 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:44,013 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:46,016 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:46,591 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:46,719 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:08:48,024 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:50,027 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:50,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:08:50,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:08:50,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:08:51,786 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:52,030 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:54,033 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:56,036 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:08:56,960 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:08:58,039 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:00,043 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:02,046 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:02,099 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:04,050 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:05,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:09:05,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:09:05,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:09:06,053 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:07,387 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:08,214 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:09,215 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:11,239 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:12,519 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:13,242 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:15,245 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:16,722 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:09:17,273 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:17,647 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:19,278 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:20,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:09:20,351 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:09:20,354 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:09:21,281 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:22,886 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:23,289 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:25,292 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:27,295 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:28,052 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:29,298 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:31,301 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:33,133 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:33,305 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:35,309 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:35,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:09:35,351 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:09:35,354 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:09:37,302 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:09:37,303 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:09:37,304 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:09:37,308 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:09:37,312 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:37,312 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:09:38,160 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:39,314 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:41,317 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:43,288 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:43,321 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:45,324 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:46,723 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:09:47,328 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:48,457 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:49,332 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:50,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:09:50,353 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:09:50,353 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:09:51,336 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:53,339 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:53,673 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:55,341 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:57,345 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:09:58,681 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:09:59,383 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:01,386 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:03,390 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:03,724 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:05,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:10:05,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:10:05,357 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:10:05,394 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:07,397 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:08,729 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:09,399 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:11,403 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:13,407 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:13,771 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:15,410 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:16,725 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:10:17,413 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:18,838 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:19,418 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:20,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:10:20,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:10:20,356 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:10:21,422 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:23,425 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:24,055 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:25,432 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:27,434 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:29,056 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:29,437 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:31,440 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:33,444 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:34,208 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:35,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:10:35,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:10:35,355 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:10:35,448 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:37,451 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:39,261 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:39,454 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:41,456 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:43,459 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:44,584 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:45,469 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:46,727 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:10:47,472 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:49,477 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:49,738 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:50,351 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:10:50,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:10:50,355 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:10:51,482 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:53,486 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:54,779 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:10:55,094 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:10:55,096 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:10:55,096 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:10:55,100 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:10:55,489 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:55,490 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:10:57,492 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:59,497 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:10:59,824 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:01,500 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:03,505 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:04,854 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:05,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:11:05,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:11:05,356 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:11:05,508 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:07,511 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:09,515 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:09,892 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:11,519 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:13,522 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:14,993 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:15,525 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:16,728 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:11:17,528 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:19,534 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:20,045 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:20,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:11:20,352 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:11:20,356 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:11:21,538 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:23,541 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:25,078 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:25,544 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:27,547 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:29,550 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:30,203 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:31,554 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:33,559 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:35,293 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:35,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:11:35,353 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:11:35,353 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:11:35,562 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:37,566 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:39,569 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:40,312 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:41,572 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:43,575 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:45,408 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:45,598 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:46,730 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:11:47,671 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:50,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:11:50,353 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:11:50,357 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:11:52,122 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:52,126 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:54,206 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:55,366 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:57,255 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:11:57,369 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:11:59,372 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:01,375 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:02,561 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:12:03,382 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:05,352 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-16 05:12:05,353 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: stop_status
+2023-11-16 05:12:05,356 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:12:05,387 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:07,390 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:07,616 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:12:09,399 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:10,787 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-16 05:12:10,787 DEBUG   SenderThread:7073 [sender.py:send():380] send: history
+2023-11-16 05:12:10,788 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: summary_record
+2023-11-16 05:12:10,794 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:12:10,844 DEBUG   SenderThread:7073 [sender.py:send():380] send: exit
+2023-11-16 05:12:10,845 INFO    SenderThread:7073 [sender.py:send_exit():585] handling exit code: 0
+2023-11-16 05:12:10,845 INFO    SenderThread:7073 [sender.py:send_exit():587] handling runtime: 774
+2023-11-16 05:12:10,848 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:12:10,849 INFO    SenderThread:7073 [sender.py:send_exit():593] send defer
+2023-11-16 05:12:10,849 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:10,849 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 0
+2023-11-16 05:12:10,850 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:10,850 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-11-16 05:12:10,850 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 1
+2023-11-16 05:12:10,850 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:10,851 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 1
+2023-11-16 05:12:10,851 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:10,851 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-11-16 05:12:10,851 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 2
+2023-11-16 05:12:10,852 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:10,852 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 2
+2023-11-16 05:12:10,852 INFO    HandlerThread:7073 [system_monitor.py:finish():203] Stopping system monitor
+2023-11-16 05:12:10,852 DEBUG   SystemMonitor:7073 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-11-16 05:12:10,853 INFO    HandlerThread:7073 [interfaces.py:finish():202] Joined cpu monitor
+2023-11-16 05:12:10,854 DEBUG   SystemMonitor:7073 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-11-16 05:12:10,854 INFO    HandlerThread:7073 [interfaces.py:finish():202] Joined disk monitor
+2023-11-16 05:12:11,544 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:11,544 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:12:11,661 INFO    HandlerThread:7073 [interfaces.py:finish():202] Joined gpu monitor
+2023-11-16 05:12:11,662 INFO    HandlerThread:7073 [interfaces.py:finish():202] Joined memory monitor
+2023-11-16 05:12:11,662 INFO    HandlerThread:7073 [interfaces.py:finish():202] Joined network monitor
+2023-11-16 05:12:11,663 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:11,663 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-11-16 05:12:11,663 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 3
+2023-11-16 05:12:11,663 DEBUG   SenderThread:7073 [sender.py:send():380] send: stats
+2023-11-16 05:12:11,663 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:11,665 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 3
+2023-11-16 05:12:11,665 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:11,665 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-11-16 05:12:11,665 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 4
+2023-11-16 05:12:11,666 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:11,666 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 4
+2023-11-16 05:12:11,666 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:11,666 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-11-16 05:12:11,667 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 5
+2023-11-16 05:12:11,667 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:11,667 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 5
+2023-11-16 05:12:11,668 DEBUG   SenderThread:7073 [sender.py:send():380] send: summary
+2023-11-16 05:12:11,810 INFO    SenderThread:7073 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-11-16 05:12:11,811 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:11,811 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-11-16 05:12:11,811 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 6
+2023-11-16 05:12:11,812 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:11,812 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 6
+2023-11-16 05:12:11,812 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:11,812 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-11-16 05:12:11,813 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 7
+2023-11-16 05:12:11,813 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: status_report
+2023-11-16 05:12:11,813 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:11,813 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 7
+2023-11-16 05:12:11,814 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:11,814 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-11-16 05:12:11,845 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-16 05:12:12,678 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:12:13,458 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 8
+2023-11-16 05:12:13,533 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: poll_exit
+2023-11-16 05:12:13,533 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:13,534 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 8
+2023-11-16 05:12:13,534 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:13,534 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-11-16 05:12:13,535 INFO    SenderThread:7073 [job_builder.py:build():281] Attempting to build job artifact
+2023-11-16 05:12:13,582 INFO    SenderThread:7073 [job_builder.py:_get_source_type():393] is repo sourced job
+2023-11-16 05:12:13,679 INFO    Thread-12 :7073 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:13,700 INFO    SenderThread:7073 [job_builder.py:build():369] adding wandb-job metadata file
+2023-11-16 05:12:14,023 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 9
+2023-11-16 05:12:14,024 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:14,024 DEBUG   SenderThread:7073 [sender.py:send():380] send: artifact
+2023-11-16 05:12:14,024 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 9
+2023-11-16 05:12:14,355 INFO    SenderThread:7073 [sender.py:send_artifact():1456] sent artifact job-https___github.com_EricJi150_ECE496.git_src_eval_model.py - {'id': 'QXJ0aWZhY3Q6NjM5ODkwNjYz', 'state': 'COMMITTED', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjExNDQ4Mjg5Mg==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjM5ODkwNjYz', 'versionIndex': 1}}}
+2023-11-16 05:12:14,355 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:14,355 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-11-16 05:12:14,355 INFO    SenderThread:7073 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-11-16 05:12:14,952 INFO    SenderThread:7073 [dir_watcher.py:finish():388] scan: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files
+2023-11-16 05:12:14,955 INFO    SenderThread:7073 [dir_watcher.py:finish():402] scan save: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/config.yaml config.yaml
+2023-11-16 05:12:14,955 INFO    SenderThread:7073 [dir_watcher.py:finish():402] scan save: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/requirements.txt requirements.txt
+2023-11-16 05:12:14,960 INFO    SenderThread:7073 [dir_watcher.py:finish():402] scan save: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/conda-environment.yaml conda-environment.yaml
+2023-11-16 05:12:14,961 INFO    SenderThread:7073 [dir_watcher.py:finish():402] scan save: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-metadata.json wandb-metadata.json
+2023-11-16 05:12:14,961 INFO    SenderThread:7073 [dir_watcher.py:finish():402] scan save: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log output.log
+2023-11-16 05:12:14,971 INFO    SenderThread:7073 [dir_watcher.py:finish():402] scan save: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json wandb-summary.json
+2023-11-16 05:12:14,972 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 10
+2023-11-16 05:12:14,981 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:14,981 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 10
+2023-11-16 05:12:14,983 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:14,983 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-11-16 05:12:14,983 INFO    SenderThread:7073 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-16 05:12:15,238 INFO    wandb-upload_0:7073 [upload_job.py:push():131] Uploaded file /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/config.yaml
+2023-11-16 05:12:15,302 INFO    wandb-upload_1:7073 [upload_job.py:push():131] Uploaded file /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/requirements.txt
+2023-11-16 05:12:15,308 INFO    wandb-upload_2:7073 [upload_job.py:push():131] Uploaded file /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/conda-environment.yaml
+2023-11-16 05:12:15,315 INFO    wandb-upload_4:7073 [upload_job.py:push():131] Uploaded file /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/wandb-summary.json
+2023-11-16 05:12:15,345 INFO    wandb-upload_3:7073 [upload_job.py:push():131] Uploaded file /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/files/output.log
+2023-11-16 05:12:15,545 INFO    Thread-11 :7073 [sender.py:transition_state():613] send defer: 11
+2023-11-16 05:12:15,546 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:15,546 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 11
+2023-11-16 05:12:15,547 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:15,547 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-11-16 05:12:15,547 INFO    SenderThread:7073 [file_pusher.py:join():181] waiting for file pusher
+2023-11-16 05:12:15,547 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 12
+2023-11-16 05:12:15,547 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:15,547 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 12
+2023-11-16 05:12:15,548 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:15,548 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-11-16 05:12:15,548 INFO    SenderThread:7073 [file_stream.py:finish():595] file stream finish called
+2023-11-16 05:12:15,787 INFO    SenderThread:7073 [file_stream.py:finish():599] file stream finish is done
+2023-11-16 05:12:15,787 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 13
+2023-11-16 05:12:15,787 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:15,787 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 13
+2023-11-16 05:12:15,788 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:15,788 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-11-16 05:12:15,788 INFO    SenderThread:7073 [sender.py:transition_state():613] send defer: 14
+2023-11-16 05:12:15,789 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: defer
+2023-11-16 05:12:15,789 INFO    HandlerThread:7073 [handler.py:handle_request_defer():172] handle defer: 14
+2023-11-16 05:12:15,789 DEBUG   SenderThread:7073 [sender.py:send():380] send: final
+2023-11-16 05:12:15,790 DEBUG   SenderThread:7073 [sender.py:send():380] send: footer
+2023-11-16 05:12:15,790 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: defer
+2023-11-16 05:12:15,790 INFO    SenderThread:7073 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-11-16 05:12:15,791 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-16 05:12:15,792 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: poll_exit
+2023-11-16 05:12:15,793 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: server_info
+2023-11-16 05:12:15,793 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: server_info
+2023-11-16 05:12:15,798 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: get_summary
+2023-11-16 05:12:15,799 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: sampled_history
+2023-11-16 05:12:15,800 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-16 05:12:15,801 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: job_info
+2023-11-16 05:12:15,840 DEBUG   SenderThread:7073 [sender.py:send_request():407] send_request: job_info
+2023-11-16 05:12:15,841 INFO    MainThread:7073 [wandb_run.py:_footer_history_summary_info():3599] rendering history
+2023-11-16 05:12:15,841 INFO    MainThread:7073 [wandb_run.py:_footer_history_summary_info():3631] rendering summary
+2023-11-16 05:12:15,842 INFO    MainThread:7073 [wandb_run.py:_footer_sync_info():3558] logging synced files
+2023-11-16 05:12:15,842 DEBUG   HandlerThread:7073 [handler.py:handle_request():146] handle_request: shutdown
+2023-11-16 05:12:15,843 INFO    HandlerThread:7073 [handler.py:finish():866] shutting down handler
+2023-11-16 05:12:16,801 INFO    WriterThread:7073 [datastore.py:close():294] close: /home/ericji3/ECE496/ECE496/src/wandb/run-20231116_045916-ovdpx42j/run-ovdpx42j.wandb
+2023-11-16 05:12:16,841 INFO    SenderThread:7073 [sender.py:finish():1534] shutting down sender
+2023-11-16 05:12:16,841 INFO    SenderThread:7073 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-16 05:12:16,841 INFO    SenderThread:7073 [file_pusher.py:join():181] waiting for file pusher

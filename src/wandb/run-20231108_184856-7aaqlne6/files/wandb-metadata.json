@@ -1,0 +1,180 @@
+{
+    "os": "Linux-3.10.0-1160.83.1.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.9.0",
+    "heartbeatAt": "2023-11-09T00:48:57.438741",
+    "startedAt": "2023-11-09T00:48:56.790428",
+    "docker": null,
+    "cuda": "11.0.228",
+    "args": [],
+    "state": "running",
+    "program": "/home/ericji3/ECE496/ECE496/src/magnitude_values.py",
+    "codePathLocal": "magnitude_values.py",
+    "codePath": "src/magnitude_values.py",
+    "git": {
+        "remote": "https://github.com/EricJi150/ECE496.git",
+        "commit": "d6006463a0799bc61ab90c13ac3607d94e45140e"
+    },
+    "email": null,
+    "root": "/home/ericji3/ECE496/ECE496",
+    "host": "vision-04.cs.illinois.edu",
+    "username": "ericji3",
+    "executable": "/home/ericji3/miniconda3/envs/ECE496/bin/python",
+    "cpu_count": 12,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2.43075,
+        "min": 1200.0,
+        "max": 3200.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.7,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 1.399,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.4,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.399,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.681,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.674,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.681,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.65,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.0,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 1.393,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.399,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.599,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.399,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.653,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.673,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.666,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 2.655,
+            "min": 1200.0,
+            "max": 3200.0
+        },
+        {
+            "current": 1.946,
+            "min": 1200.0,
+            "max": 3200.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 31.984375,
+            "used": 24.717815399169922
+        }
+    },
+    "gpu": "NVIDIA TITAN X (Pascal)",
+    "gpu_count": 4,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA TITAN X (Pascal)",
+            "memory_total": 12788498432
+        },
+        {
+            "name": "NVIDIA TITAN X (Pascal)",
+            "memory_total": 12788498432
+        },
+        {
+            "name": "NVIDIA TITAN X (Pascal)",
+            "memory_total": 12788498432
+        },
+        {
+            "name": "NVIDIA TITAN X (Pascal)",
+            "memory_total": 12788498432
+        }
+    ],
+    "memory": {
+        "total": 125.63280868530273
+    }
+}

@@ -1,0 +1,28 @@
+2023-10-27 04:42:28,770 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Current SDK version is 0.15.12
+2023-10-27 04:42:28,770 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Configure stats pid to 13192
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Loading settings from /home/ericji3/.config/wandb/settings
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Loading settings from /home/ericji3/ECE496/ECE496/src/wandb/settings
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'src/train_model.py', 'program_abspath': '/home/ericji3/ECE496/ECE496/src/train_model.py', 'program': '/home/ericji3/ECE496/ECE496/src/train_model.py'}
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_init.py:_log_setup():528] Logging user logs to /home/ericji3/ECE496/ECE496/src/wandb/run-20231027_044228-0k1f5f8i/logs/debug.log
+2023-10-27 04:42:28,771 INFO    MainThread:13192 [wandb_init.py:_log_setup():529] Logging internal logs to /home/ericji3/ECE496/ECE496/src/wandb/run-20231027_044228-0k1f5f8i/logs/debug-internal.log
+2023-10-27 04:42:28,772 INFO    MainThread:13192 [wandb_init.py:init():568] calling init triggers
+2023-10-27 04:42:28,772 INFO    MainThread:13192 [wandb_init.py:init():575] wandb.init called with sweep_config: {}
+config: {}
+2023-10-27 04:42:28,772 INFO    MainThread:13192 [wandb_init.py:init():618] starting backend
+2023-10-27 04:42:28,772 INFO    MainThread:13192 [wandb_init.py:init():622] setting up manager
+2023-10-27 04:42:28,776 INFO    MainThread:13192 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-10-27 04:42:28,780 INFO    MainThread:13192 [wandb_init.py:init():628] backend started and connected
+2023-10-27 04:42:28,788 INFO    MainThread:13192 [wandb_init.py:init():720] updated telemetry
+2023-10-27 04:42:28,848 INFO    MainThread:13192 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2023-10-27 04:42:29,142 INFO    MainThread:13192 [wandb_run.py:_on_init():2220] communicating current version
+2023-10-27 04:42:29,209 INFO    MainThread:13192 [wandb_run.py:_on_init():2229] got version response 
+2023-10-27 04:42:29,210 INFO    MainThread:13192 [wandb_init.py:init():804] starting run threads in backend
+2023-10-27 04:42:32,216 INFO    MainThread:13192 [wandb_run.py:_console_start():2199] atexit reg
+2023-10-27 04:42:32,217 INFO    MainThread:13192 [wandb_run.py:_redirect():2054] redirect: wrap_raw
+2023-10-27 04:42:32,218 INFO    MainThread:13192 [wandb_run.py:_redirect():2119] Wrapping output streams.
+2023-10-27 04:42:32,218 INFO    MainThread:13192 [wandb_run.py:_redirect():2144] Redirects installed.
+2023-10-27 04:42:32,220 INFO    MainThread:13192 [wandb_init.py:init():845] run started, returning control to user process
+2023-10-27 05:38:08,452 WARNING MsgRouterThr:13192 [router.py:message_loop():77] message_loop has been closed

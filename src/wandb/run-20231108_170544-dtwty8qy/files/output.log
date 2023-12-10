@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/magnitude_values.py", line 60, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/magnitude_values.py", line 55, in main
+    wandb.log({"Channel Stats": wandb.plot.bar(plot, "Channel", "Value", title="Channel Statistics", legend="Statistic")})
+TypeError: bar() got an unexpected keyword argument 'legend'
