@@ -15,7 +15,7 @@ class concat_fft:
     tensor2 = torch.cat((tensor1,phase))    #5 channel
     tensor3 = torch.cat((magnitude, phase)) #2 channel
 
-    return tensor3
+    return tensor2
 #Binary Classifier Training Dataset
 def import_data(dataset):
     transform = transforms.Compose([
