@@ -5,7 +5,7 @@ import wandb
 import argparse
 import numpy as np
 from tqdm import tqdm
-from architectures import ResNet18_5_Multi
+from architectures import ResNet18_2
 from data import make_dataset
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
@@ -25,7 +25,7 @@ def main():
 
     #import data
     # train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
-    train_loader, val_loader, test_loader = make_dataset.import_train_multi()
+    train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
 
     #read config file
     config_file_name = args.config
@@ -41,7 +41,7 @@ def main():
     gamma_ = config["gamma"]
 
     #setup model
-    model =  ResNet18_5_Multi().to(device)
+    model =  ResNet18_2().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
@@ -62,7 +62,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models','2D-FACT_'+args.config+'_'+args.dataset)
+            save_path = os.path.join('../models','Shadows'+args.config+'_'+args.dataset)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy

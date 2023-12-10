@@ -1,0 +1,6 @@
+#Training Parameters for testing indoor/outdoor image from Ayush's dataset
+num_epochs: 30
+test_interval: 2
+learn_rate: .0001
+step_size: 6
+gamma: 0.1

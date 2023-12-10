@@ -9,7 +9,7 @@ from tqdm import tqdm
 from tqdm import tqdm
 from data import make_dataset
 import matplotlib.pyplot as plt
-from architectures import ResNet18_5_Multi
+from architectures import ResNet18_2
 from sklearn.metrics import confusion_matrix
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')

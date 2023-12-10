@@ -11,10 +11,11 @@ class concat_fft:
     fft = np.fft.fftshift(np.fft.fft2(grayimage.numpy()))
     magnitude = np.log(1+torch.from_numpy(np.abs(fft)).float())
     phase = torch.from_numpy(np.angle(fft)).float()/np.pi
-    tensor1 = torch.cat((image,magnitude), dim = 0)
-    tensor2 = torch.cat((tensor1,phase))
+    tensor1 = torch.cat((image,magnitude))  #4 channel
+    tensor2 = torch.cat((tensor1,phase))    #5 channel
+    tensor3 = torch.cat((magnitude, phase)) #2 channel
 
-    return tensor2
+    return tensor3
 #Binary Classifier Training Dataset
 def import_data(dataset):
     transform = transforms.Compose([
@@ -168,4 +169,83 @@ def import_train_multi():
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=True, num_workers=6)
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=True, num_workers=6)
 
+    return train_loader, val_loader, test_loader
+
+
+#Binary Classification for indoor data from Ayush's dataset
+def import_indoor_data():
+    transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std= [0.229, 0.224, 0.225]),
+            concat_fft(),    
+        ])
+
+    train_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/train', classes = ['real', 'gen'], transform = transform)
+    train_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/train', classes = ['real', 'gen'], transform = transform)
+    train_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/train', classes = ['real', 'gen'], transform = transform)
+    train_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/train', classes = ['real', 'gen'], transform = transform)
+
+    val_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/val', classes = ['real', 'gen'], transform = transform)
+    val_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/val', classes = ['real', 'gen'], transform = transform)
+    val_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/val', classes = ['real', 'gen'], transform = transform)
+    val_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/val', classes = ['real', 'gen'], transform = transform)
+
+    test_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/test', classes = ['real', 'gen'], transform = transform)
+    test_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/test', classes = ['real', 'gen'], transform = transform)
+    test_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/test', classes = ['real', 'gen'], transform = transform)
+    test_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/test', classes = ['real', 'gen'], transform = transform)
+
+    train_loader0 = DataLoader(dataset=train_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    train_loader1 = DataLoader(dataset=train_dataset1, batch_size=16, shuffle=False, num_workers=6)
+    train_loader2 = DataLoader(dataset=train_dataset2, batch_size=16, shuffle=False, num_workers=6)
+    train_loader3 = DataLoader(dataset=train_dataset3, batch_size=16, shuffle=False, num_workers=6)
+
+    val_loader0 = DataLoader(dataset=val_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    val_loader1 = DataLoader(dataset=val_dataset1, batch_size=16, shuffle=False, num_workers=6)
+    val_loader2 = DataLoader(dataset=val_dataset2, batch_size=16, shuffle=False, num_workers=6)
+    val_loader3 = DataLoader(dataset=val_dataset3, batch_size=16, shuffle=False, num_workers=6)
+
+    test_loader0 = DataLoader(dataset=test_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    test_loader1 = DataLoader(dataset=test_dataset1, batch_size=16, shuffle=False, num_workers=6)
+    test_loader2 = DataLoader(dataset=test_dataset2, batch_size=16, shuffle=False, num_workers=6)
+    test_loader3 = DataLoader(dataset=test_dataset3, batch_size=16, shuffle=False, num_workers=6)
+
+    train_loader = ConcatDataset([train_loader0, train_loader1, train_loader2, train_loader3])
+    val_loader = ConcatDataset([val_loader0, val_loader1, val_loader2, val_loader3])
+    test_loader = ConcatDataset([test_loader0, test_loader1, test_loader2, test_loader3])
+    
+    return train_loader, val_loader, test_loader
+
+#Binary Classification for indoor data from Ayush's dataset
+def import_outdoor_data():
+    transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std= [0.229, 0.224, 0.225]),
+            concat_fft(),    
+        ])
+
+    train_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/train', classes = ['real', 'gen'], transform = transform)
+    train_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/train', classes = ['real', 'gen'], transform = transform)
+
+    val_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/val', classes = ['real', 'gen'], transform = transform)
+    val_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/val', classes = ['real', 'gen'], transform = transform)
+
+    test_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/test', classes = ['real', 'gen'], transform = transform)
+    test_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/test', classes = ['real', 'gen'], transform = transform)
+
+    train_loader0 = DataLoader(dataset=train_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    train_loader1 = DataLoader(dataset=train_dataset1, batch_size=16, shuffle=False, num_workers=6)
+
+    val_loader0 = DataLoader(dataset=val_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    val_loader1 = DataLoader(dataset=val_dataset1, batch_size=16, shuffle=False, num_workers=6)
+
+    test_loader0 = DataLoader(dataset=test_dataset0, batch_size=16, shuffle=False, num_workers=6)
+    test_loader1 = DataLoader(dataset=test_dataset1, batch_size=16, shuffle=False, num_workers=6)
+
+    train_loader = ConcatDataset([train_loader0, train_loader1])
+    val_loader = ConcatDataset([val_loader0, val_loader1])
+    test_loader = ConcatDataset([test_loader0, test_loader1])
+    
     return train_loader, val_loader, test_loader

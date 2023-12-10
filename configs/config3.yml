@@ -1,4 +1,4 @@
-#Training Parameters for half training with 5 layers normalized
+#Training Parameters for 5 layers normalized
 num_epochs: 20
 test_interval: 2
 learn_rate: .0001
