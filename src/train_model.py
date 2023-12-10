@@ -72,7 +72,7 @@ def main():
 
         #early stopping
         if (curr_patience == patience):
-            break
+            # break
 
     #test best model
     model.load_state_dict(torch.load(save_path))
