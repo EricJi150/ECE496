@@ -220,24 +220,13 @@ def import_indoor_data():
     test_dataset3.class_to_idx['real'] = 0
     test_dataset3.class_to_idx['gen'] = 1
 
-    train_loader0 = DataLoader(dataset=train_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    train_loader1 = DataLoader(dataset=train_dataset1, batch_size=16, shuffle=False, num_workers=6)
-    train_loader2 = DataLoader(dataset=train_dataset2, batch_size=16, shuffle=False, num_workers=6)
-    train_loader3 = DataLoader(dataset=train_dataset3, batch_size=16, shuffle=False, num_workers=6)
+    train_dataset = ConcatDataset([train_dataset0, train_dataset1, train_dataset2, train_dataset3])
+    val_dataset = ConcatDataset([val_dataset0, val_dataset1, val_dataset2, val_dataset3])
+    test_dataset = ConcatDataset([test_dataset0, test_dataset1, test_dataset2, test_dataset3])
 
-    val_loader0 = DataLoader(dataset=val_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    val_loader1 = DataLoader(dataset=val_dataset1, batch_size=16, shuffle=False, num_workers=6)
-    val_loader2 = DataLoader(dataset=val_dataset2, batch_size=16, shuffle=False, num_workers=6)
-    val_loader3 = DataLoader(dataset=val_dataset3, batch_size=16, shuffle=False, num_workers=6)
-
-    test_loader0 = DataLoader(dataset=test_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    test_loader1 = DataLoader(dataset=test_dataset1, batch_size=16, shuffle=False, num_workers=6)
-    test_loader2 = DataLoader(dataset=test_dataset2, batch_size=16, shuffle=False, num_workers=6)
-    test_loader3 = DataLoader(dataset=test_dataset3, batch_size=16, shuffle=False, num_workers=6)
-
-    train_loader = ConcatDataset([train_loader0, train_loader1, train_loader2, train_loader3])
-    val_loader = ConcatDataset([val_loader0, val_loader1, val_loader2, val_loader3])
-    test_loader = ConcatDataset([test_loader0, test_loader1, test_loader2, test_loader3])
+    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=False, num_workers=6)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
     
     return train_loader, val_loader, test_loader
 
@@ -271,17 +260,12 @@ def import_outdoor_data():
     test_dataset1.class_to_idx['real'] = 0
     test_dataset1.class_to_idx['gen'] = 1
 
-    train_loader0 = DataLoader(dataset=train_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    train_loader1 = DataLoader(dataset=train_dataset1, batch_size=16, shuffle=False, num_workers=6)
+    train_dataset = ConcatDataset([train_dataset0, train_dataset1])
+    val_dataset = ConcatDataset([val_dataset0, val_dataset1])
+    test_dataset = ConcatDataset([test_dataset0, test_dataset1])
 
-    val_loader0 = DataLoader(dataset=val_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    val_loader1 = DataLoader(dataset=val_dataset1, batch_size=16, shuffle=False, num_workers=6)
-
-    test_loader0 = DataLoader(dataset=test_dataset0, batch_size=16, shuffle=False, num_workers=6)
-    test_loader1 = DataLoader(dataset=test_dataset1, batch_size=16, shuffle=False, num_workers=6)
-
-    train_loader = ConcatDataset([train_loader0, train_loader1])
-    val_loader = ConcatDataset([val_loader0, val_loader1])
-    test_loader = ConcatDataset([test_loader0, test_loader1])
+    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=False, num_workers=6)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
     
     return train_loader, val_loader, test_loader
