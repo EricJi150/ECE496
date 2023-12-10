@@ -71,7 +71,7 @@ def main():
             curr_patience += 1
 
         #early stopping
-        if (curr_patience == patience):
+        # if (curr_patience == patience):
             # break
 
     #test best model

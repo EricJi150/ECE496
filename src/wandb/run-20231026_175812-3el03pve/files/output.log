@@ -1,8 +1,0 @@
-
-cuda:0
-Traceback (most recent call last):
-  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 55, in <module>
-    main()
-  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 33, in main
-    for idx in range(test_loader):
-TypeError: 'list' object cannot be interpreted as an integer
