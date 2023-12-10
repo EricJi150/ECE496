@@ -181,20 +181,44 @@ def import_indoor_data():
             concat_fft(),    
         ])
 
-    train_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/train', classes = ['real', 'gen'], transform = transform)
-    train_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/train', classes = ['real', 'gen'], transform = transform)
-    train_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/train', classes = ['real', 'gen'], transform = transform)
-    train_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/train', classes = ['real', 'gen'], transform = transform)
+    train_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/train', transform = transform)
+    train_dataset0.class_to_idx['real'] = 0
+    train_dataset0.class_to_idx['gen'] = 1
+    train_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/train', transform = transform)
+    train_dataset1.class_to_idx['real'] = 0
+    train_dataset1.class_to_idx['gen'] = 1
+    train_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/train', transform = transform)
+    train_dataset2.class_to_idx['real'] = 0
+    train_dataset2.class_to_idx['gen'] = 1
+    train_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/train', transform = transform)
+    train_dataset3.class_to_idx['real'] = 0
+    train_dataset3.class_to_idx['gen'] = 1
 
-    val_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/val', classes = ['real', 'gen'], transform = transform)
-    val_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/val', classes = ['real', 'gen'], transform = transform)
-    val_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/val', classes = ['real', 'gen'], transform = transform)
-    val_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/val', classes = ['real', 'gen'], transform = transform)
+    val_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/val', transform = transform)
+    val_dataset0.class_to_idx['real'] = 0
+    val_dataset0.class_to_idx['gen'] = 1
+    val_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/val', transform = transform)
+    val_dataset1.class_to_idx['real'] = 0
+    val_dataset1.class_to_idx['gen'] = 1
+    val_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/val', transform = transform)
+    val_dataset2.class_to_idx['real'] = 0
+    val_dataset2.class_to_idx['gen'] = 1
+    val_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/val', transform = transform)
+    val_dataset3.class_to_idx['real'] = 0
+    val_dataset3.class_to_idx['gen'] = 1
 
-    test_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/test', classes = ['real', 'gen'], transform = transform)
-    test_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/test', classes = ['real', 'gen'], transform = transform)
-    test_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/test', classes = ['real', 'gen'], transform = transform)
-    test_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/test', classes = ['real', 'gen'], transform = transform)
+    test_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bedroom_193k_prequalified/test', transform = transform)
+    test_dataset0.class_to_idx['real'] = 0
+    test_dataset0.class_to_idx['gen'] = 1
+    test_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/dining_room_prequalified/test', transform = transform)
+    test_dataset1.class_to_idx['real'] = 0
+    test_dataset1.class_to_idx['gen'] = 1
+    test_dataset2 = ImageFolder(root='../../../../../../data/amitabh3/kitchen_prequalified/test', transform = transform)
+    test_dataset2.class_to_idx['real'] = 0
+    test_dataset2.class_to_idx['gen'] = 1
+    test_dataset3 = ImageFolder(root='../../../../../../data/amitabh3/living_187k_prequalified/test', transform = transform)
+    test_dataset3.class_to_idx['real'] = 0
+    test_dataset3.class_to_idx['gen'] = 1
 
     train_loader0 = DataLoader(dataset=train_dataset0, batch_size=16, shuffle=False, num_workers=6)
     train_loader1 = DataLoader(dataset=train_dataset1, batch_size=16, shuffle=False, num_workers=6)
@@ -226,14 +250,26 @@ def import_outdoor_data():
             concat_fft(),    
         ])
 
-    train_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/train', classes = ['real', 'gen'], transform = transform)
-    train_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/train', classes = ['real', 'gen'], transform = transform)
+    train_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/train', transform = transform)
+    train_dataset0.class_to_idx['real'] = 0
+    train_dataset0.class_to_idx['gen'] = 1
+    train_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/train', transform = transform)
+    train_dataset1.class_to_idx['real'] = 0
+    train_dataset1.class_to_idx['gen'] = 1
 
-    val_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/val', classes = ['real', 'gen'], transform = transform)
-    val_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/val', classes = ['real', 'gen'], transform = transform)
+    val_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/val', transform = transform)
+    val_dataset0.class_to_idx['real'] = 0
+    val_dataset0.class_to_idx['gen'] = 1
+    val_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/val', transform = transform)
+    val_dataset1.class_to_idx['real'] = 0
+    val_dataset1.class_to_idx['gen'] = 1
 
-    test_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/test', classes = ['real', 'gen'], transform = transform)
-    test_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/test', classes = ['real', 'gen'], transform = transform)
+    test_dataset0 = ImageFolder(root='../../../../../../data/amitabh3/bdd_prequalified/test', transform = transform)
+    test_dataset0.class_to_idx['real'] = 0
+    test_dataset0.class_to_idx['gen'] = 1
+    test_dataset1 = ImageFolder(root='../../../../../../data/amitabh3/mapv_prequalified/test', transform = transform)
+    test_dataset1.class_to_idx['real'] = 0
+    test_dataset1.class_to_idx['gen'] = 1
 
     train_loader0 = DataLoader(dataset=train_dataset0, batch_size=16, shuffle=False, num_workers=6)
     train_loader1 = DataLoader(dataset=train_dataset1, batch_size=16, shuffle=False, num_workers=6)
