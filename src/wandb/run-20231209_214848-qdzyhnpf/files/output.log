@@ -1,0 +1,28 @@
+cuda:0
+config5 2channel_indoor_v1
+Training ...:   0%|                                                                                                                                                                                                   | 0/30 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Training ...:   0%|                                                                                                                                                                                                   | 0/30 [00:51<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 118, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 57, in main
+    train_loss = train(train_loader, model, criterion, optimizer)
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 90, in train
+    images, labels = images.to(device), labels.to(device)
+KeyboardInterrupt

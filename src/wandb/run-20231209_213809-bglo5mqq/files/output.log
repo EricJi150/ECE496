@@ -1,0 +1,16 @@
+cuda:0
+config5 2channel_indoor_v1
+Training ...:   0%|                                                                                                                                                                                                | 0/35000 [00:00<?, ?it/s]
+Training ...:   0%|                                                                                                                                                                                                   | 0/30 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 118, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 57, in main
+    train_loss = train(train_loader, model, criterion, optimizer)
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 89, in train
+    for i, (images, labels) in it_train:
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/utils/data/dataset.py", line 302, in __getitem__
+    return self.datasets[dataset_idx][sample_idx]
+TypeError: 'DataLoader' object is not subscriptable
