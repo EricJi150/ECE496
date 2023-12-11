@@ -1,0 +1,345 @@
+cuda:0
+config5 LDM
+Training ...:   0%|                                                                              | 0/15 [00:00<?, ?it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Training ...: 100%|████████████████████████████████████████████████████████████████▉| 4874/4875 [07:27<00:00, 11.41it/s]
+
+
+
+Validating ...:  93%|████████████████████████████████████████████████████████████▎    | 116/125 [00:07<00:00, 16.63it/s]
+Training ...:   7%|████▍                                                              | 1/15 [07:37<1:46:46, 457.62s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Training ...: 100%|████████████████████████████████████████████████████████████████▉| 4872/4875 [02:30<00:00, 36.21it/s]
+
+Training ...:  13%|████████▉                                                          | 2/15 [10:14<1:00:48, 280.64s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Training ...:  13%|████████▉                                                          | 2/15 [10:59<1:11:25, 329.67s/it]
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 118, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 57, in main
+    train_loss = train(train_loader, model, criterion, optimizer)
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 89, in train
+    for i, (images, labels) in it_train:
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/tqdm/std.py", line 1182, in __iter__
+    for obj in iterable:
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1328, in _next_data
+    idx, data = self._get_data()
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1294, in _get_data
+    success, data = self._try_get_data()
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 1132, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/multiprocessing/reductions.py", line 355, in rebuild_storage_fd
+    fd = df.detach()
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/connection.py", line 513, in Client
+    answer_challenge(c, authkey)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/connection.py", line 757, in answer_challenge
+    message = connection.recv_bytes(256)         # reject large message
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/connection.py", line 221, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/connection.py", line 419, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/multiprocessing/connection.py", line 384, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
