@@ -1,4 +1,0 @@
-
-cuda:0
-usage: train_model.py [-h] config dataset
-train_model.py: error: the following arguments are required: dataset

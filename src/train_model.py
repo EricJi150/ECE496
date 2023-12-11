@@ -20,12 +20,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("dataset", help="Name of dataset")
+    parser.add_argument("channels", help="Number of channels")
     args = parser.parse_args()
-    print(args.config, args.dataset)
+    print(args.config, args.dataset, args.channels)
 
     #import data
     # train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
-    train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
+    if args.dataset == "indoor":
+        train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
+    elif args.dataset == "outdoor":
+        train_loader, val_loader, test_loader = make_dataset.import_outdoor_data()
 
     #read config file
     config_file_name = args.config
@@ -62,7 +66,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models','Shadows'+args.config+'_'+args.dataset)
+            save_path = os.path.join('../models','Shadows'+args.channels+'_'+args.dataset)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy
