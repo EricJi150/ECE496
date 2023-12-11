@@ -25,7 +25,7 @@ def main():
 
     #import data
     # train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
-    train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
+    train_loader, val_loader, test_loader = make_dataset.import_data()
 
     #read config file
     config_file_name = args.config
