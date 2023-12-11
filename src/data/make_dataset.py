@@ -166,8 +166,8 @@ def import_train_multi():
     test_dataset = ConcatDataset([test_dataset0, test_dataset1, test_dataset2, test_dataset3, test_dataset4, test_dataset5, test_dataset6, test_dataset7, test_dataset8, test_dataset9])
 
     train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
-    val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=True, num_workers=6)
-    test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=True, num_workers=6)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
 
     return train_loader, val_loader, test_loader
 
@@ -208,7 +208,7 @@ def import_indoor_data():
     test_dataset.class_to_idx['real'] = 0
     test_dataset.class_to_idx['gen'] = 1
 
-    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=False, num_workers=6)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
     
@@ -244,7 +244,7 @@ def import_outdoor_data():
     test_dataset.class_to_idx['real'] = 0
     test_dataset.class_to_idx['gen'] = 1
 
-    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=False, num_workers=6)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=16, shuffle=True, num_workers=6)
     val_loader = DataLoader(dataset=val_dataset, batch_size=16, shuffle=False, num_workers=6)
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
     
