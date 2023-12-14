@@ -92,9 +92,9 @@ def main():
     model =  ResNet18_5().to(device)
     save_path = os.path.join('../models','Shadows'+'five'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
-    # train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
-    train_loader, val_loader, test_loader = make_dataset.import_outdoor_data()
-    full_test(model, test_loader,"Full", 'intdoor_five')
+    train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
+    # train_loader, val_loader, test_loader = make_dataset.import_outdoor_data()
+    full_test(model, test_loader,"Full", 'indoor_five')
 
 
 if __name__ == "__main__":
