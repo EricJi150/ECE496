@@ -1,8 +1,0 @@
-
-cuda:0
-Traceback (most recent call last):
-  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 55, in <module>
-    main()
-  File "/home/ericji3/ECE496/ECE496/src/eval_model.py", line 29, in main
-    save_path = os.path.joinos.path.join('../models','2D-FACT_'+args.config+'_'+args.model)
-AttributeError: module 'posixpath' has no attribute 'joinos'

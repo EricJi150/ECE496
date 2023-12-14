@@ -1,8 +1,0 @@
-cuda:0
-config4 Multi
-Traceback (most recent call last):
-  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 118, in <module>
-    main()
-  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 28, in main
-    train_loader, val_loader, test_loader = make_dataset.import_data_multi()
-ValueError: too many values to unpack (expected 3)
