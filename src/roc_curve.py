@@ -83,7 +83,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
     if save_to_file is not None:
         fig.savefig(save_to_file,dpi=200)
         
-    with open(f'pickle/indoor_2channel_{args.ablation}_{mode}.pkl', 'wb') as f:
+    with open(f'pickle/indoor_two_{mode}.pkl', 'wb') as f:
         pickle.dump([fpr, tpr, roc_auc], f)
     return
 
@@ -93,7 +93,7 @@ def main():
     save_path = os.path.join('../models','Shadows'+'two'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
     train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
-    full_test(model, test_loader,"Full", None)
+    full_test(model, test_loader,"Full", 'indoor_two')
 
 
 if __name__ == "__main__":
