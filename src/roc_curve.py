@@ -83,7 +83,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
     if save_to_file is not None:
         fig.savefig(save_to_file,dpi=200)
         
-    with open(f'pickle/outdoor_two_{mode}.pkl', 'wb') as f:
+    with open(f'shadows/pickle/outdoor_two_{mode}.pkl', 'wb') as f:
         pickle.dump([fpr, tpr, roc_auc], f)
     return
 
