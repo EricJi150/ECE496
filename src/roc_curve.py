@@ -93,7 +93,7 @@ def main():
     save_path = os.path.join('../models','Shadows'+'two'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
     train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
-    full_test(model, test_loader, mode = "Full", save_to_file = None)
+    full_test(model, test_loader,"Full", None)
 
 
 if __name__ == "__main__":
