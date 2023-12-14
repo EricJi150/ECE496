@@ -28,7 +28,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
             images = images.float().to(device)
             labels = labels.to(device)
         
-            predictions, feature_transform, tnet_out, ix_maxpool = model(images)
+            predictions = model(images)
             
             probabilities = nn.Softmax(dim = 1)(predictions)
             generated_probabilities = probabilities[:, 1]
