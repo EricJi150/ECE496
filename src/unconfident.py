@@ -13,7 +13,7 @@ from data import make_dataset_shadows
 import roc_curve
 
 def test_path(model, test_dataloader, save_path):
-    margin = 0.4999
+    margin = 0.445
 
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
