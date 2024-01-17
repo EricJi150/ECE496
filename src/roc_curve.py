@@ -11,7 +11,7 @@ from data import make_dataset
 
 
 
-def full_test(model, test_dataloader, mode = "Full", save_to_file = None, title):
+def full_test(model, test_dataloader, mode = "Full", save_to_file = None, title = "title"):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
 
