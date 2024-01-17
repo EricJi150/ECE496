@@ -70,7 +70,7 @@ def import_outdoor_data():
        test_image_paths3.append(glob.glob(data_path + '/*'))
     test_image_paths3= list(flatten(test_image_paths3))
 
-    test_image_paths = test_image_paths0 + test_data_path1 + test_data_path2 + test_data_path3
+    test_image_paths = test_image_paths0 + test_image_paths1 + test_image_paths2 + test_image_paths3
 
 
     print(len(test_image_paths), "image in the test dataset")
