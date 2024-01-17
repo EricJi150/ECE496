@@ -44,6 +44,10 @@ def import_outdoor_data():
             concat_fft(),    
         ])
     
+    test_image_paths0 = []
+    test_image_paths1 = []
+    test_image_paths2 = []
+    test_image_paths3 = []
     test_image_paths = []
 
     test_data_path0 = '/data/amitabh3/bdd_prequalified/test/gen'
