@@ -23,8 +23,6 @@ def test_path(model, test_dataloader, save_path):
     
     with torch.no_grad():
         for paths, images, labels  in tqdm(test_dataloader, desc="testing"):
-            while True:
-                print("")
         
             images = images.to(device)
             labels = labels.to(device)
