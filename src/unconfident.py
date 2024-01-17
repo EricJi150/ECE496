@@ -69,9 +69,9 @@ def test_path(model, test_dataloader, save_path):
 
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-    model =  ResNet18_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'two'+'_'+'outdoor')
-    model.load_state_dict(torch.load(save_path))
-    # train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
+    print(device)
+    # model =  ResNet18_2().to(device)
+    # save_path = os.path.join('../models','Shadows'+'two'+'_'+'outdoor')
+    # model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_outdoor_data()
-    test_path(model, test_loader, 'outdoor')
+    # test_path(model, test_loader, 'outdoor')
