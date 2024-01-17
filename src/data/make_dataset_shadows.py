@@ -22,7 +22,7 @@ class concat_fft:
 class DatasetWithFilepaths(Dataset):
     def __init__(self, image_paths, transform = None):
         self.image_paths = image_paths
-        self.transform = transforms.Compose(transform)
+        self.transform = transform
     
     def __len__(self):
         return len(self.image_paths)
