@@ -126,10 +126,10 @@ def import_data():
     random.shuffle(val_image_paths)
 
 
-    for data_path in glob.glob(deepfloyd_indoor_path + '/*'):
+    for data_path in glob.glob(firefly_indoor_path + '/*'):
         classes.append(data_path.split('/')[-1])
         if mode == 'streets':
-            deepfloyd_indoor_image_paths.append(glob.glob(data_path + '/*'))
+            firefly_indoor_image_paths.append(glob.glob(data_path + '/*'))
 
     # for data_path in glob.glob(diningroom_path + '/*'):
     #     if mode == 'streets':
@@ -145,7 +145,7 @@ def import_data():
     #     if mode == 'streets':
     #         livingroom_image_paths.append(glob.glob(data_path + '/*'))
 
-    test_image_paths = deepfloyd_indoor_image_paths
+    test_image_paths = firefly_indoor_image_paths
     test_image_paths = list(flatten(test_image_paths))
 
 
