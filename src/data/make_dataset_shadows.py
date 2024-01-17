@@ -66,7 +66,7 @@ def import_data():
 
     deepfloyd_outdoor_path = '/data/amitabh3/deepfloyd_unconfident_gen_images_outdoor/test'
     firefly_outdoor_path = '/data/amitabh3/firefly_unconfident_gen_images_outdoor/test'
-    kadinsky_outdoor_apth = '/data/amitabh3/kadinsky_unconfident_gen_images_outdoor/test'
+    kadinsky_outdoor_path = '/data/amitabh3/kadinsky_unconfident_gen_images_outdoor/test'
 
 
     mode = 'streets'
@@ -127,14 +127,14 @@ def import_data():
     random.shuffle(val_image_paths)
 
 
-    for data_path in glob.glob(bdd_test_path + '/*'):
+    for data_path in glob.glob(kadinsky_outdoor_path + '/*'):
         classes.append(data_path.split('/')[-1])
         if mode == 'streets':
-            bdd_test_image_paths.append(glob.glob(data_path + '/*'))
+            kadinsky_outdoor_image_paths.append(glob.glob(data_path + '/*'))
 
-    for data_path in glob.glob(mapv_test_path + '/*'):
-        if mode == 'streets':
-            mapv_test_image_paths.append(glob.glob(data_path + '/*'))
+    # for data_path in glob.glob(mapv_test_path + '/*'):
+    #     if mode == 'streets':
+    #         mapv_test_image_paths.append(glob.glob(data_path + '/*'))
     
     # for data_path in glob.glob(kitchen_path + '/*'):
     #     classes.append(data_path.split('/')[-1])
@@ -146,7 +146,7 @@ def import_data():
     #     if mode == 'streets':
     #         livingroom_image_paths.append(glob.glob(data_path + '/*'))
 
-    test_image_paths = bdd_test_image_paths + mapv_test_image_paths
+    test_image_paths = kadinsky_outdoor_image_paths
     test_image_paths = list(flatten(test_image_paths))
 
 
