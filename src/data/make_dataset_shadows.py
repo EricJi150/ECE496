@@ -48,12 +48,18 @@ def import_outdoor_data():
     # test_data_path0 = '../../../../../../data/amitabh3/bdd_prequalified/test'
     # test_data_path1 = '../../../../../../data/amitabh3/mapv_prequalified/test'
 
-    test_data_path0 = '/data/amitabh3/bdd_prequalified/test'
-    test_data_path1 = '/data/amitabh3/mapv_prequalified/test'
+    test_data_path0 = '/data/amitabh3/bdd_prequalified/test/gen'
+    test_data_path1 = '/data/amitabh3/mapv_prequalified/test/gen'
+    test_data_path2 = '/data/amitabh3/bdd_prequalified/test/real'
+    test_data_path3 = '/data/amitabh3/mapv_prequalified/test/real'
 
     for data_path in glob.glob(test_data_path0 + '/*'):
         test_image_paths.append(glob.glob(data_path + '/*'))
     for data_path in glob.glob(test_data_path1 + '/*'):
+       test_image_paths.append(glob.glob(data_path + '/*'))
+    for data_path in glob.glob(test_data_path2 + '/*'):
+        test_image_paths.append(glob.glob(data_path + '/*'))
+    for data_path in glob.glob(test_data_path3 + '/*'):
        test_image_paths.append(glob.glob(data_path + '/*'))
 
 
