@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 from tqdm import tqdm
 from torchvision import transforms
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import ConcatDataset, DataLoader, Dataset
 from architectures import ResNet18_2
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
@@ -77,12 +77,14 @@ def test_path(model, test_dataloader, save_path):
         ])
 
     misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
-    misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
-    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_outdoor")
-
     unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
-    unconfident_test_loader = DataLoader(dataset=unconfident_test_dataset, batch_size=64, shuffle=False, num_workers=6)
-    roc_curve.full_test(model, unconfident_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_outdoor")
+    unconfident_misclassified_test_dataset = ConcatDataset([unconfident_test_dataset, misclassified_test_dataset])
+
+    misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+    unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_outdoor")
+    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident and missclassified", save_to_file="shadows/roc/unconfident_misclassified_outdoor")
     
 
 def main():
