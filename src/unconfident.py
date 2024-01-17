@@ -19,6 +19,7 @@ def test_path(model, test_dataloader, save_path):
 
     misclassified_paths = []
     unconfident_paths = []
+    unconfident_probabilities = []
 
     model.eval()
     all_predicted = torch.tensor([]).to(device)
@@ -42,7 +43,6 @@ def test_path(model, test_dataloader, save_path):
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
-            unconfident_probabilities = []
             unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
             unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
 
