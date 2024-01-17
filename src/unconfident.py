@@ -36,8 +36,8 @@ def test_path(model, test_dataloader, save_path):
 
             unconfident_indices_real = (probabilities > 0.5) & (probabilities < 0.5 + margin) & (labels == 1)
             unconfident_indices_gen = (probabilities > 0.5) & (probabilities < 0.5 + margin) & (labels == 1)
-            unconfident_paths += list(paths[unconfident_indices_real.cpu()])
-            unconfident_paths += list(paths[unconfident_indices_gen.cpu()])
+            unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
+            unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
             misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
             misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
@@ -66,8 +66,8 @@ def test_path(model, test_dataloader, save_path):
     with open('shadows/pickle/unconfident_shadow_outdoor.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
 
-    unconfident_all_labels = torch.cat((unconfident_all_labels, labels[unconfident_indices_real]))
-    unconfident_all_pred_probs = torch.cat((unconfident_all_pred_probs, outputs[unconfident_indices_real].data))
+    unconfident_all_labels = torch.cat((unconfident_all_labels, [labels[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]))
+    unconfident_all_pred_probs = torch.cat((unconfident_all_pred_probs, [outputs[idx].data for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]))
 
     fpr, tpr, thresholds = roc_curve(all_labels.cpu(), unconfident_all_pred_probs.cpu(), unconfident_pos_label = 1)
     roc_auc = auc(fpr, tpr)
