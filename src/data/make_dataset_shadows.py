@@ -58,6 +58,15 @@ def import_data():
     kitchen_path = '/data/amitabh3/kitchen_prequalified/test'
     livingroom_path = '/data/amitabh3/living_187k_prequalified/test'
 
+    dalle_path = '/data/amitabh3/dalle_unconfident_gen_images/test'
+    deepfloyd_indoor_path = '/data/amitabh3/deepfloyd_unconfident_gen_images/test'
+    firefly_indoor_path = '/data/amitabh3/firefly_unconfident_gen_images_indoor/test'
+    kadinsky_indoor_path = '/data/amitabh3/kadinsky_unconfident_gen_images/test'
+
+    deepfloyd_outdoor_path = '/data/amitabh3/deepfloyd_unconfident_gen_images_outdoor/test'
+    firefly_outdoor_path = '/data/amitabh3/firefly_unconfident_gen_images_outdoor/test'
+    kadinsky_outdoor_apth = '/data/amitabh3/kadinsky_unconfident_gen_images_outdoor/test'
+
 
     mode = 'streets'
 
@@ -74,6 +83,15 @@ def import_data():
     diningroom_image_paths = []
     kitchen_image_paths = []
     livingroom_image_paths = []
+
+    dalle_path_image_paths = []
+    deepfloyd_indoor_image_paths = []
+    firefly_indoor_image_paths = []
+    kadinsky_indoor_image_paths = []
+
+    deepfloyd_outdoor_image_paths = []
+    firefly_outdoor_image_paths = []
+    kadinsky_outdoor_image_paths = []
 
     classes = []
 
@@ -108,27 +126,26 @@ def import_data():
     random.shuffle(val_image_paths)
 
 
-    for data_path in glob.glob(bedroom_path + '/*'):
+    for data_path in glob.glob(dalle_path + '/*'):
         classes.append(data_path.split('/')[-1])
         if mode == 'streets':
-            bedroom_image_paths.append(glob.glob(data_path + '/*'))
+            dalle_path_image_paths.append(glob.glob(data_path + '/*'))
 
-
-    for data_path in glob.glob(diningroom_path + '/*'):
-        if mode == 'streets':
-            diningroom_image_paths.append(glob.glob(data_path + '/*'))
+    # for data_path in glob.glob(diningroom_path + '/*'):
+    #     if mode == 'streets':
+    #         diningroom_image_paths.append(glob.glob(data_path + '/*'))
     
-    for data_path in glob.glob(kitchen_path + '/*'):
-        classes.append(data_path.split('/')[-1])
-        if mode == 'streets':
-            kitchen_image_paths.append(glob.glob(data_path + '/*'))
+    # for data_path in glob.glob(kitchen_path + '/*'):
+    #     classes.append(data_path.split('/')[-1])
+    #     if mode == 'streets':
+    #         kitchen_image_paths.append(glob.glob(data_path + '/*'))
 
 
-    for data_path in glob.glob(livingroom_path + '/*'):
-        if mode == 'streets':
-            livingroom_image_paths.append(glob.glob(data_path + '/*'))
+    # for data_path in glob.glob(livingroom_path + '/*'):
+    #     if mode == 'streets':
+    #         livingroom_image_paths.append(glob.glob(data_path + '/*'))
 
-    test_image_paths = bedroom_image_paths + diningroom_image_paths + kitchen_image_paths + livingroom_image_paths 
+    test_image_paths = dalle_path_image_paths
     test_image_paths = list(flatten(test_image_paths))
 
 
