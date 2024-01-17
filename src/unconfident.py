@@ -22,7 +22,7 @@ def test_path(model, test_dataloader, save_path):
     # since we're not training, we don't need to calculate the gradients for our outputs
     
     with torch.no_grad():
-        for images, labels, paths in tqdm(test_dataloader, desc="testing"):
+        for paths, images, labels  in tqdm(test_dataloader, desc="testing"):
             images = images.to(device)
             labels = labels.to(device)
 
