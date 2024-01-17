@@ -37,7 +37,7 @@ class DatasetWithFilepaths(Dataset):
         return image_filepath, image, label
     
 #Binary Classification for indoor data from Ayush's dataset
-def import_outdoor_data():
+def import_data():
     transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -53,6 +53,11 @@ def import_outdoor_data():
     mapv_val_path = "/data/amitabh3/mapv_prequalified/val"
     mapv_test_path = "/data/amitabh3/mapv_prequalified/test"
 
+    bedroom_path = '/data/amitabh3/bedroom_193k_prequalified/test'
+    diningroom_path = '/data/amitabh3/dining_room_prequalified/test'
+    kitchen_path = '/data/amitabh3/kitchen_prequalified/test'
+    livingroom_path = '/data/amitabh3/living_187k_prequalified/test'
+
 
     mode = 'streets'
 
@@ -64,6 +69,11 @@ def import_outdoor_data():
 
     bdd_test_image_paths = []
     mapv_test_image_paths = []
+
+    bedroom_image_paths = []
+    diningroom_image_paths = []
+    kitchen_image_paths = []
+    livingroom_image_paths = []
 
     classes = []
 
@@ -98,17 +108,27 @@ def import_outdoor_data():
     random.shuffle(val_image_paths)
 
 
-    for data_path in glob.glob(bdd_test_path + '/*'):
+    for data_path in glob.glob(bedroom_path + '/*'):
         classes.append(data_path.split('/')[-1])
         if mode == 'streets':
-            bdd_test_image_paths.append(glob.glob(data_path + '/*'))
+            bedroom_image_paths.append(glob.glob(data_path + '/*'))
 
 
-    for data_path in glob.glob(mapv_test_path + '/*'):
+    for data_path in glob.glob(diningroom_path + '/*'):
         if mode == 'streets':
-            mapv_test_image_paths.append(glob.glob(data_path + '/*'))
+            diningroom_image_paths.append(glob.glob(data_path + '/*'))
+    
+    for data_path in glob.glob(kitchen_path + '/*'):
+        classes.append(data_path.split('/')[-1])
+        if mode == 'streets':
+            kitchen_image_paths.append(glob.glob(data_path + '/*'))
 
-    test_image_paths = bdd_test_image_paths + mapv_test_image_paths 
+
+    for data_path in glob.glob(livingroom_path + '/*'):
+        if mode == 'streets':
+            livingroom_image_paths.append(glob.glob(data_path + '/*'))
+
+    test_image_paths = bedroom_image_paths + diningroom_image_paths + kitchen_image_paths + livingroom_image_paths 
     test_image_paths = list(flatten(test_image_paths))
 
 
