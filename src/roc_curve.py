@@ -32,8 +32,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
             predictions = model(images)
             
             probabilities = nn.Softmax(dim = 1)(predictions)
-            # generated_probabilities = probabilities[:, 1]
-            generated_probabilities = torch.nn.functional.softmax(predictions.data, 1)
+            generated_probabilities = probabilities[:, 1]
 
             predicted_labels = torch.argmax(predictions, dim = 1)
             
