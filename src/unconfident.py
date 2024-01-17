@@ -37,6 +37,7 @@ def test_path(model, test_dataloader, save_path):
 
             # calculate the probabilities
             probabilities = torch.nn.functional.softmax(outputs.data, 1)[:,1]
+            print(probabilities)
 
             unconfident_indices_real = (probabilities > 0.5) & (probabilities < 0.5 + margin) & (labels == 1)
             unconfident_indices_gen = (probabilities < 0.5) & (probabilities > 0.5 - margin) & (labels == 0)
