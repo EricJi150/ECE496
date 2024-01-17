@@ -127,26 +127,26 @@ def import_data():
     random.shuffle(val_image_paths)
 
 
-    for data_path in glob.glob(bedroom_path + '/*'):
+    for data_path in glob.glob(bdd_test_path + '/*'):
         classes.append(data_path.split('/')[-1])
         if mode == 'streets':
-            bedroom_image_paths.append(glob.glob(data_path + '/*'))
+            bdd_test_image_paths.append(glob.glob(data_path + '/*'))
 
-    for data_path in glob.glob(diningroom_path + '/*'):
+    for data_path in glob.glob(mapv_test_path + '/*'):
         if mode == 'streets':
-            diningroom_image_paths.append(glob.glob(data_path + '/*'))
+            mapv_test_image_paths.append(glob.glob(data_path + '/*'))
     
-    for data_path in glob.glob(kitchen_path + '/*'):
-        classes.append(data_path.split('/')[-1])
-        if mode == 'streets':
-            kitchen_image_paths.append(glob.glob(data_path + '/*'))
+    # for data_path in glob.glob(kitchen_path + '/*'):
+    #     classes.append(data_path.split('/')[-1])
+    #     if mode == 'streets':
+    #         kitchen_image_paths.append(glob.glob(data_path + '/*'))
 
 
-    for data_path in glob.glob(livingroom_path + '/*'):
-        if mode == 'streets':
-            livingroom_image_paths.append(glob.glob(data_path + '/*'))
+    # for data_path in glob.glob(livingroom_path + '/*'):
+    #     if mode == 'streets':
+    #         livingroom_image_paths.append(glob.glob(data_path + '/*'))
 
-    test_image_paths = bedroom_image_paths + diningroom_image_paths + kitchen_image_paths + livingroom_image_paths
+    test_image_paths = bdd_test_image_paths + mapv_test_image_paths
     test_image_paths = list(flatten(test_image_paths))
 
 

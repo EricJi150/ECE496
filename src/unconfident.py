@@ -69,9 +69,9 @@ def test_path(model, test_dataloader, save_path):
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    with open('shadows/pickle/misclassified_shadow_indoor.pkl', 'wb') as f:
+    with open('shadows/pickle/misclassified_shadow_outdoor.pkl', 'wb') as f:
         pickle.dump(misclassified_paths, f)
-    with open('shadows/pickle/unconfident_shadow_indoor.pkl', 'wb') as f:
+    with open('shadows/pickle/unconfident_shadow_outdoor.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
 
     transform = transforms.Compose([
@@ -88,15 +88,15 @@ def test_path(model, test_dataloader, save_path):
     misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
     unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
-    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_indoor", title='ROC for Misclassified Indoor Set')
-    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_indoor", title='ROC for Unconfident/Misclassified Indoor Set')
+    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_outdoor", title='ROC for Misclassified Outdoor Set')
+    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_outdoor", title='ROC for Unconfident/Misclassified Outdoor Set')
     
 
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     print(device)
     model =  ResNet18_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'two'+'_'+'indoor')
+    save_path = os.path.join('../models','Shadows'+'two'+'_'+'outdoor')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_data()
     test_path(model, test_loader, ' ')
