@@ -84,7 +84,7 @@ def test_path(model, test_dataloader, save_path):
     unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_outdoor")
-    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident and missclassified", save_to_file="shadows/roc/unconfident_misclassified_outdoor")
+    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_outdoor")
     
 
 def main():
