@@ -64,4 +64,4 @@ def import_outdoor_data():
 
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
     
-    return train_loader, val_loader, test_loader
+    return test_loader
