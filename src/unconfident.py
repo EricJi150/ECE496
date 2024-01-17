@@ -69,9 +69,9 @@ def test_path(model, test_dataloader, save_path):
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    with open('shadows/pickle/misclassified_shadow_firefly_outdoor.pkl', 'wb') as f:
+    with open('shadows/pickle/misclassified_shadow_deepfloyd_outdoor.pkl', 'wb') as f:
         pickle.dump(misclassified_paths, f)
-    with open('shadows/pickle/unconfident_shadow_firefly_outdoor.pkl', 'wb') as f:
+    with open('shadows/pickle/unconfident_shadow_deepfloyd_outdoor.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
 
     transform = transforms.Compose([
@@ -88,8 +88,8 @@ def test_path(model, test_dataloader, save_path):
     misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
     unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
-    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_firefly", title='ROC for Misclassified Firefly(Outdoor) Set')
-    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_firefly", title='ROC for Unconfident/Misclassified Firefly(Outdoor) Set')
+    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_deepfloyd_outdoor", title='ROC for Misclassified Deepfloyd(Outdoor) Set')
+    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_deepfloyd_outdoor", title='ROC for Unconfident/Misclassified Deepfloyd(Outdoor) Set')
     
 
 def main():
