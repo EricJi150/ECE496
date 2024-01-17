@@ -78,7 +78,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title(f'Receiver Operating Characteristic for {mode} Test Set ')
+    plt.title(f'Receiver Operating Characteristic for Unconfident/Misclassified Indoor Set ')
     plt.legend(loc="lower right")
     plt.show()
     if save_to_file is not None:

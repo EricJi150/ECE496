@@ -59,16 +59,20 @@ def test_path(model, test_dataloader, save_path):
     print(conf_matrix)
     print(f"{conf_matrix[0].sum().item()} generated images, {conf_matrix[1].sum().item()} real images")
     # flipped
-    tp = conf_matrix[1,1]
-    tn = conf_matrix[0,0]
-    fp = conf_matrix[0,1]
-    fn = conf_matrix[1,0]
+    # tp = conf_matrix[1,1]
+    # tn = conf_matrix[0,0]
+    # fp = conf_matrix[0,1]
+    # fn = conf_matrix[1,0]
+    tp = conf_matrix[0,0]
+    tn = conf_matrix[1,1]
+    fp = conf_matrix[1,0]
+    fn = conf_matrix[0,1]
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    with open('shadows/pickle/misclassified_shadow_firefly_indoor.pkl', 'wb') as f:
+    with open('shadows/pickle/misclassified_shadow_indoor.pkl', 'wb') as f:
         pickle.dump(misclassified_paths, f)
-    with open('shadows/pickle/unconfident_shadow_firefly_indoor.pkl', 'wb') as f:
+    with open('shadows/pickle/unconfident_shadow_indoor.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
 
     transform = transforms.Compose([
@@ -96,7 +100,7 @@ def main():
     save_path = os.path.join('../models','Shadows'+'two'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_data()
-    test_path(model, test_loader, 'firefly_indoor')
+    test_path(model, test_loader, ' ')
 
 if __name__ == "__main__":
     main()

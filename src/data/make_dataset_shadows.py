@@ -32,7 +32,8 @@ class DatasetWithFilepaths(Dataset):
         image_filepath = self.image_paths[idx]
         image = self.transform(Image.open(image_filepath).convert('RGB'))
         label = image_filepath.split("/")[-2]
-        class_to_idx = {'gen':1,'real':0}
+        # class_to_idx = {'gen':1,'real':0}
+        class_to_idx = {'gen':0,'real':1}
         label = class_to_idx[label]
         return image_filepath, image, label
     
@@ -126,26 +127,26 @@ def import_data():
     random.shuffle(val_image_paths)
 
 
-    for data_path in glob.glob(firefly_indoor_path + '/*'):
+    for data_path in glob.glob(bedroom_path + '/*'):
         classes.append(data_path.split('/')[-1])
         if mode == 'streets':
-            firefly_indoor_image_paths.append(glob.glob(data_path + '/*'))
+            bedroom_image_paths.append(glob.glob(data_path + '/*'))
 
-    # for data_path in glob.glob(diningroom_path + '/*'):
-    #     if mode == 'streets':
-    #         diningroom_image_paths.append(glob.glob(data_path + '/*'))
+    for data_path in glob.glob(diningroom_path + '/*'):
+        if mode == 'streets':
+            diningroom_image_paths.append(glob.glob(data_path + '/*'))
     
-    # for data_path in glob.glob(kitchen_path + '/*'):
-    #     classes.append(data_path.split('/')[-1])
-    #     if mode == 'streets':
-    #         kitchen_image_paths.append(glob.glob(data_path + '/*'))
+    for data_path in glob.glob(kitchen_path + '/*'):
+        classes.append(data_path.split('/')[-1])
+        if mode == 'streets':
+            kitchen_image_paths.append(glob.glob(data_path + '/*'))
 
 
-    # for data_path in glob.glob(livingroom_path + '/*'):
-    #     if mode == 'streets':
-    #         livingroom_image_paths.append(glob.glob(data_path + '/*'))
+    for data_path in glob.glob(livingroom_path + '/*'):
+        if mode == 'streets':
+            livingroom_image_paths.append(glob.glob(data_path + '/*'))
 
-    test_image_paths = firefly_indoor_image_paths
+    test_image_paths = bedroom_image_paths + diningroom_image_paths + kitchen_image_paths + livingroom_image_paths
     test_image_paths = list(flatten(test_image_paths))
 
 
