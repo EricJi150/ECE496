@@ -67,6 +67,7 @@ def test_path(model, test_dataloader, save_path):
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
+    print(len(unconfident_probabilities))
     print(unconfident_probabilities)
     return
 
