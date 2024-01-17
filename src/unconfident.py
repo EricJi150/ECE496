@@ -1,6 +1,7 @@
 import os
 import torch
 import pickle
+import numpy as np
 from tqdm import tqdm
 from torchvision import transforms
 from torch.utils.data import DataLoader, Dataset
@@ -43,8 +44,8 @@ def test_path(model, test_dataloader, save_path):
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
-            unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
-            unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
+            unconfident_probabilities += [probabilities[idx].data for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
+            unconfident_probabilities += [probabilities[idx].data for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
 
             misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
             misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
@@ -68,7 +69,7 @@ def test_path(model, test_dataloader, save_path):
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
     print(len(unconfident_probabilities))
-    print(unconfident_probabilities)
+    print(np.average(unconfident_probabilities))
     return
 
     with open('shadows/pickle/misclassified_shadow_outdoor.pkl', 'wb') as f:
