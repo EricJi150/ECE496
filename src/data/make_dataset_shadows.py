@@ -5,6 +5,7 @@ from PIL import Image
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
 from torch.utils.data import DataLoader, Dataset, ConcatDataset
+from pandas.core.common import flatten
 
 #Concatanation Transformation
 class concat_fft:
@@ -58,6 +59,8 @@ def import_outdoor_data():
         test_image_paths.append(glob.glob(data_path + '/*'))
     for data_path in glob.glob(test_data_path3 + '/*'):
        test_image_paths.append(glob.glob(data_path + '/*'))
+
+    test_image_paths = list(flatten(test_image_paths))
 
 
     print(len(test_image_paths), "image in the test dataset")

@@ -75,7 +75,7 @@ def main():
     # save_path = os.path.join('../models','Shadows'+'two'+'_'+'outdoor')
     # model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_outdoor_data()
-    print(next(iter(test_loader))[1].shape)
+    print(next(iter(test_loader))[0].shape)
     # test_path(model, test_loader, 'outdoor')
 
 if __name__ == "__main__":
