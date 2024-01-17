@@ -52,15 +52,21 @@ def import_outdoor_data():
     test_data_path3 = '/data/amitabh3/mapv_prequalified/test/real'
 
     for data_path in glob.glob(test_data_path0 + '/*'):
-        test_image_paths.append(glob.glob(data_path + '/*'))
-    for data_path in glob.glob(test_data_path1 + '/*'):
-       test_image_paths.append(glob.glob(data_path + '/*'))
-    for data_path in glob.glob(test_data_path2 + '/*'):
-        test_image_paths.append(glob.glob(data_path + '/*'))
-    for data_path in glob.glob(test_data_path3 + '/*'):
-       test_image_paths.append(glob.glob(data_path + '/*'))
+        test_image_paths0.append(glob.glob(data_path + '/*'))
+    test_image_paths0 = list(flatten(test_image_paths0))
 
-    test_image_paths = list(flatten(test_image_paths))
+    for data_path in glob.glob(test_data_path1 + '/*'):
+       test_image_paths1.append(glob.glob(data_path + '/*'))
+    test_image_paths1 = list(flatten(test_image_paths1))
+    for data_path in glob.glob(test_data_path2 + '/*'):
+        test_image_paths2.append(glob.glob(data_path + '/*'))
+    test_image_paths2 = list(flatten(test_image_paths2))
+
+    for data_path in glob.glob(test_data_path3 + '/*'):
+       test_image_paths3.append(glob.glob(data_path + '/*'))
+    test_image_paths3= list(flatten(test_image_paths3))
+
+    test_image_paths = test_image_paths0 + test_data_path1 + test_data_path2 + test_data_path3
 
 
     print(len(test_image_paths), "image in the test dataset")
