@@ -11,7 +11,7 @@ from data import make_dataset
 
 
 
-def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
+def full_test(model, test_dataloader, mode = "Full", save_to_file = None, title):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
 
@@ -78,7 +78,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
     plt.ylim([0.0, 1.05])
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
-    plt.title(f'ROC for Unconfident/Misclassified Outdoor Set ')
+    plt.title(title)
     plt.legend(loc="lower right")
     plt.show()
     if save_to_file is not None:
