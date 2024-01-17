@@ -25,7 +25,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
 
     
     with torch.no_grad():
-        for images, labels in tqdm(test_dataloader, desc="testing"):
+        for _, images, labels in tqdm(test_dataloader, desc="testing"):
             images = images.float().to(device)
             labels = labels.to(device)
         
