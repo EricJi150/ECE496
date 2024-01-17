@@ -82,6 +82,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None):
     plt.legend(loc="lower right")
     plt.show()
     if save_to_file is not None:
+        print("saving figure")
         fig.savefig(save_to_file,dpi=200)
         
     # with open(f'shadows/pickle/outdoor_two_{mode}.pkl', 'wb') as f:
