@@ -20,8 +20,6 @@ def test_path(model, test_dataloader, save_path):
 
     misclassified_paths = []
     unconfident_paths = []
-    # unconfident_probabilities_gen = []
-    # unconfident_probabilities_real = []
 
     model.eval()
     all_predicted = torch.tensor([]).to(device)
@@ -45,9 +43,6 @@ def test_path(model, test_dataloader, save_path):
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
-            # unconfident_probabilities_gen += [probabilities[idx].cpu() for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
-            # unconfident_probabilities_real += [probabilities[idx].cpu() for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
-
             misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
             misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
 
@@ -68,10 +63,6 @@ def test_path(model, test_dataloader, save_path):
     fn = conf_matrix[0,1]
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
-
-    # print(np.average(unconfident_probabilities_gen))
-    # print(np.average(unconfident_probabilities_real))
-    # return
 
     with open('shadows/pickle/misclassified_shadow_outdoor.pkl', 'wb') as f:
         pickle.dump(misclassified_paths, f)
