@@ -75,3 +75,6 @@ def main():
     # model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_outdoor_data()
     # test_path(model, test_loader, 'outdoor')
+
+if __name__ == "__main__":
+    main()
