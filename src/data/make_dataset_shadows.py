@@ -57,7 +57,9 @@ def import_outdoor_data():
 
     for data_path in glob.glob(test_data_path0 + '/*'):
         test_image_paths0.append(glob.glob(data_path + '/*'))
+    print(len(test_image_paths0), "before flatten")
     test_image_paths0 = list(flatten(test_image_paths0))
+    print(len(test_image_paths0), "after flatten")
 
     for data_path in glob.glob(test_data_path1 + '/*'):
        test_image_paths1.append(glob.glob(data_path + '/*'))
