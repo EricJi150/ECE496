@@ -65,11 +65,11 @@ def test_path(model, test_dataloader, save_path):
     fp = conf_matrix[1,0]
     fn = conf_matrix[0,1]
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
+    print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
     print(unconfident_probabilities)
     return
 
-    print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
     with open('shadows/pickle/misclassified_shadow_outdoor.pkl', 'wb') as f:
         pickle.dump(misclassified_paths, f)
     with open('shadows/pickle/unconfident_shadow_outdoor.pkl', 'wb') as f:
