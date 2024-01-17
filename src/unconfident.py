@@ -58,10 +58,11 @@ def test_path(model, test_dataloader, save_path):
     conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
     print(conf_matrix)
     print(f"{conf_matrix[0].sum().item()} generated images, {conf_matrix[1].sum().item()} real images")
-    tp = conf_matrix[0,0]
-    tn = conf_matrix[1,1]
-    fp = conf_matrix[1,0]
-    fn = conf_matrix[0,1]
+    # flipped
+    tp = conf_matrix[1,1]
+    tn = conf_matrix[0,0]
+    fp = conf_matrix[0,1]
+    fn = conf_matrix[1,0]
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
