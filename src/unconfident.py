@@ -69,7 +69,7 @@ def test_path(model, test_dataloader, save_path):
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
     print(len(unconfident_probabilities))
-    print(np.average(unconfident_probabilities))
+    print(np.average(unconfident_probabilities.cpu()))
     return
 
     with open('shadows/pickle/misclassified_shadow_outdoor.pkl', 'wb') as f:
