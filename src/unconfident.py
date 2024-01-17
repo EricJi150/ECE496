@@ -12,7 +12,7 @@ from data import make_dataset_shadows
 import roc_curve
 
 def test_path(model, test_dataloader, save_path):
-    margin = 0.499
+    margin = 0.445
 
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
@@ -41,6 +41,13 @@ def test_path(model, test_dataloader, save_path):
             unconfident_indices_gen = (probabilities < 0.5) & (probabilities > 0.5 - margin) & (labels == 0)
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
+
+            unconfident_probabilities = []
+            unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
+            unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
+            print(unconfident_probabilities)
+
+            return
 
             misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
             misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
