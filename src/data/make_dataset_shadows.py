@@ -1,4 +1,5 @@
 import glob
+import random
 import numpy as np
 import torch
 from PIL import Image 
@@ -44,39 +45,74 @@ def import_outdoor_data():
             concat_fft(),    
         ])
     
-    test_image_paths0 = []
-    test_image_paths1 = []
-    test_image_paths2 = []
-    test_image_paths3 = []
-    test_image_paths = []
+    bdd_train_path = "/data/amitabh3/bdd_prequalified/train"
+    bdd_val_path = "/data/amitabh3/bdd_prequalified/val"
+    bdd_test_path = "/data/amitabh3/bdd_prequalified/test"
 
-    test_data_path0 = '/data/amitabh3/bdd_prequalified/test/gen'
-    test_data_path1 = '/data/amitabh3/mapv_prequalified/test/gen'
-    test_data_path2 = '/data/amitabh3/bdd_prequalified/test/real'
-    test_data_path3 = '/data/amitabh3/mapv_prequalified/test/real'
-
-    for data_path in glob.glob(test_data_path0 + '/*'):
-        test_image_paths0.append(glob.glob(data_path + '/*'))
-    # print(len(test_image_paths0), "before flatten")
-    print(test_image_paths0[0])
-    test_image_paths0 = list(flatten(test_image_paths0))
-    # print(len(test_image_paths0), "after flatten")
-
-    for data_path in glob.glob(test_data_path1 + '/*'):
-       test_image_paths1.append(glob.glob(data_path + '/*'))
-    test_image_paths1 = list(flatten(test_image_paths1))
-    for data_path in glob.glob(test_data_path2 + '/*'):
-        test_image_paths2.append(glob.glob(data_path + '/*'))
-    test_image_paths2 = list(flatten(test_image_paths2))
-
-    for data_path in glob.glob(test_data_path3 + '/*'):
-       test_image_paths3.append(glob.glob(data_path + '/*'))
-    test_image_paths3= list(flatten(test_image_paths3))
-
-    test_image_paths = test_image_paths0 + test_image_paths1 + test_image_paths2 + test_image_paths3
+    mapv_train_path = "/data/amitabh3/mapv_prequalified/train"
+    mapv_val_path = "/data/amitabh3/mapv_prequalified/val"
+    mapv_test_path = "/data/amitabh3/mapv_prequalified/test"
 
 
-    print(len(test_image_paths), "image in the test dataset")
+    mode = 'streets'
+
+    bdd_train_image_paths = []
+    mapv_train_image_paths = []
+
+    bdd_val_image_paths = []
+    mapv_val_image_paths = []
+
+    bdd_test_image_paths = []
+    mapv_test_image_paths = []
+
+    classes = []
+
+
+    for data_path in glob.glob(bdd_train_path + '/*'):
+        classes.append(data_path.split('/')[-1])
+        if mode == 'streets':
+            bdd_train_image_paths.append(glob.glob(data_path + '/*'))
+
+
+    for data_path in glob.glob(mapv_train_path + '/*'):
+        if mode == 'streets':
+            mapv_train_image_paths.append(glob.glob(data_path + '/*'))
+
+            
+    train_image_paths = bdd_train_image_paths + mapv_train_image_paths
+    train_image_paths = list(flatten(train_image_paths))
+    random.shuffle(train_image_paths)
+
+    for data_path in glob.glob(bdd_val_path + '/*'):
+        classes.append(data_path.split('/')[-1])
+        if mode == 'streets':
+            bdd_val_image_paths.append(glob.glob(data_path + '/*'))
+
+
+    for data_path in glob.glob(mapv_val_path + '/*'):
+        if mode == 'streets':
+            mapv_val_image_paths.append(glob.glob(data_path + '/*'))
+
+    val_image_paths = bdd_val_image_paths + mapv_val_image_paths
+    val_image_paths = list(flatten(val_image_paths))
+    random.shuffle(val_image_paths)
+
+
+    for data_path in glob.glob(bdd_test_path + '/*'):
+        classes.append(data_path.split('/')[-1])
+        if mode == 'streets':
+            bdd_test_image_paths.append(glob.glob(data_path + '/*'))
+
+
+    for data_path in glob.glob(mapv_test_path + '/*'):
+        if mode == 'streets':
+            mapv_test_image_paths.append(glob.glob(data_path + '/*'))
+
+    test_image_paths = bdd_test_image_paths + mapv_test_image_paths 
+    test_image_paths = list(flatten(test_image_paths))
+
+
+    print("Train size: {}\nValid size: {}\nOriginal Test Size : {}".format(len(train_image_paths), len(val_image_paths), len(test_image_paths)))
 
    
     test_dataset = DatasetWithFilepaths(test_image_paths, transform=transform)
