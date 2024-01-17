@@ -45,7 +45,6 @@ def test_path(model, test_dataloader, save_path):
             unconfident_probabilities = []
             unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
             unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
-            print(unconfident_probabilities)
 
             misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
             misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
@@ -67,6 +66,7 @@ def test_path(model, test_dataloader, save_path):
     fn = conf_matrix[0,1]
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
 
+    print(unconfident_probabilities)
     return
 
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
