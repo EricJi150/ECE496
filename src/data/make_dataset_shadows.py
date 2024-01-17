@@ -65,6 +65,6 @@ def import_outdoor_data():
    
     test_dataset = DatasetWithFilepaths(test_image_paths, transform=transform)
 
-    test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=64, shuffle=False, num_workers=6)
     
     return test_loader
