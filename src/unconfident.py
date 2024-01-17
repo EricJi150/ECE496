@@ -78,11 +78,11 @@ def test_path(model, test_dataloader, save_path):
 
     misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
     misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
-    roc_curve.full_test(model, misclassified_test_loader, "shadows/misclassified_outdoor")
+    roc_curve.full_test(model, misclassified_test_loader, save_to_file="shadows/roc/misclassified_outdoor")
 
     unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
     unconfident_test_loader = DataLoader(dataset=unconfident_test_dataset, batch_size=64, shuffle=False, num_workers=6)
-    roc_curve.full_test(model, unconfident_test_loader, "shadows/unconfident_outdoor")
+    roc_curve.full_test(model, unconfident_test_loader, save_to_file="shadows/roc/unconfident_outdoor")
     
 
 def main():
