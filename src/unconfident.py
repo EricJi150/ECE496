@@ -47,8 +47,6 @@ def test_path(model, test_dataloader, save_path):
             unconfident_probabilities += [probabilities[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             print(unconfident_probabilities)
 
-            return
-
             misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
             misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
 
@@ -69,6 +67,7 @@ def test_path(model, test_dataloader, save_path):
     fn = conf_matrix[0,1]
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
 
+    return
 
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
     with open('shadows/pickle/misclassified_shadow_outdoor.pkl', 'wb') as f:
