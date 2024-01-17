@@ -32,7 +32,7 @@ class DatasetWithFilepaths(Dataset):
         image_filepath = self.image_paths[idx]
         image = self.transform(Image.open(image_filepath).convert('RGB'))
         label = image_filepath.split("/")[-2]
-        class_to_idx = {'gen':0,'real':1}
+        class_to_idx = {'gen':1,'real':0}
         label = class_to_idx[label]
         return image_filepath, image, label
     
