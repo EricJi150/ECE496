@@ -2,11 +2,14 @@ import os
 import torch
 import pickle
 from tqdm import tqdm
+from torchvision import transforms
+from torch.utils.data import DataLoader, Dataset
 from architectures import ResNet18_2
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 from data import make_dataset_shadows
+import roc_curve
 
 def test_path(model, test_dataloader, save_path):
     margin = 0.445
@@ -66,23 +69,20 @@ def test_path(model, test_dataloader, save_path):
     with open('shadows/pickle/unconfident_shadow_outdoor.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
 
-    unconfident_all_labels = torch.cat((unconfident_all_labels, [labels[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]))
-    unconfident_all_pred_probs = torch.cat((unconfident_all_pred_probs, [outputs[idx].data for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]))
+    transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                 std= [0.229, 0.224, 0.225]),
+            make_dataset_shadows.concat_fft(),    
+        ])
 
-    fpr, tpr, thresholds = roc_curve(all_labels.cpu(), unconfident_all_pred_probs.cpu(), unconfident_pos_label = 1)
-    roc_auc = auc(fpr, tpr)
-    fig = plt.figure()
-    lw = 2
-    plt.plot(fpr, tpr, color='darkorange', lw=lw, label='ROC curve (area = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title(f'Receiver Operating Characteristic for Unconfident Test Set ')
-    plt.legend(loc="lower right")
-    plt.show()
-    fig.savefig('shadows/roc/misclassified_outdoor',dpi=200)
+    misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
+    misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+    roc_curve.full_test(model, misclassified_test_loader, "shadows/misclassified_outdoor")
+
+    unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
+    unconfident_test_loader = DataLoader(dataset=unconfident_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+    roc_curve.full_test(model, unconfident_test_loader, "shadows/unconfident_outdoor")
     
 
 def main():
