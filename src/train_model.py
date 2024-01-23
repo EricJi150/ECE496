@@ -32,11 +32,6 @@ def main():
     elif args.dataset == "outdoor":
         train_loader, val_loader, test_loader = make_dataset_shadows.import_outdoor_data()
 
-    path, image, label = next(iter(train_loader))
-
-    print(path, image.shape, label)
-    return
-
     #read config file
     config_file_name = args.config
     config_file_name += '.yml'

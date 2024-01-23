@@ -143,6 +143,11 @@ def main():
     save_path = os.path.join('../models','Shadows'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
+
+    path, image, label = next(iter(test_loader))
+    print(path, image.shape, label)
+    return
+
     test_path(model, test_loader)
 
 if __name__ == "__main__":
