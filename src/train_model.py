@@ -5,7 +5,7 @@ import wandb
 import argparse
 import numpy as np
 from tqdm import tqdm
-from architectures import ResNet18_5
+from architectures import ResNet18_2
 from data import make_dataset
 from data import make_dataset_shadows
 
