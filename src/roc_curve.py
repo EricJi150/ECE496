@@ -34,7 +34,7 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None, title 
             probabilities = nn.Softmax(dim = 1)(predictions)
             generated_probabilities = probabilities[:, 1]
 
-            predicted_labels = torch.argmax(predictions, dim = 1)
+            predicted_labels = torch.argmax(predictions, dim = -1)
             
             total += labels.size(0)
             
@@ -45,28 +45,6 @@ def full_test(model, test_dataloader, mode = "Full", save_to_file = None, title 
             all_labels = torch.cat((all_labels, labels))
             
             all_generated_probs = torch.cat((all_generated_probs, generated_probabilities))
-            
-    # conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
-    # if mode == "Misclassified":
-    #     print(f"Only Misclassified Test Set Confusion Matrix for:")
-    # elif mode == "Easy":
-    #     print("Easy (No Misclassified or Unconfident) Confusion Matrix:")
-    # elif mode == "Unconfident":
-    #     print("Only Unconfident Test Set Confusion Matrix:")
-    # elif mode == "Misclassified and Unconfident":
-    #     print("Both Misclassified and Unconfident Test Set Confusion Matrix:")
-    # elif mode == "Full":
-    #     print("Full Test Set Confusion Matrix:")
-    # print(conf_matrix)
-    # print(f"{conf_matrix[0].sum().item()} real images, {conf_matrix[1].sum().item()} generated images")
-    # tn = conf_matrix[1,1]
-    # tp = conf_matrix[0,0]
-    # fp = conf_matrix[1,0]
-    # fn = conf_matrix[0,1]
-    # print(f"TP: {tp}, FP: {fp}, FN: {fn}, TN: {tn}")
-    # print(f"Precision: {tp/(tp+fp)}, Recall: {tp/(tp+fn)}")
-    # accuracy = 100 * correct / total
-    # print(f"accuracy: {accuracy}")
     
     fpr, tpr, thresholds = roc_curve(all_labels.cpu(), all_generated_probs.cpu(), pos_label = 1)
     roc_auc = auc(fpr, tpr)
