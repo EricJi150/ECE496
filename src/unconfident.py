@@ -57,11 +57,7 @@ def test_path(model, test_dataloader, save_path):
     conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
     print(conf_matrix)
     print(f"{conf_matrix[0].sum().item()} generated images, {conf_matrix[1].sum().item()} real images")
-    # flipped
-    # tp = conf_matrix[1,1]
-    # tn = conf_matrix[0,0]
-    # fp = conf_matrix[0,1]
-    # fn = conf_matrix[1,0]
+
     tp = conf_matrix[0,0]
     tn = conf_matrix[1,1]
     fp = conf_matrix[1,0]
@@ -69,9 +65,9 @@ def test_path(model, test_dataloader, save_path):
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    with open('shadows/pickle/misclassified_shadow_kadinsky_indoor', 'wb') as f:
+    with open('shadows/pickle/FFT_Dalle_Indoor_Misclassified', 'wb') as f:
         pickle.dump(misclassified_paths, f)
-    with open('shadows/pickle/unconfident_shadow_kadinsky_indoor.pkl', 'wb') as f:
+    with open('shadows/pickle/FFT_Dalle_Indoor_Unconfident.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
 
     transform = transforms.Compose([
@@ -88,17 +84,17 @@ def test_path(model, test_dataloader, save_path):
     misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
     unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
-    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/misclassified_kadinsky_indoor", title='ROC for Misclassified Kadinsky(Indoor) Set')
-    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/unconfident_kadinsky_indoor", title='ROC for Unconfident/Misclassified Kadinsky(Indoor) Set')
+    roc_curve.full_test(model, misclassified_test_loader, mode="misclassified", save_to_file="shadows/roc/FFT_Dalle_Indoor_Misclassified", title='ROC for Misclassified Dalle(Indoor) Set')
+    roc_curve.full_test(model, unconfident_misclassified_test_loader, mode="unconfident", save_to_file="shadows/roc/FFT_Dalle_Indoor_Unconfident", title='ROC for Unconfident/Misclassified Dalle(Indoor) Set')
     
 
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     print(device)
     model =  ResNet18_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'two'+'_'+'indoor')
+    save_path = os.path.join('../models','Shadows'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
-    test_loader = make_dataset_shadows.import_data()
+    test_loader = make_dataset_shadows.import_test_data()
     test_path(model, test_loader, ' ')
 
 if __name__ == "__main__":
