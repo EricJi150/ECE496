@@ -1,0 +1,10 @@
+cuda:0
+Train size: 560000
+Valid size: 96000
+Test Size : 107948
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 123, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 49, in main
+    model =  ResNet18_5().to(device)
+NameError: name 'ResNet18_5' is not defined
