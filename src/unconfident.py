@@ -46,7 +46,7 @@ def test_path(model, test_dataloader):
             all_predicted = torch.cat((all_predicted, predicted_labels))
             all_labels = torch.cat((all_labels, labels))
 
-            for i in len (predicted_labels):
+            for i in range(len(predicted_labels)):
                 print(predicted_labels[i], probabilities[i])
 
     
