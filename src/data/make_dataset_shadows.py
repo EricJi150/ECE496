@@ -119,7 +119,7 @@ def import_indoor_data():
     
     return train_loader, val_loader, test_loader
 
-def import_test_data():
+def import_outdoor_data():
     transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -180,7 +180,7 @@ def import_test_data():
     
     return train_loader, val_loader, test_loader
 
-def import_outdoor_data():
+def import_test_data():
     transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],
