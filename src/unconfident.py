@@ -46,6 +46,9 @@ def test_path(model, test_dataloader):
             all_predicted = torch.cat((all_predicted, predicted_labels))
             all_labels = torch.cat((all_labels, labels))
 
+    print(all_predicted.cpu())
+    return
+
     conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
     print(conf_matrix)
     print(f"{conf_matrix[0].sum().item()} generated images, {conf_matrix[1].sum().item()} real images")
@@ -137,9 +140,6 @@ def main():
     save_path = os.path.join('../models','Shadows'+'_'+'indoor')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
-    paths, images, labels = next(iter(test_loader))
-    print(labels)
-    return
     test_path(model, test_loader)
 
 if __name__ == "__main__":
