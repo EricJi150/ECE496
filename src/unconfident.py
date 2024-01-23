@@ -98,7 +98,8 @@ def full_test(model, test_dataloader, save_to_file = None, title = "title"):
         
             predictions = model(images)
             
-            probabilities = torch.nn.functional.softmax(dim = 1)(predictions)
+            probabilities = torch.nn.functional.softmax(predictions.data, 1)
+            # probabilities = Softmax(dim = 1)(predictions)
             generated_probabilities = probabilities[:, 1]
             predicted_labels = torch.argmax(predictions, dim = -1)
             
@@ -123,7 +124,7 @@ def full_test(model, test_dataloader, save_to_file = None, title = "title"):
     plt.title(title)
     plt.legend(loc="lower right")
     plt.show()
-    
+
     if save_to_file is not None:
         print("saving figure")
         fig.savefig(save_to_file,dpi=200)
