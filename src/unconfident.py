@@ -1,5 +1,6 @@
 import os
 import torch
+import numpy as np
 import pickle
 from tqdm import tqdm
 from torchvision import transforms
@@ -47,7 +48,7 @@ def test_path(model, test_dataloader):
             all_labels = torch.cat((all_labels, labels))
 
             for i in range(len(predicted_labels)):
-                print(predicted_labels[i], probabilities[i])
+                print(labels[i].numpy(), predicted_labels[i].numpy(), probabilities[i].numpy())
 
     
     return
