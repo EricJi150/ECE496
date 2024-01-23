@@ -46,7 +46,7 @@ def main():
     gamma_ = config["gamma"]
 
     #setup model
-    model =  ResNet18_5().to(device)
+    model =  ResNet18_2().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
