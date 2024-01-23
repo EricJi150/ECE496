@@ -46,7 +46,10 @@ def test_path(model, test_dataloader):
             all_predicted = torch.cat((all_predicted, predicted_labels))
             all_labels = torch.cat((all_labels, labels))
 
-    print(all_predicted.cpu().data)
+            for i in len (predicted_labels):
+                print(predicted_labels[i], probabilities[i])
+
+    
     return
 
     conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
