@@ -7,6 +7,7 @@ import numpy as np
 from tqdm import tqdm
 from architectures import ResNet18_5
 from data import make_dataset
+from data import make_dataset_shadows
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
 wandb.init(project='Shadows Dont Lie')
@@ -20,16 +21,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("dataset", help="Name of dataset")
-    parser.add_argument("channels", help="Number of channels")
+    # parser.add_argument("channels", help="Number of channels")
     args = parser.parse_args()
-    print(args.config, args.dataset, args.channels)
+    # print(args.config, args.dataset, args.channels)
 
     #import data
     # train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
     if args.dataset == "indoor":
-        train_loader, val_loader, test_loader = make_dataset.import_indoor_data()
+        train_loader, val_loader, test_loader = make_dataset_shadows.import_indoor_data()
     elif args.dataset == "outdoor":
-        train_loader, val_loader, test_loader = make_dataset.import_outdoor_data()
+        train_loader, val_loader, test_loader = make_dataset_shadows.import_outdoor_data()
 
     #read config file
     config_file_name = args.config
@@ -66,7 +67,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models','Shadows'+args.channels+'_'+args.dataset)
+            save_path = os.path.join('../models','Shadows'+'_'+args.dataset)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy
@@ -90,7 +91,7 @@ def train(train_loader, model, criterion, optimizer):
     epoch_loss = 0.0
 
     it_train = tqdm(enumerate(train_loader), total=len(train_loader), desc="Training ...", position = 1)
-    for i, (images, labels) in it_train:
+    for i, (paths, images, labels) in it_train:
         images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         prediction = model(images)
@@ -107,7 +108,7 @@ def eval(data_loader, model):
     total = 0
 
     it_test = tqdm(enumerate(data_loader), total=len(data_loader), desc="Validating ...", position = 1)
-    for i, (images, labels) in it_test:
+    for i, (paths, images, labels) in it_test:
       images, labels = images.to(device), labels.to(device)
       with torch.no_grad():
         output = model(images)
