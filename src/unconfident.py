@@ -30,17 +30,17 @@ def test_path(model, test_dataloader):
 
             outputs = model(images)
 
-            probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
+            probabilities = torch.nn.Softmax(dim = 1)(outputs.data)
 
             margin = 0.435
 
-            unconfident_indices_real = (probabilities > 0.5) & (probabilities < 0.5 + margin) & (labels == 1)
-            unconfident_indices_gen = (probabilities < 0.5) & (probabilities > 0.5 - margin) & (labels == 0)
-            unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
-            unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
+            # unconfident_indices_real = (probabilities > 0.5) & (probabilities < 0.5 + margin) & (labels == 1)
+            # unconfident_indices_gen = (probabilities < 0.5) & (probabilities > 0.5 - margin) & (labels == 0)
+            # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
+            # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
-            misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
-            misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
+            # misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
+            # misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
 
             predicted_labels = torch.argmax(outputs, dim = -1)
             all_predicted = torch.cat((all_predicted, predicted_labels))
