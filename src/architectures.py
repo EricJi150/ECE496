@@ -5,7 +5,7 @@ import torch.nn as nn
 '''
 Modified ResNet-50 to support multiclass 2 channel input
 '''
-class ResNet18_2(nn.Module):
+class ResNet50_2(nn.Module):
     def __init__(self):
         super(ResNet18_2, self).__init__()
         self.model = torchvision.models.resnet50(pretrained = False)

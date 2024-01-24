@@ -6,6 +6,7 @@ import argparse
 import numpy as np
 from tqdm import tqdm
 from architectures import ResNet18_2
+from architectures import ResNet50_2
 from data import make_dataset
 from data import make_dataset_shadows
 
@@ -21,6 +22,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("dataset", help="Name of dataset")
+    parser.add_argument("layers", help="Number of layers")
     # parser.add_argument("channels", help="Number of channels")
     args = parser.parse_args()
     # print(args.config, args.dataset, args.channels)
@@ -46,7 +48,10 @@ def main():
     gamma_ = config["gamma"]
 
     #setup model
-    model =  ResNet18_2().to(device)
+    if args.layers == "18":
+        model =  ResNet18_2().to(device)
+    if args.layers == "50":
+        model =  ResNet50_2().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
