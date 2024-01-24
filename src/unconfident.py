@@ -33,7 +33,7 @@ def test_path(model, test_dataloader, supplement_dataloader):
 
             real_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
 
-            margin = 0.435
+            margin = 0.45
 
             # unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
             # unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
@@ -92,7 +92,7 @@ def test_path(model, test_dataloader, supplement_dataloader):
 
     dataloaders = [test_dataloader, unconfident_misclassified_real_supplement_loader]
 
-    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Dalle_Indoor", title='ROC for DeepFloyd(Outdoor) Test Set')
+    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_DeepFloyd_Outdoor", title='ROC for DeepFloyd(Outdoor) Test Set')
     
 
 def full_test(model, dataloaders, save_to_file = None, title = "title"):
