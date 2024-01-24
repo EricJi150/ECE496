@@ -30,25 +30,25 @@ def test_path(model, test_dataloader):
 
             outputs = model(images)
 
-            probabilities = torch.nn.Softmax(dim = 1)(outputs.data)
+            # probabilities = torch.nn.Softmax(dim = 1)(outputs.data)
+            # gen_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,0]
 
-            margin = 0.435
+            # margin = 0.435
 
-            # unconfident_indices_real = (probabilities > 0.5) & (probabilities < 0.5 + margin) & (labels == 1)
-            # unconfident_indices_gen = (probabilities < 0.5) & (probabilities > 0.5 - margin) & (labels == 0)
+            # unconfident_indices_real = (gen_probabilities > 0.5) & (gen_probabilities < 0.5 + margin) & (labels == 1)
+            # unconfident_indices_gen = (gen_probabilities < 0.5) & (gen_probabilities > 0.5 - margin) & (labels == 0)
             # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
-            # misclassified_indices = ((probabilities > 0.5) & (labels == 0)) | ((probabilities < 0.5) & (labels == 1))
+            # misclassified_indices = ((gen_probabilities > 0.5) & (labels == 0)) | ((gen_probabilities < 0.5) & (labels == 1))
             # misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
 
-            predicted_labels = torch.argmax(outputs, dim = -1)
+            predicted_labels = torch.argmax(outputs, dim = 1)
             all_predicted = torch.cat((all_predicted, predicted_labels))
             all_labels = torch.cat((all_labels, labels))
 
             # for i in range(len(predicted_labels)):
             #     print(labels[i].cpu().numpy(), predicted_labels[i].cpu().numpy(), probabilities[i].cpu().numpy())
-            print(labels[0].cpu().numpy(), predicted_labels[0].cpu().numpy(), probabilities[0].cpu().numpy(), paths[0])
 
     conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
     print(conf_matrix)
@@ -61,10 +61,10 @@ def test_path(model, test_dataloader):
     print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    with open('shadows/pickle/FFT_Dalle_Indoor_Misclassified', 'wb') as f:
-        pickle.dump(misclassified_paths, f)
-    with open('shadows/pickle/FFT_Dalle_Indoor_Unconfident.pkl', 'wb') as f:
-        pickle.dump(unconfident_paths, f)
+    # with open('shadows/pickle/FFT_Dalle_Indoor_Misclassified', 'wb') as f:
+    #     pickle.dump(misclassified_paths, f)
+    # with open('shadows/pickle/FFT_Dalle_Indoor_Unconfident.pkl', 'wb') as f:
+    #     pickle.dump(unconfident_paths, f)
 
     transform = transforms.Compose([
             transforms.ToTensor(),
@@ -73,15 +73,17 @@ def test_path(model, test_dataloader):
             make_dataset_shadows.concat_fft(),    
         ])
 
-    misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
-    unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
-    unconfident_misclassified_test_dataset = ConcatDataset([unconfident_test_dataset, misclassified_test_dataset])
+    # misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
+    # unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
+    # unconfident_misclassified_test_dataset = ConcatDataset([unconfident_test_dataset, misclassified_test_dataset])
 
-    misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
-    unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+    # misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+    # unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
-    full_test(model, misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Misclassified", title='ROC for Misclassified Dalle(Indoor) Set')
-    full_test(model, unconfident_misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Unconfident", title='ROC for Unconfident/Misclassified Dalle(Indoor) Set')
+    # full_test(model, misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Misclassified", title='ROC for Misclassified Dalle(Indoor) Set')
+    # full_test(model, unconfident_misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Unconfident", title='ROC for Unconfident/Misclassified Dalle(Indoor) Set')
+
+    full_test(model, test_dataloader, save_to_file="shadows/roc/FFT_Dalle_Indoor", title='ROC for Dalle(Indoor) Test Set')
     
 
 def full_test(model, test_dataloader, save_to_file = None, title = "title"):
@@ -102,10 +104,9 @@ def full_test(model, test_dataloader, save_to_file = None, title = "title"):
         
             predictions = model(images)
             
-            probabilities = torch.nn.functional.softmax(predictions.data, 1)
-            # probabilities = Softmax(dim = 1)(predictions)
-            generated_probabilities = probabilities[:, 1]
-            predicted_labels = torch.argmax(predictions, dim = -1)
+            probabilities = torch.nn.Softmax(dim = 1)(predictions.data)
+            generated_probabilities = probabilities[:, 0]
+            predicted_labels = torch.argmax(predictions, dim = 1)
             
             total += labels.size(0)
             correct += (predicted_labels == labels).sum().item()
@@ -114,7 +115,7 @@ def full_test(model, test_dataloader, save_to_file = None, title = "title"):
             all_generated_probs = torch.cat((all_generated_probs, generated_probabilities))
             all_predicted = torch.cat((all_predicted, predicted_labels))
     
-    fpr, tpr, thresholds = roc_curve(all_labels.cpu(), all_generated_probs.cpu(), pos_label = 1)
+    fpr, tpr, thresholds = roc_curve(all_labels.cpu(), all_generated_probs.cpu(), pos_label = 0)
     roc_auc = auc(fpr, tpr)
 
     fig = plt.figure()
