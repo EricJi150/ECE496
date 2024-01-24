@@ -36,6 +36,7 @@ def test_path(model, test_dataloader):
             real_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
 
             margin = 0.435
+            outdoor_margin = 0.435
 
             unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
             unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
@@ -67,11 +68,11 @@ def test_path(model, test_dataloader):
     # print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     # print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    with open('shadows/pickle/FFT_Outdoor_Misclassified', 'wb') as f:
+    with open('shadows/pickle/FFT_Indoor_Misclassified', 'wb') as f:
         pickle.dump(misclassified_paths, f)
-    with open('shadows/pickle/FFT_Outdoor_Unconfident.pkl', 'wb') as f:
+    with open('shadows/pickle/FFT_Indoor_Unconfident.pkl', 'wb') as f:
         pickle.dump(unconfident_paths, f)
-    with open('shadows/pickle/FFT_Outdoor_Real_Supplement.pkl', 'wb') as f:
+    with open('shadows/pickle/FFT_Indoor_Real_Supplement.pkl', 'wb') as f:
         pickle.dump(unconfident_misclassified_real_paths, f)
 
     transform = transforms.Compose([
@@ -89,7 +90,7 @@ def test_path(model, test_dataloader):
     unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     # full_test(model, misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Misclassified", title='ROC for Misclassified Dalle(Indoor) Set')
-    full_test(model, [unconfident_misclassified_test_loader], save_to_file="shadows/roc/FFT_Outdoor", title='ROC for Unconfident/Misclassified Outdoor Set')
+    full_test(model, [unconfident_misclassified_test_loader], save_to_file="shadows/roc/FFT_Indoor", title='ROC for Unconfident/Misclassified Indoor Set')
 
     # unconfident_misclassified_real_supplement_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_misclassified_real_paths, transform=transform)
     # unconfident_misclassified_real_supplement_loader = DataLoader(dataset=unconfident_misclassified_real_supplement_dataset, batch_size=64, shuffle=False, num_workers=6)
@@ -153,10 +154,10 @@ def full_test(model, dataloaders, save_to_file = None, title = "title"):
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model =  ResNet50_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'_'+'outdoor'+'_'+'50')
+    save_path = os.path.join('../models','Shadows'+'_'+'indoor'+'_'+'50')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
-    train_loader_supplement, val_loader_supplement, test_loader_supplement = make_dataset_shadows.import_outdoor_data()
+    train_loader_supplement, val_loader_supplement, test_loader_supplement = make_dataset_shadows.import_indoor_data()
     # path, image, label = next(iter(test_loader))
     # print(path, image.shape, label)
     # return
