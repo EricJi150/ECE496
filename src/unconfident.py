@@ -139,7 +139,7 @@ def full_test(model, test_dataloader, save_to_file = None, title = "title"):
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model =  ResNet18_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'_'+'indoor')
+    save_path = os.path.join('../models','Shadows'+'_'+'outdoor'+'_'+'50')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
 
