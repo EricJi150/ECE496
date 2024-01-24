@@ -100,7 +100,7 @@ def test_path(model, test_dataloader, supplement_dataloader):
     unconfident_misclassified_real_supplement_loader = DataLoader(dataset=unconfident_misclassified_real_supplement_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     dataloaders = [test_dataloader, unconfident_misclassified_real_supplement_loader]
-    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Kadinsky_Outdoor", title='ROC for Kadinsky(Outdoor) Test Set')
+    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Deepfloyd_Outdoor", title='ROC for Deepfloyd(Outdoor) Test Set')
     
 
 def full_test(model, dataloaders, save_to_file = None, title = "title"):
