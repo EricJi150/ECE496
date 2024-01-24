@@ -11,7 +11,8 @@ from sklearn.metrics import confusion_matrix
 
 from data import make_dataset_shadows
 
-def test_path(model, test_dataloader, supplement_dataloader):
+# def test_path(model, test_dataloader, supplement_dataloader):
+def test_path(model, test_dataloader):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     model.eval()
@@ -24,7 +25,8 @@ def test_path(model, test_dataloader, supplement_dataloader):
     all_labels = torch.tensor([]).to(device)
     
     with torch.no_grad():
-        for paths, images, labels  in tqdm(supplement_dataloader, desc="testing"):
+        # for paths, images, labels  in tqdm(supplement_dataloader, desc="testing"):
+        for paths, images, labels  in tqdm(test_dataloader, desc="testing"):
         
             images = images.to(device)
             labels = labels.to(device)
@@ -33,21 +35,21 @@ def test_path(model, test_dataloader, supplement_dataloader):
 
             real_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
 
-            margin = 0.45
-
-            # unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
-            # unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
-            # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
-            # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
-
-            # misclassified_indices = ((real_probabilities > 0.5) & (labels == 0)) | ((real_probabilities < 0.5) & (labels == 1))
-            # misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
+            margin = 0.435
 
             unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
+            unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
+            unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
+            unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
+
+            misclassified_indices = ((real_probabilities > 0.5) & (labels == 0)) | ((real_probabilities < 0.5) & (labels == 1))
+            misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
+
+            # unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
             unconfident_misclassified_real_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
 
-            misclassified_indices = (real_probabilities > 0.5) & (labels == 0)
-            unconfident_misclassified_real_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
+            misclassified_real_indices = (real_probabilities > 0.5) & (labels == 0)
+            unconfident_misclassified_real_paths += [paths[idx] for idx, val in enumerate(misclassified_real_indices.cpu()) if val]
 
             # predicted_labels = torch.argmax(outputs, dim = 1)
             # all_predicted = torch.cat((all_predicted, predicted_labels))
@@ -65,10 +67,12 @@ def test_path(model, test_dataloader, supplement_dataloader):
     # print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
     # print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
-    # with open('shadows/pickle/FFT_Dalle_Indoor_Misclassified', 'wb') as f:
-    #     pickle.dump(misclassified_paths, f)
-    # with open('shadows/pickle/FFT_Dalle_Indoor_Unconfident.pkl', 'wb') as f:
-    #     pickle.dump(unconfident_paths, f)
+    with open('shadows/pickle/FFT_Outdoor_Misclassified', 'wb') as f:
+        pickle.dump(misclassified_paths, f)
+    with open('shadows/pickle/FFT_Outdoor_Unconfident.pkl', 'wb') as f:
+        pickle.dump(unconfident_paths, f)
+    with open('shadows/pickle/FFT_Outdoor_Real_Supplement.pkl', 'wb') as f:
+        pickle.dump(unconfident_misclassified_real_paths, f)
 
     transform = transforms.Compose([
             transforms.ToTensor(),
@@ -77,22 +81,22 @@ def test_path(model, test_dataloader, supplement_dataloader):
             make_dataset_shadows.concat_fft(),    
         ])
 
-    # misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
-    # unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
-    # unconfident_misclassified_test_dataset = ConcatDataset([unconfident_test_dataset, misclassified_test_dataset])
+    misclassified_test_dataset = make_dataset_shadows.DatasetWithFilepaths(misclassified_paths, transform=transform)
+    unconfident_test_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_paths, transform=transform)
+    unconfident_misclassified_test_dataset = ConcatDataset([unconfident_test_dataset, misclassified_test_dataset])
 
     # misclassified_test_loader = DataLoader(dataset=misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
-    # unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
+    unconfident_misclassified_test_loader = DataLoader(dataset=unconfident_misclassified_test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     # full_test(model, misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Misclassified", title='ROC for Misclassified Dalle(Indoor) Set')
-    # full_test(model, unconfident_misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Unconfident", title='ROC for Unconfident/Misclassified Dalle(Indoor) Set')
+    full_test(model, [unconfident_misclassified_test_loader], save_to_file="shadows/roc/FFT_Outdoor", title='ROC for Unconfident/Misclassified Outdoor Set')
 
-    unconfident_misclassified_real_supplement_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_misclassified_real_paths, transform=transform)
-    unconfident_misclassified_real_supplement_loader = DataLoader(dataset=unconfident_misclassified_real_supplement_dataset, batch_size=64, shuffle=False, num_workers=6)
+    # unconfident_misclassified_real_supplement_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_misclassified_real_paths, transform=transform)
+    # unconfident_misclassified_real_supplement_loader = DataLoader(dataset=unconfident_misclassified_real_supplement_dataset, batch_size=64, shuffle=False, num_workers=6)
 
-    dataloaders = [test_dataloader, unconfident_misclassified_real_supplement_loader]
+    # dataloaders = [test_dataloader, unconfident_misclassified_real_supplement_loader]
 
-    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_DeepFloyd_Outdoor", title='ROC for DeepFloyd(Outdoor) Test Set')
+    # full_test(model, dataloaders, save_to_file="shadows/roc/FFT_DeepFloyd_Outdoor", title='ROC for DeepFloyd(Outdoor) Test Set')
     
 
 def full_test(model, dataloaders, save_to_file = None, title = "title"):
@@ -157,7 +161,8 @@ def main():
     # print(path, image.shape, label)
     # return
 
-    test_path(model, test_loader, test_loader_supplement)
+    # test_path(model, test_loader, test_loader_supplement)
+    test_path(model, test_loader_supplement)
 
 if __name__ == "__main__":
     main()
