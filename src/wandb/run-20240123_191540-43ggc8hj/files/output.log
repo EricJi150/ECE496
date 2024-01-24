@@ -1,0 +1,12 @@
+cuda:0
+Train size: 560000
+Valid size: 96000
+Test Size : 107948
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 128, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 54, in main
+    model =  ResNet50_2().to(device)
+  File "/home/ericji3/ECE496/ECE496/src/architectures.py", line 10, in __init__
+    super(ResNet18_2, self).__init__()
+TypeError: super(type, obj): obj must be an instance or subtype of type
