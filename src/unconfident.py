@@ -11,55 +11,59 @@ from sklearn.metrics import confusion_matrix
 
 from data import make_dataset_shadows
 
-def test_path(model, test_dataloader):
+def test_path(model, test_dataloader, supplement_dataloader):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     model.eval()
 
     misclassified_paths = []
     unconfident_paths = []
+    unconfident_misclassified_real_paths = []
 
     all_predicted = torch.tensor([]).to(device)
     all_labels = torch.tensor([]).to(device)
     
     with torch.no_grad():
-        for paths, images, labels  in tqdm(test_dataloader, desc="testing"):
+        for paths, images, labels  in tqdm(supplement_dataloader, desc="testing"):
         
             images = images.to(device)
             labels = labels.to(device)
 
             outputs = model(images)
 
-            # probabilities = torch.nn.Softmax(dim = 1)(outputs.data)
-            # gen_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,0]
+            real_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
 
-            # margin = 0.435
+            margin = 0.435
 
-            # unconfident_indices_real = (gen_probabilities > 0.5) & (gen_probabilities < 0.5 + margin) & (labels == 1)
-            # unconfident_indices_gen = (gen_probabilities < 0.5) & (gen_probabilities > 0.5 - margin) & (labels == 0)
+            # unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
+            # unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
             # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
             # unconfident_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_gen.cpu()) if val]
 
-            # misclassified_indices = ((gen_probabilities > 0.5) & (labels == 0)) | ((gen_probabilities < 0.5) & (labels == 1))
+            # misclassified_indices = ((real_probabilities > 0.5) & (labels == 0)) | ((real_probabilities < 0.5) & (labels == 1))
             # misclassified_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
 
-            predicted_labels = torch.argmax(outputs, dim = 1)
-            all_predicted = torch.cat((all_predicted, predicted_labels))
-            all_labels = torch.cat((all_labels, labels))
+            unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
+            unconfident_misclassified_real_paths += [paths[idx] for idx, val in enumerate(unconfident_indices_real.cpu()) if val]
 
-            # for i in range(len(predicted_labels)):
-            #     print(labels[i].cpu().numpy(), predicted_labels[i].cpu().numpy(), probabilities[i].cpu().numpy())
+            misclassified_indices = (real_probabilities > 0.5) & (labels == 0)
+            unconfident_misclassified_real_paths += [paths[idx] for idx, val in enumerate(misclassified_indices.cpu()) if val]
 
-    conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
-    print(conf_matrix)
-    print(f"{conf_matrix[0].sum().item()} generated images, {conf_matrix[1].sum().item()} real images")
+            # predicted_labels = torch.argmax(outputs, dim = 1)
+            # all_predicted = torch.cat((all_predicted, predicted_labels))
+            # all_labels = torch.cat((all_labels, labels))
 
-    tp = conf_matrix[0,0]
-    tn = conf_matrix[1,1]
-    fp = conf_matrix[1,0]
-    fn = conf_matrix[0,1]
-    print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
-    print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
+
+    # conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
+    # print(conf_matrix)
+    # print(f"{conf_matrix[0].sum().item()} generated images, {conf_matrix[1].sum().item()} real images")
+
+    # tp = conf_matrix[0,0]
+    # tn = conf_matrix[1,1]
+    # fp = conf_matrix[1,0]
+    # fn = conf_matrix[0,1]
+    # print(f"TP: {tp}, TN: {tn}, FP: {fp}, FN: {fn}")
+    # print(f"{len(misclassified_paths) = }, {len(unconfident_paths) = }")
 
     # with open('shadows/pickle/FFT_Dalle_Indoor_Misclassified', 'wb') as f:
     #     pickle.dump(misclassified_paths, f)
@@ -83,10 +87,15 @@ def test_path(model, test_dataloader):
     # full_test(model, misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Misclassified", title='ROC for Misclassified Dalle(Indoor) Set')
     # full_test(model, unconfident_misclassified_test_loader, save_to_file="shadows/roc/FFT_Dalle_Indoor_Unconfident", title='ROC for Unconfident/Misclassified Dalle(Indoor) Set')
 
-    full_test(model, test_dataloader, save_to_file="shadows/roc/FFT_Dalle_Indoor", title='ROC for Dalle(Indoor) Test Set')
+    unconfident_misclassified_real_supplement_dataset = make_dataset_shadows.DatasetWithFilepaths(unconfident_misclassified_real_paths, transform=transform)
+    unconfident_misclassified_real_supplement_loader = DataLoader(dataset=unconfident_misclassified_real_supplement_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    dataloaders = [test_dataloader, unconfident_misclassified_real_supplement_loader]
+
+    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Dalle_Indoor", title='ROC for DeepFloyd(Outdoor) Test Set')
     
 
-def full_test(model, test_dataloader, save_to_file = None, title = "title"):
+def full_test(model, dataloaders, save_to_file = None, title = "title"):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
 
@@ -98,22 +107,23 @@ def full_test(model, test_dataloader, save_to_file = None, title = "title"):
     all_generated_probs = torch.tensor([]).to(device)
     
     with torch.no_grad():
-        for paths, images, labels in tqdm(test_dataloader, desc="testing"):
-            images = images.float().to(device)
-            labels = labels.to(device)
-        
-            predictions = model(images)
+        for test_dataloader in dataloaders:
+            for paths, images, labels in tqdm(test_dataloader, desc="testing"):
+                images = images.float().to(device)
+                labels = labels.to(device)
             
-            probabilities = torch.nn.Softmax(dim = 1)(predictions.data)
-            generated_probabilities = probabilities[:, 0]
-            predicted_labels = torch.argmax(predictions, dim = 1)
-            
-            total += labels.size(0)
-            correct += (predicted_labels == labels).sum().item()
-            
-            all_labels = torch.cat((all_labels, labels))
-            all_generated_probs = torch.cat((all_generated_probs, generated_probabilities))
-            all_predicted = torch.cat((all_predicted, predicted_labels))
+                predictions = model(images)
+                
+                probabilities = torch.nn.Softmax(dim = 1)(predictions.data)
+                generated_probabilities = probabilities[:, 0]
+                predicted_labels = torch.argmax(predictions, dim = 1)
+                
+                total += labels.size(0)
+                correct += (predicted_labels == labels).sum().item()
+                
+                all_labels = torch.cat((all_labels, labels))
+                all_generated_probs = torch.cat((all_generated_probs, generated_probabilities))
+                all_predicted = torch.cat((all_predicted, predicted_labels))
     
     fpr, tpr, thresholds = roc_curve(all_labels.cpu(), all_generated_probs.cpu(), pos_label = 0)
     roc_auc = auc(fpr, tpr)
@@ -142,12 +152,12 @@ def main():
     save_path = os.path.join('../models','Shadows'+'_'+'outdoor'+'_'+'50')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
-
+    train_loader_supplement, val_loader_supplement, test_loader_supplement = make_dataset_shadows.import_outdoor_data()
     # path, image, label = next(iter(test_loader))
     # print(path, image.shape, label)
     # return
 
-    test_path(model, test_loader)
+    test_path(model, test_loader, test_loader_supplement)
 
 if __name__ == "__main__":
     main()
