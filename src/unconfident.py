@@ -30,7 +30,7 @@ def test_path(model, test_dataloader):
 
             outputs = model(images)
 
-            probabilities = torch.nn.Softmax(dim = 1)(outputs.data)
+            probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
 
             margin = 0.435
 
