@@ -72,7 +72,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models','Shadows'+'_'+args.dataset)
+            save_path = os.path.join('../models','Shadows'+'_'+args.dataset+'_'+args.layers)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy
