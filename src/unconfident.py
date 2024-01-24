@@ -30,7 +30,7 @@ def test_path(model, test_dataloader):
 
             outputs = model(images)
 
-            probabilities = torch.nn.functional.softmax(outputs.data, 1)[:,1]
+            probabilities = torch.nn.Softmax(dim = 1)(outputs.data)
 
             margin = 0.435
 
@@ -46,11 +46,9 @@ def test_path(model, test_dataloader):
             all_predicted = torch.cat((all_predicted, predicted_labels))
             all_labels = torch.cat((all_labels, labels))
 
-            for i in range(len(predicted_labels)):
-                print(labels[i].cpu().numpy(), predicted_labels[i].cpu().numpy(), probabilities[i].cpu().numpy())
-
-    
-    return
+            # for i in range(len(predicted_labels)):
+            #     print(labels[i].cpu().numpy(), predicted_labels[i].cpu().numpy(), probabilities[i].cpu().numpy())
+            print(labels[0].cpu().numpy(), predicted_labels[0].cpu().numpy(), probabilities[0].cpu().numpy(), paths[0])
 
     conf_matrix = confusion_matrix(all_labels.cpu(), all_predicted.cpu())
     print(conf_matrix)
@@ -144,9 +142,9 @@ def main():
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
 
-    path, image, label = next(iter(test_loader))
-    print(path, image.shape, label)
-    return
+    # path, image, label = next(iter(test_loader))
+    # print(path, image.shape, label)
+    # return
 
     test_path(model, test_loader)
 
