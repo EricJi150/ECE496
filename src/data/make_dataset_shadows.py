@@ -199,7 +199,7 @@ def import_test_data():
     kadinsky_outdoor_path = '/data/amitabh3/kadinsky_unconfident_gen_images_outdoor/test'
 
     #set the path
-    test_path = kadinsky_indoor_path
+    test_path = deepfloyd_outdoor_path
 
     test_image_paths = []
 

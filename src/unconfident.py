@@ -40,7 +40,7 @@ def test_path(model, test_dataloader, supplement_dataloader):
             indoor_margin = 0.405
             outdoor_margin = 0.435
 
-            margin = indoor_margin
+            margin = outdoor_margin
 
             # unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
             # unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
@@ -100,7 +100,7 @@ def test_path(model, test_dataloader, supplement_dataloader):
     unconfident_misclassified_real_supplement_loader = DataLoader(dataset=unconfident_misclassified_real_supplement_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     dataloaders = [test_dataloader, unconfident_misclassified_real_supplement_loader]
-    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Kadinsky_Indoor", title='ROC for Kadinsky(Indoor) Test Set')
+    full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Kadinsky_Outdoor", title='ROC for Kadinsky(Outdoor) Test Set')
     
 
 def full_test(model, dataloaders, save_to_file = None, title = "title"):
@@ -157,10 +157,10 @@ def full_test(model, dataloaders, save_to_file = None, title = "title"):
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model =  ResNet50_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'_'+'indoor'+'_'+'50')
+    save_path = os.path.join('../models','Shadows'+'_'+'outdoor'+'_'+'50')
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
-    train_loader_supplement, val_loader_supplement, test_loader_supplement = make_dataset_shadows.import_indoor_data()
+    train_loader_supplement, val_loader_supplement, test_loader_supplement = make_dataset_shadows.import_outdoor_data()
     # path, image, label = next(iter(test_loader))
     # print(path, image.shape, label)
     # return
