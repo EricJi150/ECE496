@@ -36,7 +36,7 @@ def test_path(model, test_dataloader):
             real_probabilities = torch.nn.Softmax(dim = 1)(outputs.data)[:,1]
 
             margin = 0.435
-            outdoor_margin = 0.435
+            outdoor_margin = 0.410
 
             unconfident_indices_real = (real_probabilities > 0.5) & (real_probabilities < 0.5 + margin) & (labels == 1)
             unconfident_indices_gen = (real_probabilities < 0.5) & (real_probabilities > 0.5 - margin) & (labels == 0)
