@@ -4,7 +4,7 @@ import pickle
 from tqdm import tqdm
 from torchvision import transforms
 from torch.utils.data import ConcatDataset, DataLoader
-from architectures import ResNet18_2
+from architectures import ResNet18_2, ResNet50_2
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
