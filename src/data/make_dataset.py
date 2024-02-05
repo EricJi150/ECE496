@@ -92,7 +92,7 @@ def import_train_multi():
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std= [0.229, 0.224, 0.225]),
-            concat_fft(),    
+            # concat_fft(),    
         ])
 
     train_dataset0 = ImageFolder(root='../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/ADM', transform = transform)

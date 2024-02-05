@@ -7,11 +7,12 @@ import numpy as np
 from tqdm import tqdm
 from architectures import ResNet18_2
 from architectures import ResNet50_2
+from architectures import ResNet18_3_Multi
 from data import make_dataset
 from data import make_dataset_shadows
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
-wandb.init(project='Shadows Dont Lie')
+wandb.init(project='2D-FACT-Multi')
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
@@ -22,17 +23,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("dataset", help="Name of dataset")
-    parser.add_argument("layers", help="Number of layers")
-    # parser.add_argument("channels", help="Number of channels")
+    # parser.add_argument("layers", help="Number of layers")
+    parser.add_argument("channels", help="Number of channels")
     args = parser.parse_args()
-    # print(args.config, args.dataset, args.channels)
+    print(args.config, args.dataset, args.channels)
 
     #import data
-    # train_loader, val_loader, test_loader = make_dataset.import_data(args.dataset)
-    if args.dataset == "indoor":
-        train_loader, val_loader, test_loader = make_dataset_shadows.import_indoor_data()
-    elif args.dataset == "outdoor":
-        train_loader, val_loader, test_loader = make_dataset_shadows.import_outdoor_data()
+    train_loader, val_loader, test_loader = make_dataset.import_train_multi()
+    # if args.dataset == "indoor":
+    #     train_loader, val_loader, test_loader = make_dataset_shadows.import_indoor_data()
+    # elif args.dataset == "outdoor":
+    #     train_loader, val_loader, test_loader = make_dataset_shadows.import_outdoor_data()
 
     #read config file
     config_file_name = args.config
@@ -48,10 +49,11 @@ def main():
     gamma_ = config["gamma"]
 
     #setup model
-    if args.layers == "18":
-        model =  ResNet18_2().to(device)
-    if args.layers == "50":
-        model =  ResNet50_2().to(device)
+    # if args.layers == "18":
+    #     model =  ResNet18_2().to(device)
+    # if args.layers == "50":
+    #     model =  ResNet50_2().to(device)
+    model = ResNet18_3_Multi
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
@@ -72,7 +74,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models','Shadows'+'_'+args.dataset+'_'+args.layers)
+            save_path = os.path.join('../models/Multi','2D-FACT'+'_'+args.config+'_Multi'+args.layers)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy
@@ -81,8 +83,8 @@ def main():
             curr_patience += 1
 
         #early stopping
-        # if (curr_patience == patience):
-            # break
+        if (curr_patience == patience):
+            break
 
     #test best model
     model.load_state_dict(torch.load(save_path))
