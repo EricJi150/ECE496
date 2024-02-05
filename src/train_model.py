@@ -53,7 +53,7 @@ def main():
     #     model =  ResNet18_2().to(device)
     # if args.layers == "50":
     #     model =  ResNet50_2().to(device)
-    model = ResNet18_3_Multi
+    model = ResNet18_3_Multi().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
