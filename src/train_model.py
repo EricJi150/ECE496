@@ -115,7 +115,7 @@ def eval(data_loader, model):
     total = 0
 
     it_test = tqdm(enumerate(data_loader), total=len(data_loader), desc="Validating ...", position = 1)
-    for i, (paths, images, labels) in it_test:
+    for i, (images, labels) in it_test:
       images, labels = images.to(device), labels.to(device)
       with torch.no_grad():
         output = model(images)
