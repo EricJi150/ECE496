@@ -98,7 +98,7 @@ def train(train_loader, model, criterion, optimizer):
     epoch_loss = 0.0
 
     it_train = tqdm(enumerate(train_loader), total=len(train_loader), desc="Training ...", position = 1)
-    for i, (paths, images, labels) in it_train:
+    for i, (images, labels) in it_train:
         images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         prediction = model(images)
