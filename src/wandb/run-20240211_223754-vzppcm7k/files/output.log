@@ -1,0 +1,4 @@
+
+cuda:0
+usage: train_model.py [-h] config dataset
+train_model.py: error: unrecognized arguments: 2
