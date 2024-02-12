@@ -104,7 +104,7 @@ def test_path(model, test_dataloader, supplement_dataloader):
     full_test(model, dataloaders, save_to_file="shadows/roc/FFT_Kadinsky_Outdoor", title='ROC for Kadinsky(Outdoor) Test Set')
     
 
-def full_test(model, dataloaders, save_to_file = None, title = "title"):
+def full_test(model, dataloader, save_to_file = None, title = "title"):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
 
@@ -116,23 +116,22 @@ def full_test(model, dataloaders, save_to_file = None, title = "title"):
     all_generated_probs = torch.tensor([]).to(device)
     
     with torch.no_grad():
-        for test_dataloader in dataloaders:
-            for paths, images, labels in tqdm(test_dataloader, desc="testing"):
-                images = images.float().to(device)
-                labels = labels.to(device)
+        for paths, images, labels in tqdm(test_dataloader, desc="testing"):
+            images = images.float().to(device)
+            labels = labels.to(device)
+        
+            predictions = model(images)
             
-                predictions = model(images)
-                
-                probabilities = torch.nn.Softmax(dim = 1)(predictions.data)
-                generated_probabilities = probabilities[:, 0]
-                predicted_labels = torch.argmax(predictions, dim = 1)
-                
-                total += labels.size(0)
-                correct += (predicted_labels == labels).sum().item()
-                
-                all_labels = torch.cat((all_labels, labels))
-                all_generated_probs = torch.cat((all_generated_probs, generated_probabilities))
-                all_predicted = torch.cat((all_predicted, predicted_labels))
+            probabilities = torch.nn.Softmax(dim = 1)(predictions.data)
+            generated_probabilities = probabilities[:, 0]
+            predicted_labels = torch.argmax(predictions, dim = 1)
+            
+            total += labels.size(0)
+            correct += (predicted_labels == labels).sum().item()
+            
+            all_labels = torch.cat((all_labels, labels))
+            all_generated_probs = torch.cat((all_generated_probs, generated_probabilities))
+            all_predicted = torch.cat((all_predicted, predicted_labels))
     
     fpr, tpr, thresholds = roc_curve(all_labels.cpu(), all_generated_probs.cpu(), pos_label = 0)
     roc_auc = auc(fpr, tpr)
