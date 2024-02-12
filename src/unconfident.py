@@ -5,6 +5,7 @@ from tqdm import tqdm
 from torchvision import transforms
 from torch.utils.data import ConcatDataset, DataLoader
 from architectures import ResNet18_2, ResNet50_2
+from data import make_dataset_shadows
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
@@ -157,17 +158,10 @@ def full_test(model, dataloaders, save_to_file = None, title = "title"):
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model =  ResNet50_2().to(device)
-    save_path = os.path.join('../models','Shadows'+'_'+'Shadows_deepfloyd_indoor_large')
+    save_path = '../models/Shadows/Shadows_deepfloyd_indoor_large'
     # save_path = os.path.join('../models','Shadows'+'_'+'Shadows_kandinsky_indoor_large')
     model.load_state_dict(torch.load(save_path))
-    test_loader = import_test_data()
-    # train_loader_supplement, val_loader_supplement, test_loader_supplement = make_dataset_shadows.import_outdoor_data()
-    # path, image, label = next(iter(test_loader))
-    # print(path, image.shape, label)
-    # return
-
-    # test_path(model, test_loader, test_loader_supplement)
-    # test_path(model, test_loader_supplement)
+    test_loader = make_dataset_shadows.import_test_data()
     full_test(model, test_loader, )
 
 if __name__ == "__main__":
