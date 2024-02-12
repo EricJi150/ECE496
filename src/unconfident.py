@@ -116,7 +116,7 @@ def full_test(model, dataloader, save_to_file = None, title = "title"):
     all_generated_probs = torch.tensor([]).to(device)
     
     with torch.no_grad():
-        for paths, images, labels in tqdm(test_dataloader, desc="testing"):
+        for paths, images, labels in tqdm(dataloader, desc="testing"):
             images = images.float().to(device)
             labels = labels.to(device)
         
