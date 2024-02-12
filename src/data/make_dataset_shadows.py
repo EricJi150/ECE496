@@ -198,14 +198,22 @@ def import_test_data():
     firefly_outdoor_path = '/data/amitabh3/firefly_unconfident_gen_images_outdoor/test'
     kadinsky_outdoor_path = '/data/amitabh3/kadinsky_unconfident_gen_images_outdoor/test'
 
+    bedroom_test_path = "/data/amitabh3/bedroom_193k_prequalified/test"
+    dining_test_path = "/data/amitabh3/dining_room_prequalified/test"
+    living_test_path = "/data/amitabh3/living_187k_prequalified/test"
+    kitchen_test_path = "/data/amitabh3/kitchen_prequalified/test"
+    sdxl_paths = [bedroom_test_path, dining_test_path, living_test_path, kitchen_test_path, sdxl_paths]
+
+
     #set the path
-    test_path = deepfloyd_outdoor_path
+    test_path = sdxl_paths
 
     test_image_paths = []
 
-    for data_path in glob.glob(test_path + '/*'):
-        test_image_paths.append(glob.glob(data_path + '/*'))
-    test_image_paths = list(flatten(test_image_paths))
+    for datasets in test_path:
+        for data_path in glob.glob(datasets + '/*'):
+            test_image_paths.append(glob.glob(data_path + '/*'))
+        test_image_paths = list(flatten(test_image_paths))
 
     print("Test Size : {}".format(len(test_image_paths)))
 

@@ -125,8 +125,6 @@ def full_test(model, dataloader, save_to_file = None, title = "title"):
             probabilities = torch.nn.Softmax(dim = 1)(predictions.data)
             generated_probabilities = probabilities[:, 0]
             predicted_labels = torch.argmax(predictions, dim = 1)
-
-            print(predicted_labels)
             
             total += labels.size(0)
             correct += (predicted_labels == labels).sum().item()
