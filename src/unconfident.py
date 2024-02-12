@@ -171,7 +171,7 @@ def main():
     save_path = '../models/Shadows/Shadows_kandinsky_indoor_large'
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
-    full_test(model, test_loader, title= 'Kandinsky Indoor Large eval on SDXL')
+    full_test(model, test_loader, title= 'Kandinsky Indoor Large eval on SDXL', save_to_file="shadows/roc/FFT_Kadinsky_Indoor0")
 
 if __name__ == "__main__":
     main()
