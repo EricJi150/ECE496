@@ -13,7 +13,7 @@ from data import make_dataset
 from data import make_dataset_shadows
 
 wandb.login(key="76c1f7f13f849593c4dc0d5de21f718b76155fea")
-wandb.init(project='2D-FACT-Multi')
+wandb.init(project='Shadows Dont Lie')
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 print(device)
@@ -25,16 +25,16 @@ def main():
     parser.add_argument("config", help="Name of config file")
     parser.add_argument("dataset", help="Name of dataset")
     # parser.add_argument("layers", help="Number of layers")
-    parser.add_argument("channels", help="Number of channels")
+    # parser.add_argument("channels", help="Number of channels")
     args = parser.parse_args()
-    print(args.config, args.dataset, args.channels)
+    print(args.config, args.dataset)
 
     #import data
-    train_loader, val_loader, test_loader = make_dataset.import_train_multi()
-    # if args.dataset == "indoor":
-    #     train_loader, val_loader, test_loader = make_dataset_shadows.import_indoor_data()
-    # elif args.dataset == "outdoor":
-    #     train_loader, val_loader, test_loader = make_dataset_shadows.import_outdoor_data()
+    # train_loader, val_loader, test_loader = make_dataset.import_train_multi()
+    if args.dataset == "kandinsky_indoor_large":
+        train_loader, val_loader, test_loader = make_dataset_shadows.import_kandinsky_indoor_large_data()
+    elif args.dataset == "deepfloyd_indoor_large":
+        train_loader, val_loader, test_loader = make_dataset_shadows.import_deepfloyd_indoor_large_data()
 
     #read config file
     config_file_name = args.config
@@ -54,7 +54,7 @@ def main():
     #     model =  ResNet18_2().to(device)
     # if args.layers == "50":
     #     model =  ResNet50_2().to(device)
-    model = ResNet18_2_Multi().to(device)
+    model = ResNet50_2().to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=learn_rate)
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size_, gamma=gamma_)
     criterion = torch.nn.CrossEntropyLoss()
@@ -75,7 +75,7 @@ def main():
 
         #save best model
         if (val_accuracy > best_val_accuracy + min_delta):
-            save_path = os.path.join('../models/Multi','2D-FACT'+'_'+args.config+'_Multi'+args.channels)
+            save_path = os.path.join('../models/Shadows','Shadows'+'_'+args.dataset)
             torch.save(model.state_dict(), save_path)
             print("saved best model")
             best_val_accuracy = val_accuracy
@@ -84,8 +84,8 @@ def main():
             curr_patience += 1
 
         #early stopping
-        if (curr_patience == patience):
-            break
+        # if (curr_patience == patience):
+        #     break
 
     #test best model
     model.load_state_dict(torch.load(save_path))
@@ -99,8 +99,8 @@ def train(train_loader, model, criterion, optimizer):
     epoch_loss = 0.0
 
     it_train = tqdm(enumerate(train_loader), total=len(train_loader), desc="Training ...", position = 1)
-    for i, (images, labels) in it_train:
-        images, labels = images.to(device), labels.to(device)
+    for i, (paths, images, labels) in it_train:
+        paths, images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         prediction = model(images)
         loss = criterion(prediction, labels)
@@ -116,8 +116,8 @@ def eval(data_loader, model):
     total = 0
 
     it_test = tqdm(enumerate(data_loader), total=len(data_loader), desc="Validating ...", position = 1)
-    for i, (images, labels) in it_test:
-      images, labels = images.to(device), labels.to(device)
+    for i, (paths, images, labels) in it_test:
+      paths, images, labels = images.to(device), labels.to(device)
       with torch.no_grad():
         output = model(images)
       preds = torch.argmax(output, dim=-1)

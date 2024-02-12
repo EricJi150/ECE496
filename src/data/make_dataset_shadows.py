@@ -213,3 +213,92 @@ def import_test_data():
     test_loader = DataLoader(dataset=test_dataset, batch_size=64, shuffle=False, num_workers=6)
 
     return test_loader
+
+def import_kandinsky_indoor_large_data():
+    transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                    std= [0.229, 0.224, 0.225]),
+            concat_fft(),    
+        ])
+
+    #test dataset
+    train_path = '/data/amitabh3/kandinsky_indoor_large/test'
+    val_path = '/data/amitabh3/kandinsky_indoor_large/test'
+    test_path = '/data/amitabh3/kandinsky_indoor_large/test'
+
+    train_image_paths = []
+    val_image_paths = []
+    test_image_paths = []
+
+    for data_path in glob.glob(train_path + '/*'):
+        train_image_paths.append(glob.glob(data_path + '/*'))
+    train_image_paths = list(flatten(train_image_paths))
+
+    for data_path in glob.glob(val_path + '/*'):
+        val_image_paths.append(glob.glob(data_path + '/*'))
+    val_image_paths = list(flatten(val_image_paths))
+
+    for data_path in glob.glob(test_path + '/*'):
+        test_image_paths.append(glob.glob(data_path + '/*'))
+    test_image_paths = list(flatten(test_image_paths))
+
+    print("Train Size : {}".format(len(train_image_paths)))
+    print("Val Size : {}".format(len(val_image_paths)))
+    print("Test Size : {}".format(len(test_image_paths)))
+
+    train_dataset = DatasetWithFilepaths(train_image_paths, transform=transform)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    val_dataset = DatasetWithFilepaths(val_image_paths, transform=transform)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    test_dataset = DatasetWithFilepaths(test_image_paths, transform=transform)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    return train_loader, val_loader, test_loader
+
+def import_kandinsky_indoor_large_data():
+    transform = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                    std= [0.229, 0.224, 0.225]),
+            concat_fft(),    
+        ])
+
+    #test dataset
+    train_path = '/data/amitabh3/deepfloyd_indoor_large/test'
+    val_path = '/data/amitabh3/deepfloyd_indoor_large/test'
+    test_path = '/data/amitabh3/deepfloyd_indoor_large/test'
+
+    train_image_paths = []
+    val_image_paths = []
+    test_image_paths = []
+
+    for data_path in glob.glob(train_path + '/*'):
+        train_image_paths.append(glob.glob(data_path + '/*'))
+    train_image_paths = list(flatten(train_image_paths))
+
+    for data_path in glob.glob(val_path + '/*'):
+        val_image_paths.append(glob.glob(data_path + '/*'))
+    val_image_paths = list(flatten(val_image_paths))
+
+    for data_path in glob.glob(test_path + '/*'):
+        test_image_paths.append(glob.glob(data_path + '/*'))
+    test_image_paths = list(flatten(test_image_paths))
+
+    print("Train Size : {}".format(len(train_image_paths)))
+    print("Val Size : {}".format(len(val_image_paths)))
+    print("Test Size : {}".format(len(test_image_paths)))
+
+    train_dataset = DatasetWithFilepaths(train_image_paths, transform=transform)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    val_dataset = DatasetWithFilepaths(val_image_paths, transform=transform)
+    val_loader = DataLoader(dataset=val_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    test_dataset = DatasetWithFilepaths(test_image_paths, transform=transform)
+    test_loader = DataLoader(dataset=test_dataset, batch_size=64, shuffle=False, num_workers=6)
+
+    return train_loader, val_loader, test_loader
+
