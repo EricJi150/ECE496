@@ -206,7 +206,7 @@ def import_test_data():
 
 
     #set the path
-    test_path = sdxl_paths
+    test_path = [sdxl_paths]
 
     test_image_paths = []
 
