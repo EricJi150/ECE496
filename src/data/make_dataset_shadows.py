@@ -202,7 +202,7 @@ def import_test_data():
     dining_test_path = "/data/amitabh3/dining_room_prequalified/test"
     living_test_path = "/data/amitabh3/living_187k_prequalified/test"
     kitchen_test_path = "/data/amitabh3/kitchen_prequalified/test"
-    sdxl_paths = [bedroom_test_path, dining_test_path, living_test_path, kitchen_test_path]
+    sdxl_paths = [kadinsky_indoor_path]
 
 
     #set the path
