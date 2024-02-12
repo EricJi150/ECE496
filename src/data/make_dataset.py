@@ -35,6 +35,16 @@ def import_data(dataset):
 
     return train_loader, val_loader, test_loader
 
+from PIL import Image  
+import PIL  
+
+def image_viewer():
+    im1 = Image.open(r'../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/DDPM/1_fake/046953.png')  
+    im1 = im1.save("DDPM.jpg") 
+
+    im2 = Image.open(r'../../../../../../shared/rsaas/common/diffusion_model_deepfakes_lsun_bedrooms/diffusion_model_deepfakes_lsun_bedroom/train/StyleGAN/1_fake/046953.png')  
+    im2 = im2.save("StyleGAN.jpg") 
+
 #Binary Classifier Evaluation Dataset
 def import_testsets():
     transform = transforms.Compose([
@@ -170,3 +180,6 @@ def import_train_multi():
     test_loader = DataLoader(dataset=test_dataset, batch_size=16, shuffle=False, num_workers=6)
 
     return train_loader, val_loader, test_loader
+
+if __name__ == "__main__":
+    image_viewer()
