@@ -172,9 +172,9 @@ def main():
     save_path = '../models/Shadows/Shadows_indoor_50'
     model.load_state_dict(torch.load(save_path))
     # test_loader = make_dataset_shadows.import_test_data()
-    train_loader, val_loader, test_loader = make_dataset_shadows.import_deepfloyd_indoor_large_data()
-    # train_loader, val_loader, test_loader = make_dataset_shadows.import_kandinsky_indoor_large_data()
-    full_test(model, test_loader, title= 'SDXL eval on Deepfloyd Indoor Large', save_to_file="shadows/roc/FFT_SDXL1")
+    # train_loader, val_loader, test_loader = make_dataset_shadows.import_deepfloyd_indoor_large_data()
+    train_loader, val_loader, test_loader = make_dataset_shadows.import_kandinsky_indoor_large_data()
+    full_test(model, test_loader, title= 'SDXL eval on Kadinsky Indoor Large', save_to_file="shadows/roc/FFT_SDXL2")
 
 if __name__ == "__main__":
     main()
