@@ -258,7 +258,7 @@ def import_kandinsky_indoor_large_data():
 
     return train_loader, val_loader, test_loader
 
-def import_kandinsky_indoor_large_data():
+def import_deepfloyd_indoor_large_data():
     transform = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406],

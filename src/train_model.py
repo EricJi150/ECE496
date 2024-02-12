@@ -100,7 +100,7 @@ def train(train_loader, model, criterion, optimizer):
 
     it_train = tqdm(enumerate(train_loader), total=len(train_loader), desc="Training ...", position = 1)
     for i, (paths, images, labels) in it_train:
-        paths, images, labels = images.to(device), labels.to(device)
+        images, labels = images.to(device), labels.to(device)
         optimizer.zero_grad()
         prediction = model(images)
         loss = criterion(prediction, labels)
@@ -117,7 +117,7 @@ def eval(data_loader, model):
 
     it_test = tqdm(enumerate(data_loader), total=len(data_loader), desc="Validating ...", position = 1)
     for i, (paths, images, labels) in it_test:
-      paths, images, labels = images.to(device), labels.to(device)
+      images, labels = images.to(device), labels.to(device)
       with torch.no_grad():
         output = model(images)
       preds = torch.argmax(output, dim=-1)
