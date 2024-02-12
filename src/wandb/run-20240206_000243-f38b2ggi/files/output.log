@@ -1,0 +1,54 @@
+cuda:0
+config4 multi2 2
+/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=None`.
+  warnings.warn(msg)
+/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/cuda/__init__.py:190: UserWarning:
+    Found GPU0 Tesla K40m which is of cuda capability 3.5.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 3.7.
+  warnings.warn(
+/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/cuda/__init__.py:190: UserWarning:
+    Found GPU1 Tesla K40m which is of cuda capability 3.5.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 3.7.
+  warnings.warn(
+/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/cuda/__init__.py:190: UserWarning:
+    Found GPU2 Tesla K40m which is of cuda capability 3.5.
+    PyTorch no longer supports this GPU because it is too old.
+    The minimum cuda capability supported by this library is 3.7.
+  warnings.warn(
+Training ...:   0%|                                                                              | 0/20 [00:00<?, ?it/s]
+Training ...:   0%|                                                                              | 0/20 [00:16<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 131, in <module>
+    main()
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 70, in main
+    train_loss = train(train_loader, model, criterion, optimizer)
+  File "/home/ericji3/ECE496/ECE496/src/train_model.py", line 105, in train
+    prediction = model(images)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ericji3/ECE496/ECE496/src/architectures.py", line 72, in forward
+    x = self.model(x)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torchvision/models/resnet.py", line 269, in _forward_impl
+    x = self.bn1(x)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/ericji3/miniconda3/envs/ECE496/lib/python3.9/site-packages/torch/nn/modules/batchnorm.py", line 151, in forward
+    self.num_batches_tracked.add_(1)  # type: ignore[has-type]
+RuntimeError: CUDA error: no kernel image is available for execution on the device
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
