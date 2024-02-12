@@ -168,7 +168,7 @@ def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model =  ResNet50_2().to(device)
     # save_path = '../models/Shadows/Shadows_deepfloyd_indoor_large'
-    save_path = '../models/Shadows/Shadows_kandinsky_indoor_large')
+    save_path = '../models/Shadows/Shadows_kandinsky_indoor_large'
     model.load_state_dict(torch.load(save_path))
     test_loader = make_dataset_shadows.import_test_data()
     full_test(model, test_loader, )
