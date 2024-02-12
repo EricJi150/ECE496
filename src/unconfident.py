@@ -167,14 +167,14 @@ def full_test(model, dataloader, save_to_file = None, title = "title"):
 def main():
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model =  ResNet50_2().to(device)
-    save_path = '../models/Shadows/Shadows_deepfloyd_indoor_large'
+    # save_path = '../models/Shadows/Shadows_deepfloyd_indoor_large'
     # save_path = '../models/Shadows/Shadows_kandinsky_indoor_large'
-    # save_path = '../models/Shadows/Shadows_indoor_50'
+    save_path = '../models/Shadows/Shadows_indoor_50'
     model.load_state_dict(torch.load(save_path))
-    # test_loader = make_dataset_shadows.import_test_data()
+    test_loader = make_dataset_shadows.import_test_data()
     # train_loader, val_loader, test_loader = make_dataset_shadows.import_deepfloyd_indoor_large_data()
-    train_loader, val_loader, test_loader = make_dataset_shadows.import_kandinsky_indoor_large_data()
-    full_test(model, test_loader, title= 'Deepfloyd Indoor Large eval on Kandinsky Indoor Large', save_to_file="shadows/roc/FFT_Deepfloyd_Indoor2")
+    # train_loader, val_loader, test_loader = make_dataset_shadows.import_kandinsky_indoor_large_data()
+    full_test(model, test_loader, title= 'SDXL eval on SDXL', save_to_file="shadows/roc/FFT_SDXL0")
 
 if __name__ == "__main__":
     main()
