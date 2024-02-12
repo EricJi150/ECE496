@@ -248,7 +248,7 @@ def import_kandinsky_indoor_large_data():
     print("Test Size : {}".format(len(test_image_paths)))
 
     train_dataset = DatasetWithFilepaths(train_image_paths, transform=transform)
-    train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=False, num_workers=6)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=True, num_workers=6)
 
     val_dataset = DatasetWithFilepaths(val_image_paths, transform=transform)
     val_loader = DataLoader(dataset=val_dataset, batch_size=64, shuffle=False, num_workers=6)
@@ -292,7 +292,7 @@ def import_deepfloyd_indoor_large_data():
     print("Test Size : {}".format(len(test_image_paths)))
 
     train_dataset = DatasetWithFilepaths(train_image_paths, transform=transform)
-    train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=False, num_workers=6)
+    train_loader = DataLoader(dataset=train_dataset, batch_size=64, shuffle=True, num_workers=6)
 
     val_dataset = DatasetWithFilepaths(val_image_paths, transform=transform)
     val_loader = DataLoader(dataset=val_dataset, batch_size=64, shuffle=False, num_workers=6)
