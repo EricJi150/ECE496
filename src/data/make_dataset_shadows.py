@@ -223,8 +223,8 @@ def import_kandinsky_indoor_large_data():
         ])
 
     #test dataset
-    train_path = '/data/amitabh3/kandinsky_indoor_large/test'
-    val_path = '/data/amitabh3/kandinsky_indoor_large/test'
+    train_path = '/data/amitabh3/kandinsky_indoor_large/train'
+    val_path = '/data/amitabh3/kandinsky_indoor_large/val'
     test_path = '/data/amitabh3/kandinsky_indoor_large/test'
 
     train_image_paths = []
@@ -267,8 +267,8 @@ def import_deepfloyd_indoor_large_data():
         ])
 
     #test dataset
-    train_path = '/data/amitabh3/deepfloyd_indoor_large/test'
-    val_path = '/data/amitabh3/deepfloyd_indoor_large/test'
+    train_path = '/data/amitabh3/deepfloyd_indoor_large/train'
+    val_path = '/data/amitabh3/deepfloyd_indoor_large/val'
     test_path = '/data/amitabh3/deepfloyd_indoor_large/test'
 
     train_image_paths = []
